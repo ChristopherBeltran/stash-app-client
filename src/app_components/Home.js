@@ -54,7 +54,7 @@ class Home extends React.Component {
             <Button default color="primary" size="lg" style={padding} href="/signup">
                         Sign Up
             </Button>
-            <Button default color="primary" variant="outlined" style={padding} size="lg" href="/login">
+            <Button color="primary" variant="outlined" style={padding} size="lg" href="/login">
                         Log in
             </Button>
             </CardBody>
