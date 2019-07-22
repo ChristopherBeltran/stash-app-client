@@ -5,8 +5,14 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import LoginPage from './app_components/Login.js'
 import NavBar from './app_components/Navbar.js'
 import Home from './app_components/Home.js'
+import { connect } from 'react-redux'
+import { getCurrentUser } from "./actions/currentUser.js"
 
 class App extends React.Component {
+
+  componentDidMount() {
+    this.props.getCurrentUser()
+  }
 
   render(){
   return (
@@ -22,4 +28,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser
+  })
+}
+
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
