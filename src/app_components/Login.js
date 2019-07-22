@@ -53,7 +53,6 @@ class LoginPage extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    debugger
     this.props.login(this.props.loginFormData, this.props.history)
   }
 

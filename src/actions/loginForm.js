@@ -1,3 +1,7 @@
+import { setCurrentUser } from './currentUser.js'
+
+
+
 export const updateLoginForm = (formData) => {
     return {
       type: "UPDATE_LOGIN_FORM",
@@ -29,8 +33,8 @@ export const updateLoginForm = (formData) => {
           if (response.error) {
             alert(response.error)
           } else {
+            dispatch(setCurrentUser(response.data))
             history.push('/')
-            console.log(response)
           }
         })
         .catch(console.log)
