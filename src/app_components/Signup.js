@@ -19,6 +19,10 @@ import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
+import { connect } from 'react-redux'
+import { updateSignupForm } from "../actions/signupForm.js"
+import { signup } from "../actions/signupForm.js"
+
 
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
@@ -31,6 +35,7 @@ class SignupPage extends React.Component {
     this.state = {
       cardAnimaton: "cardHidden"
     };
+
   }
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
@@ -41,8 +46,24 @@ class SignupPage extends React.Component {
       700
     );
   }
+
+  handleFormChange = event => {
+    //const { name, value } = event.target
+    const updatedFormInfo = {
+      ...this.props.signupFormData,
+      [event.target.name]: event.target.value
+    }
+    this.props.updateSignupForm(updatedFormInfo)
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    this.props.signup(this.props.signupFormData, this.props.history)
+  }
+
   render() {
     const { classes, ...rest } = this.props;
+    const signupFormData = this.props.signupFormData
     //const image = <img src={require('images/bg7.jpg')} alt='background'/>
     return (
       <div>
@@ -58,7 +79,7 @@ class SignupPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-                  <form className={classes.form}>
+                  <form className={classes.form} onSubmit={this.handleSubmit} >
                     <CardHeader color="primary" className={classes.cardHeader}>
                       <h4>Sign Up</h4>
                     </CardHeader>
@@ -66,12 +87,18 @@ class SignupPage extends React.Component {
                     <CardBody>
                       <CustomInput
                         labelText="First Name"
-                        id="first"
+                        id="name"
+                        name="name"
+                        value={signupFormData.name}
                         formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
                           type: "text",
+                          id: "name",
+                          name: "name",
+                          value: signupFormData.name,
+                          onChange: (event) => this.handleFormChange(event),
                           endAdornment: (
                             <InputAdornment position="end">
                               <People className={classes.inputIconsColor} />
@@ -82,11 +109,18 @@ class SignupPage extends React.Component {
                       <CustomInput
                         labelText="Email"
                         id="email"
+                        name="email"
+                        value={signupFormData.email}
+                        onChange={this.handleFormChange}
                         formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
                           type: "email",
+                          id: "email",
+                          name: "email",
+                          value: signupFormData.email,
+                          onChange: (event) => this.handleFormChange(event),
                           endAdornment: (
                             <InputAdornment position="end">
                               <Email className={classes.inputIconsColor} />
@@ -96,12 +130,19 @@ class SignupPage extends React.Component {
                       />
                       <CustomInput
                         labelText="Password"
-                        id="pass"
+                        id="password"
+                        name="password"
+                        value={signupFormData.password}
+                        onChange={this.handleFormChange}
                         formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
                           type: "password",
+                          id: "password",
+                          name: "password",
+                          value: signupFormData.password,
+                          onChange: (event) => this.handleFormChange(event),
                           endAdornment: (
                             <InputAdornment position="end">
                               <Lock className={classes.inputIconsColor} />
@@ -112,12 +153,19 @@ class SignupPage extends React.Component {
                       />
                       <CustomInput
                         labelText="Confirm Password"
-                        id="passConfirm"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        value={signupFormData.confirmPassword}
+                        onChange={this.handleFormChange}
                         formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
                           type: "password",
+                          id: "confirmPassword",
+                          name: "confirmPassword",
+                          value: signupFormData.confirmPassword,
+                          onChange: (event) => this.handleFormChange(event),
                           endAdornment: (
                             <InputAdornment position="end">
                               <LockOutlined className={classes.inputIconsColor} />
@@ -128,7 +176,7 @@ class SignupPage extends React.Component {
                       />
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button default color="primary" size="lg">
+                      <Button default color="primary" size="lg" type="submit">
                         Get started
                       </Button>
                     </CardFooter>
@@ -147,4 +195,10 @@ SignupPage.propTypes = {
   classes: PropTypes.object
 };
 
-export default withStyles(loginPageStyle)(SignupPage);
+const mapStateToProps = state => {
+    return {
+      signupFormData: state.signupForm
+    }
+  }
+
+export default connect(mapStateToProps, { updateSignupForm, signup } ) (withStyles(loginPageStyle) (SignupPage))
