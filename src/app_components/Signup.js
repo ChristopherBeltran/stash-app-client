@@ -21,6 +21,7 @@ import CardFooter from "components/Card/CardFooter.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import { connect } from 'react-redux'
 import { updateSignupForm } from "../actions/signupForm.js"
+import { signup } from "../actions/signupForm.js"
 
 
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
@@ -48,13 +49,16 @@ class SignupPage extends React.Component {
 
   handleFormChange = event => {
     //const { name, value } = event.target
-    console.log(event.target.value)
-    console.log(event.target.name)
     const updatedFormInfo = {
       ...this.props.signupFormData,
       [event.target.name]: event.target.value
     }
     this.props.updateSignupForm(updatedFormInfo)
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    this.props.signup(this.props.signupFormData, this.props.history)
   }
 
   render() {
@@ -75,7 +79,7 @@ class SignupPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-                  <form className={classes.form} >
+                  <form className={classes.form} onSubmit={this.handleSubmit} >
                     <CardHeader color="primary" className={classes.cardHeader}>
                       <h4>Sign Up</h4>
                     </CardHeader>
@@ -197,4 +201,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps, { updateSignupForm } ) (withStyles(loginPageStyle) (SignupPage))
+export default connect(mapStateToProps, { updateSignupForm, signup } ) (withStyles(loginPageStyle) (SignupPage))

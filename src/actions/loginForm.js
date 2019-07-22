@@ -1,40 +1,36 @@
-//update signup form
-//reset signup form
-//signup
-
-export const updateSignupForm = formData => {
+export const updateLoginForm = (formData) => {
     return {
-      type: "UPDATE_SIGNUP_FORM",
+      type: "UPDATE_LOGIN_FORM",
       formData
     }
   }
   
-  export const resetSignupForm = () => {
+  export const resetLoginForm = () => {
     return {
-      type: "RESET_SIGNUP_FORM"
+      type: "RESET_LOGIN_FORM"
     }
   }
 
-  export const signup = (credentials, history) => {
+  export const login = (credentials, history) => {
+      var auth_params = {auth:
+        credentials
+    }
     return dispatch => {
-      const userInfo = {
-        user: credentials
-      }
-      return fetch("http://localhost:3000/api/v1/signup", {
+      return fetch("http://localhost:3000/api/v1/login", {
         credentials: "include",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(userInfo)
+        body: JSON.stringify(auth_params)
       })
         .then(r => r.json())
         .then(response => {
           if (response.error) {
             alert(response.error)
           } else {
-              console.log(response)
             history.push('/')
+            console.log(response)
           }
         })
         .catch(console.log)
