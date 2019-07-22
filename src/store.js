@@ -4,12 +4,14 @@ import signupForm from './reducers/signupForm'
 import thunk from 'redux-thunk'
 import loginForm from './reducers/loginForm'
 import currentUser from './reducers/currentUser'
+import stream from './reducers/stream'
 
 // just displaying different syntax options here (lines 8 and 9)
 const reducer = combineReducers({
   signupForm,
   loginForm,
-  currentUser
+  currentUser,
+  stream
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
