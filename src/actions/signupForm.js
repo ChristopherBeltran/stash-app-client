@@ -1,6 +1,4 @@
-//update signup form
-//reset signup form
-//signup
+import { setCurrentUser } from './currentUser.js'
 
 export const updateSignupForm = formData => {
     return {
@@ -33,7 +31,7 @@ export const updateSignupForm = formData => {
           if (response.error) {
             alert(response.error)
           } else {
-              console.log(response)
+            dispatch(setCurrentUser(response.data))
             history.push('/')
           }
         })
