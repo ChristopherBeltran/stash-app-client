@@ -35,7 +35,7 @@ export const updateSignupForm = formData => {
             dispatch(setCurrentUser(response.data))
             let user = response.data.id
             dispatch(createStream(user))
-            history.push('/')
+            history.push('/stream/setup')
           }
         })
         .catch(console.log)

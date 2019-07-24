@@ -1,15 +1,24 @@
 import React from 'react';
+import { getSources } from '../actions/sources.js'
+import { connect } from 'react-redux'
+
 
 class StreamSetup extends React.Component {
 
+    componentDidMount() {
+        this.props.getSources()
+      }
+
     render(){
         return(
-            <div></div>
+            <div>
+                <h1>You made it!</h1>
+            </div>
         )
     }
 }
 
-export default StreamSetup;
+export default connect(null, { getSources })(StreamSetup);
 
 
 

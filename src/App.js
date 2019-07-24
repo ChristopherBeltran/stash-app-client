@@ -7,6 +7,7 @@ import NavBar from './app_components/Navbar.js'
 import Home from './app_components/Home.js'
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser.js"
+import StreamSetup from './app_components/StreamSetup';
 
 class App extends React.Component {
 
@@ -22,6 +23,7 @@ class App extends React.Component {
     <Route exact path='/' render={({history})=><Home history={history}/>}/>
     <Route exact path='/signup' render={({history})=><SignupPage history={history}/>}/>
     <Route exact path='/login' render={({history})=><LoginPage history={history}/>}/>
+    <Route exact path='/stream/setup' render={({history})=><StreamSetup history={history}/>}/>
     </Switch>
     </div>
   );
