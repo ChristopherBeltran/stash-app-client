@@ -1,7 +1,7 @@
 export const setSources = (sources) => {
     var parsedSources = []
     for(const source of sources){
-        parsedSources.push({id: source.id, name: source.attributes.name})
+        parsedSources.push({id: source.id, name: source.attributes.name, description: source.attributes.description})
     }
     return {
         type: "SET_SOURCES",

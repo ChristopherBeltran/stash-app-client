@@ -18,7 +18,14 @@ class StreamSetup extends React.Component {
     }
 }
 
-export default connect(null, { getSources })(StreamSetup);
+const mapStateToProps = (state) => {
+    return {
+        sources: state.sources,
+        user: state.currentUser
+    }
+}
+
+export default connect(mapStateToProps, { getSources })(StreamSetup);
 
 
 
