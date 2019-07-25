@@ -1,6 +1,7 @@
 import React from 'react';
-import { getSources } from '../actions/sources.js'
 import { connect } from 'react-redux'
+import SourceContainer from './SourceContainer.js'
+import { getSources } from '../actions/sources.js'
 
 
 class StreamSetup extends React.Component {
@@ -10,11 +11,20 @@ class StreamSetup extends React.Component {
       }
 
     render(){
+
+        if(this.props.sources != null){
         return(
             <div>
-                <h1>You made it!</h1>
+                <SourceContainer sources={this.props.sources} user={this.props.user}></SourceContainer>
             </div>
         )
+        } else {
+            return(
+                <div>
+                    Nada yet
+                </div>
+            )
+        }
     }
 }
 

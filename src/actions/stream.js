@@ -3,6 +3,8 @@
 
 //TODO - Add clearStream for when user logs out
 
+import { getSources } from './sources.js'
+
 export const initStream = (stream) => {
     return {
         type: "SET_STREAM",
@@ -33,6 +35,7 @@ export const createStream = (user) => {
             alert(response.error)
           } else {
             dispatch(initStream(response.data))
+            dispatch(getSources())
           }
         })
         .catch(console.log)
