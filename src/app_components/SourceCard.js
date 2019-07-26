@@ -19,14 +19,16 @@ const style = {
 const SourceCard = ({ source }) => {
 
       return (
-      <Card style={{width: "20rem"}}>
+      <Card style={{width: "20rem", height: "20rem"}} >
         <CardBody>
             <Typography gutterBottom variant="h4">
                 {source.name}
             </Typography>
                <SourceSwitch>
                </SourceSwitch>
+           <br></br>
            <Divider variant="middle" />
+           <br></br>
            <Typography variant="body2" color="textSecondary" component="p">
           {source.description}
           </Typography>

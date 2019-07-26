@@ -22,14 +22,14 @@ class SourceContainer extends React.Component {
         const { sources, user } = this.props;
         const sourceCards = sources.map((source, index) => {
             return (
-            <Grid item xs key={index}>
-            <SourceCard key={index} source={source} user={user} className={classes.sourceStyle} onClick={this.handleClick}></SourceCard>
+            <Grid item xs key={index} display="flex" flex-wrap="wrap">
+            <SourceCard key={index} source={source} user={user} className={classes.sourceStyle}></SourceCard>
             </Grid>
             )
             })
         return(
             <div className={classes.root}>
-            <Grid container spacing={3}>
+            <Grid container alignItems="stretch" spacing={3} >
                 {sourceCards}
                 </Grid>
             </div>
