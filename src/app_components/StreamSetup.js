@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import SourceContainer from './SourceContainer.js'
 import { getSources } from '../actions/sources.js'
+import SourceModal from './SourceModal.js'
 
 
 class StreamSetup extends React.Component {
@@ -15,6 +16,7 @@ class StreamSetup extends React.Component {
         if(this.props.sources != null){
         return(
             <div>
+                <SourceModal></SourceModal>
                 <SourceContainer sources={this.props.sources} user={this.props.user}></SourceContainer>
             </div>
         )

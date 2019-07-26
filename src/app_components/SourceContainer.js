@@ -23,7 +23,7 @@ class SourceContainer extends React.Component {
         const sourceCards = sources.map((source, index) => {
             return (
             <Grid item xs key={index}>
-            <SourceCard key={index} source={source} user={user} className={classes.sourceStyle}></SourceCard>
+            <SourceCard key={index} source={source} user={user} className={classes.sourceStyle} onClick={this.handleClick}></SourceCard>
             </Grid>
             )
             })
