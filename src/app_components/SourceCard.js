@@ -16,7 +16,7 @@ const style = {
   cardTitle
 };
 
-const SourceCard = ({ source }) => {
+const SourceCard = ({ source, updateSource, deleteSource }) => {
 
       return (
       <Card style={{width: "20rem", height: "20rem"}} >
@@ -24,7 +24,7 @@ const SourceCard = ({ source }) => {
             <Typography gutterBottom variant="h4">
                 {source.name}
             </Typography>
-               <SourceSwitch>
+               <SourceSwitch id={source.id} deleteSource={deleteSource} updateSource={updateSource} >
                </SourceSwitch>
            <br></br>
            <Divider variant="middle" />

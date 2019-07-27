@@ -3,19 +3,28 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-
 import styles from "assets/jss/material-kit-react/customCheckboxRadioSwitch.jsx";
 
 class SourceSwitch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkedA: true,
+      checkedA: false,
       checkedB: false
     };
   }
+
   handleChange = name => event => {
     this.setState({ [name]: event.target.checked });
+    let checked = this.state.checkedA
+    if(checked === false){
+      let source = this.props.id
+      this.props.updateSource(source)
+    } else if(checked === true){
+      let source = this.props.id
+      this.props.deleteSource(source)
+    }
+
   }
   render(){
     const { classes } = this.props;
@@ -40,7 +49,7 @@ class SourceSwitch extends React.Component {
             classes={{
               label: classes.label
             }}
-            label="Toggle is on"
+            label="Add source"
           />
         </div>
       </div>
@@ -48,4 +57,4 @@ class SourceSwitch extends React.Component {
   }
 }
 
-export default withStyles(styles)(SourceSwitch);
+export default withStyles(styles) (SourceSwitch)

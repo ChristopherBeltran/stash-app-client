@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import SourceContainer from './SourceContainer.js'
 import { getSources } from '../actions/sources.js'
 import SourceModal from './SourceModal.js'
+import Loading from './Loading.js'
+import { addSource } from '../actions/stream.js'
+import { removeSource } from '../actions/stream.js'
 
 
 class StreamSetup extends React.Component {
@@ -11,19 +14,27 @@ class StreamSetup extends React.Component {
         this.props.getSources()
       }
 
+    updateSource = (source_id) => {
+        this.props.addSource(source_id)
+    }
+
+    deleteSource = (source_id) => {
+        this.props.removeSource(source_id)
+    }
+
     render(){
 
         if(this.props.sources != null){
         return(
             <div>
                 <SourceModal></SourceModal>
-                <SourceContainer sources={this.props.sources} user={this.props.user}></SourceContainer>
+                <SourceContainer sources={this.props.sources} user={this.props.user} deleteSource={this.deleteSource}updateSource={this.updateSource} history={this.props.history}></SourceContainer>
             </div>
         )
         } else {
             return(
                 <div>
-                    Nada yet
+                    <Loading></Loading>
                 </div>
             )
         }
@@ -33,11 +44,12 @@ class StreamSetup extends React.Component {
 const mapStateToProps = (state) => {
     return {
         sources: state.sources,
-        user: state.currentUser
+        user: state.currentUser,
+        stream: state.stream
     }
 }
 
-export default connect(mapStateToProps, { getSources })(StreamSetup);
+export default connect(mapStateToProps, { getSources, addSource, removeSource })(StreamSetup);
 
 
 
