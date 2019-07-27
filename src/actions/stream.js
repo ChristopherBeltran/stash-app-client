@@ -57,6 +57,13 @@ export const removeSource = (source_id) => {
   }
 }
 
+export const updateStreamSuccess = (stream) => {
+  return {
+    type: "UPDATE_STREAM",
+    stream
+  }
+}
+
 
 export const updateStream = (stream, history) => {
   return dispatch => {
