@@ -85,7 +85,21 @@ export const updateStream = (stream, history) => {
          if (resp.error) {
            alert(resp.error)
          } else {
-           dispatch(updateStreamSuccess(resp.data))
+           let streamId = resp.data.id
+           let sources = resp.included
+           var newStream = {
+             id: streamId,
+             sources: []
+           }
+           sources.forEach(function(source){
+             let sourceAttr = {
+               id: source.id,
+               name: source.attributes.name,
+               api_id: source.attributes.api_id
+             };
+             newStream.sources.push(sourceAttr)
+           })
+           dispatch(updateStreamSuccess(newStream))
            history.push('/stream')
          }
        })
