@@ -22,6 +22,9 @@ export default (state = null, action) => {
           ...state,
           source_ids: newState
         }
+        case "UPDATE_STREAM":
+          return action.stream
+          
 
       default:
         return state

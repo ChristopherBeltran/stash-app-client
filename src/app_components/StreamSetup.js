@@ -4,8 +4,7 @@ import SourceContainer from './SourceContainer.js'
 import { getSources } from '../actions/sources.js'
 import SourceModal from './SourceModal.js'
 import Loading from './Loading.js'
-import { addSource } from '../actions/stream.js'
-import { removeSource } from '../actions/stream.js'
+import { addSource, removeSource, updateStream } from '../actions/stream.js'
 
 
 class StreamSetup extends React.Component {
@@ -22,13 +21,18 @@ class StreamSetup extends React.Component {
         this.props.removeSource(source_id)
     }
 
+    streamUpdate = () => {
+        let stream = this.props.stream
+        this.props.updateStream(stream, this.props.history)
+    }
+
     render(){
 
         if(this.props.sources != null){
         return(
             <div>
                 <SourceModal></SourceModal>
-                <SourceContainer sources={this.props.sources} user={this.props.user} deleteSource={this.deleteSource}updateSource={this.updateSource} history={this.props.history}></SourceContainer>
+                <SourceContainer sources={this.props.sources} user={this.props.user} deleteSource={this.deleteSource}updateSource={this.updateSource} history={this.props.history} streamUpdate={this.streamUpdate}></SourceContainer>
             </div>
         )
         } else {
@@ -49,7 +53,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getSources, addSource, removeSource })(StreamSetup);
+export default connect(mapStateToProps, { getSources, addSource, removeSource, updateStream })(StreamSetup);
 
 
 

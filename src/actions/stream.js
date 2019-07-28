@@ -67,63 +67,29 @@ export const updateStreamSuccess = (stream) => {
 
 export const updateStream = (stream, history) => {
   return dispatch => {
+    const streamToSend = {
+      stream: {
+      source_ids: stream.source_ids
+      }
+    }
     return fetch(`http://localhost:3000/api/v1/streams/${stream.id}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(stream)
+      body: JSON.stringify(streamToSend)
     })
     .then(r => r.json())
        .then(resp => {
          if (resp.error) {
            alert(resp.error)
          } else {
-           //dispatch(updateTripSuccess(resp.data))
-           //history.push(`/trips/${resp.data.id}`)
-           // go somewhere else --> trip show?
-           // add the new trip to the store
+           dispatch(updateStreamSuccess(resp.data))
+           history.push('/stream')
          }
        })
        .catch(console.log)
 
   }
 }
-
-
-
-
-
-
-
-// export const updateTrip = (tripData, history) => {
-//   return dispatch => {
-//     const sendableTripData = {
-//       start_date: tripData.startDate,
-//       end_date: tripData.endDate,
-//       name: tripData.name
-//     }
-//     return fetch(`http://localhost:3001/api/v1/trips/${tripData.tripId}`, {
-//       credentials: "include",
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       body: JSON.stringify(sendableTripData)
-//     })
-//       .then(r => r.json())
-//       .then(resp => {
-//         if (resp.error) {
-//           alert(resp.error)
-//         } else {
-//           dispatch(updateTripSuccess(resp.data))
-//           history.push(`/trips/${resp.data.id}`)
-//           // go somewhere else --> trip show?
-//           // add the new trip to the store
-//         }
-//       })
-//       .catch(console.log)
-
-//   }
-// }

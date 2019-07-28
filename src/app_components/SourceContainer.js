@@ -32,12 +32,12 @@ class SourceContainer extends React.Component {
 
       handleSubmit = (event) => {
         event.preventDefault();
-
+        this.props.streamUpdate()
       }
 
     render(){
         const classes = this.useStyles
-        const { sources, user, updateSource, deleteSource } = this.props;
+        const { sources, user, updateSource, deleteSource, streamUpdate } = this.props;
         const sourceCards = sources.map((source, index) => {
             return (
             //<GridListTile key={index} cols={1}>
