@@ -8,7 +8,8 @@ const NavBar = () => {
 
         return(
             <div>
-                <Header position="static" color="info" brand="Stash App" >
+                <Header color="info" brand="Stash App" position="sticky" >
+                
                 </Header>
             </div>
         )
