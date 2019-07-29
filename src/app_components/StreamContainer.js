@@ -1,8 +1,14 @@
 import React from "react";
 import { connect } from 'react-redux'
+import { getStream } from '../actions/stream.js'
 
 
 class StreamContainer extends React.Component {
+
+    componentDidMount() {
+        this.props.getStream()
+    }
+
 
     render() {
         return (
@@ -19,4 +25,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps) (StreamContainer)
+export default connect(mapStateToProps, { getStream }) (StreamContainer)
