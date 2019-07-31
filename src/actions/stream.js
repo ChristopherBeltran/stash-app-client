@@ -110,7 +110,7 @@ export const updateStream = (stream, history) => {
 
 
 
-export const getStream = (sources) => {
+export const getStream = () => {
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/get_stream", {
       credentials: "include",
@@ -125,6 +125,7 @@ export const getStream = (sources) => {
         alert(response.error)
       } else {
         console.log(response)
+        dispatch(updateStreamSuccess(response.articles))
       }
     })
     .catch(console.log)
