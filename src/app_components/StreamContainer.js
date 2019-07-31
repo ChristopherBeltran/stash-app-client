@@ -6,23 +6,24 @@ import StreamCard from './StreamCard.js'
 
 class StreamContainer extends React.Component {
 
-    componentDidMount() {
-        this.props.getStream()
-    }
+    //componentDidMount() {
+    //    this.props.getStream()
+    //}
 
-    renderCards = () => {
-        this.props.stream.map((source, index) => {
-            return(
-            <StreamCard id={index} source={source}></StreamCard>
-            )
-        }
-        )}
+
 
 
     render() {
+        const stream = this.props.stream
+        console.log(stream)
+        const renderCards = stream.map((article, index) => {
+                return(
+                <StreamCard key={index} article={article}></StreamCard>
+                )
+            })
         return (
             <div>
-            Placeholder stream
+            {renderCards}
             </div>
         )
     }

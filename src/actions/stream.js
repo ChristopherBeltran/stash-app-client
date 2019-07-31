@@ -99,8 +99,8 @@ export const updateStream = (stream, history) => {
              };
              newStream.sources.push(sourceAttr)
            })
-           dispatch(updateStreamSuccess(newStream))
-           history.push('/stream')
+           //dispatch(updateStreamSuccess(newStream))
+           dispatch(getStream(history))
          }
        })
        .catch(console.log)
@@ -110,7 +110,7 @@ export const updateStream = (stream, history) => {
 
 
 
-export const getStream = () => {
+export const getStream = (history) => {
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/get_stream", {
       credentials: "include",
@@ -126,6 +126,7 @@ export const getStream = () => {
       } else {
         console.log(response)
         dispatch(updateStreamSuccess(response.articles))
+        history.push('/stream')
       }
     })
     .catch(console.log)

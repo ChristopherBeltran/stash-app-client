@@ -39,34 +39,37 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function StreamCard() {
+const StreamCard = ({ article }) => {
   const classes = useStyles();
+
+  const imageHandler = (article) => {
+    if (article.urlToImage !== "" || null){
+      return(
+        <CardMedia
+        className={classes.media}
+        image={article.urlToImage}
+      />
+      )
+    } else {
+      return(
+        <CardMedia
+        className={classes.media}
+        image=""
+        />
+      )
+    }
+  }
 
   return (
     <Card className={classes.card}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
+        title={article.title}
         subheader="September 14, 2016"
       />
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      />
+      {imageHandler(article)}
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+        {article.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -77,3 +80,5 @@ export default function StreamCard() {
     </Card>
   );
 }
+
+export default StreamCard;
