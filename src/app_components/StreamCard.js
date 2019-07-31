@@ -16,6 +16,8 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+const moment = require('moment');
+
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
@@ -60,11 +62,18 @@ const StreamCard = ({ article }) => {
     }
   }
 
+  const dateFormatter = (article) => {
+    let a = moment(article.publishedAt, moment.ISO_8601)
+    return (
+      a.fromNow()
+    )
+  }
+
   return (
     <Card className={classes.card}>
       <CardHeader
         title={article.title}
-        subheader="September 14, 2016"
+        subheader={article.source.name}
       />
       {imageHandler(article)}
       <CardContent>
@@ -76,6 +85,9 @@ const StreamCard = ({ article }) => {
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
+        <Typography variant="body2" color="textSecondary" component="p">
+        {dateFormatter(article)}
+        </Typography>
       </CardActions>
     </Card>
   );
