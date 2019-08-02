@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -70,7 +71,7 @@ const StreamCard = ({ article }) => {
   }
 
   return (
-    <Card className={classes.card}>
+     <Card className={classes.card} >
       <CardHeader
         title={article.title}
         subheader={article.source.name}
@@ -83,9 +84,9 @@ const StreamCard = ({ article }) => {
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <BookmarkIcon />
         </IconButton>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body2" color="textSecondary" component="p" align="right">
         {dateFormatter(article)}
         </Typography>
       </CardActions>
@@ -94,3 +95,5 @@ const StreamCard = ({ article }) => {
 }
 
 export default StreamCard;
+
+

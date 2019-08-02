@@ -2,6 +2,11 @@ import React from "react";
 import { connect } from 'react-redux'
 import { getStream } from '../actions/stream.js'
 import StreamCard from './StreamCard.js'
+import Grid from '@material-ui/core/Grid';
+import GridItem from '../components/Grid/GridItem.jsx'
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import StreamModal from './StreamModal.js'
 
 
 class StreamContainer extends React.Component {
@@ -18,12 +23,17 @@ class StreamContainer extends React.Component {
         console.log(stream)
         const renderCards = stream.map((article, index) => {
                 return(
+                    <GridItem key={index} md={3}>
                 <StreamCard key={index} article={article}></StreamCard>
+                </GridItem>
                 )
             })
         return (
             <div>
+            <StreamModal></StreamModal>
+            <Grid container spacing={8} >
             {renderCards}
+            </Grid>
             </div>
         )
     }
