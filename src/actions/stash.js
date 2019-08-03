@@ -33,3 +33,27 @@ export const createStash = (currentUser) => {
             .catch(console.log)
         }
       }
+
+
+
+      export const getStash = () => {
+        return dispatch => {
+          return fetch("http://localhost:3000/api/v1/get_stash", {
+            credentials: "include",
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+          .then(r => r.json())
+          .then(response => {
+            if (response.error) {
+              alert(response.error)
+            } else {
+              console.log(response)
+              dispatch(setStash(response.data))
+            }
+          })
+          .catch(console.log)
+        }
+      }
