@@ -1,6 +1,6 @@
 import { getStash } from './stash.js'
 
-export const createArticle = (article, source, user) => {
+export const createArticle = (article) => {
     return dispatch => {
         const formattedArticle = {
             article: {
@@ -11,7 +11,7 @@ export const createArticle = (article, source, user) => {
                 url_to_image: article.urlToImage,
                 published_at: article.publishedAt,
                 author: article.author,
-                source_id: source.id
+                source_api_id: article.source.id
             }
         }
 
