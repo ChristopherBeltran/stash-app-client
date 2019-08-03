@@ -23,7 +23,7 @@ class StreamSetup extends React.Component {
 
     streamUpdate = () => {
         let stream = this.props.stream
-        this.props.updateStream(stream, this.props.history)
+        this.props.updateStream(stream, this.props.history, this.props.user)
     }
 
     render(){
