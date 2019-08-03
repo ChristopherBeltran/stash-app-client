@@ -11,11 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import StashButton from './StashButton.js'
 
 const moment = require('moment');
 
@@ -84,7 +80,7 @@ const StreamCard = ({ article }) => {
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <BookmarkIcon />
+          <StashButton article={article}/>
         </IconButton>
         <Typography variant="body2" color="textSecondary" component="p" align="right">
         {dateFormatter(article)}

@@ -102,7 +102,6 @@ export const updateStream = (stream, history, currentUser) => {
           //  })
            //dispatch(updateStreamSuccess(newStream))
            dispatch(getStream(history))
-           dispatch(createStash(currentUser))
          }
        })
        .catch(console.log)

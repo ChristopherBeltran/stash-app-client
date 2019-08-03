@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
+import { createArticle } from '../actions/article.js'
 
 
 class StashButton extends React.Component {
@@ -30,7 +31,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(StashButton)
+export default connect(mapStateToProps, { createArticle })(StashButton)
 
 
 // render() {
