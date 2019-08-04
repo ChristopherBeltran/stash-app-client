@@ -12,9 +12,6 @@ const NavBar = () => {
             <div>
                 <Header color="info" brand="Stash App" position="sticky" 
                 rightLinks={<HeaderLinks />}>
-                <Toolbar>
-                <Button size="lg" color="transparent" link="true">Stream</Button>
-                </Toolbar>
                 </Header>
             </div>
         )

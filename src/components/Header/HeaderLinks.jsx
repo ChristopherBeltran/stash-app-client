@@ -27,9 +27,10 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
+import Logout from '../../app_components/Logout.js'
 
 // @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
+import { Apps, CloudDownload, Dashboard, CollectionsBookmark, Person, Explore, Bookmarks } from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
@@ -46,7 +47,7 @@ function HeaderLinks({ ...props }) {
         href="/stream"
         color="transparent"
         className={classes.navLink}
-        >Stream
+        ><Explore></Explore>Stream
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -54,7 +55,7 @@ function HeaderLinks({ ...props }) {
           href="/stash"
           color="transparent"
           className={classes.navLink}
-        >Stash
+        ><Bookmarks></Bookmarks>Stash
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -62,8 +63,13 @@ function HeaderLinks({ ...props }) {
           href="/profile"
           color="transparent"
           className={classes.navLink}
-        >Profile
+        ><Person></Person>Profile
         </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Logout
+          className={classes.navLink}>
+      </Logout>
       </ListItem>
     </List>
   );
