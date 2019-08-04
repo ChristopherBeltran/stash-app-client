@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser.js"
 import StreamSetup from './app_components/StreamSetup';
 import StreamContainer from './app_components/StreamContainer'
+import StashContainer from './app_components/StashContainer'
 
 class App extends React.Component {
 
@@ -26,6 +27,7 @@ class App extends React.Component {
     <Route exact path='/login' render={({history})=><LoginPage history={history}/>}/>
     <Route exact path='/stream/setup' render={({history})=><StreamSetup history={history}/>}/>
     <Route exact path='/stream' render={({history})=><StreamContainer history={history}/>}/>
+    <Route exact path='/stash' render={({history})=><StashContainer history={history}/>}/>
     </Switch>
     </div>
   );
