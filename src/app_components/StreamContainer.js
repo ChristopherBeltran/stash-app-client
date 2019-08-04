@@ -16,7 +16,6 @@ class StreamContainer extends React.Component {
 
     render() {
         const stream = this.props.stream
-        console.log(stream)
         const renderCards = stream.map((article, index) => {
                 return(
                     <GridItem key={index} md={3}>
