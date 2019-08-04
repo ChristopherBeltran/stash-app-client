@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const StreamCard = ({ article }) => {
+const StreamCard = ({ article, handleStashClick }) => {
   const classes = useStyles();
 
   const imageHandler = (article) => {
@@ -80,7 +80,7 @@ const StreamCard = ({ article }) => {
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <StashButton article={article}/>
+          <StashButton article={article} />
         </IconButton>
         <Typography variant="body2" color="textSecondary" component="p" align="right">
         {dateFormatter(article)}

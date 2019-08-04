@@ -5,7 +5,6 @@ import StreamCard from './StreamCard.js'
 import Grid from '@material-ui/core/Grid';
 import GridItem from '../components/Grid/GridItem.jsx'
 import { createStash } from '../actions/stash.js'
-import { createArticle } from '../actions/article.js'
 import StreamModal from './StreamModal.js'
 
 
@@ -15,20 +14,13 @@ class StreamContainer extends React.Component {
         this.props.createStash(this.props.user)
     }
 
-    handleStashClick = (article) => {
-        this.props.createArticle(article)
-    }
-
-
-
-
     render() {
         const stream = this.props.stream
         console.log(stream)
         const renderCards = stream.map((article, index) => {
                 return(
                     <GridItem key={index} md={3}>
-                <StreamCard key={index} article={article} handleStashClick={this.handleStashClick}></StreamCard>
+                <StreamCard key={index} article={article} ></StreamCard>
                 </GridItem>
                 )
             })
@@ -50,4 +42,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getStream, createStash, createArticle }) (StreamContainer)
+export default connect(mapStateToProps, { getStream, createStash}) (StreamContainer)

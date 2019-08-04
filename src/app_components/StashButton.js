@@ -1,21 +1,34 @@
 import React from "react";
 import { connect } from 'react-redux';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
-import { createArticle } from '../actions/article.js'
+import { addToStash } from '../actions/stash.js'
 
 
 class StashButton extends React.Component {
     constructor() {
         super();
         this.state = {
-            stashed: false
+            color: 'disabled'
+        }
+    }
+
+    handleCLick = () => {
+        if(this.state.color === 'disabled'){
+            this.setState({ color: 'primary' });
+            this.props.addToStash(this.props.article, this.props.stash)
+        } else if(this.state.color === 'primary'){
+            this.setState({ color: 'disabled' });
+
         }
     }
 
     render() {
         return (
             <div>
-               <BookmarkIcon></BookmarkIcon>     
+               <BookmarkIcon 
+               color={this.state.color}
+               onClick={this.handleCLick}
+               ></BookmarkIcon>     
             </div>
         )
     }
@@ -31,7 +44,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { createArticle })(StashButton)
+export default connect(mapStateToProps, { addToStash })(StashButton)
 
 
 // render() {
