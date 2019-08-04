@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
-import { addToStash } from '../actions/stash.js'
+import { addToStash, removeFromStash } from '../actions/stash.js'
 
 
 class StashButton extends React.Component {
@@ -18,10 +18,23 @@ class StashButton extends React.Component {
             this.props.addToStash(this.props.article, this.props.stash)
         } else if(this.state.color === 'primary'){
             this.setState({ color: 'disabled' });
-
+            let articleToRemove = this.articleSync()
+            this.props.removeFromStash(articleToRemove, this.props.stash)
         }
     }
 
+    articleSync = () => {
+        const streamArticle = this.props.article;
+        const stashArticles = this.props.stash.attributes.articles;
+
+        for(const article of stashArticles){
+            if(article.url === streamArticle.url){
+                var stashArticle = article
+            }
+        }
+        return stashArticle
+    }
+        
     render() {
         return (
             <div>
@@ -44,7 +57,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { addToStash })(StashButton)
+export default connect(mapStateToProps, { addToStash, removeFromStash })(StashButton)
 
 
 // render() {

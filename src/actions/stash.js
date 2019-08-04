@@ -97,3 +97,27 @@ export const createStash = (currentUser) => {
             .catch(console.log)
         }
     }
+
+
+    export const removeFromStash = (article, stash) => {
+        return dispatch => {
+          return fetch(`http://localhost:3000/api/v1/stashes/${stash.id}/remove_article/${article.id}`, {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json"
+            }
+            //body: JSON.stringify(formattedArticle)
+          })
+          .then(r => r.json())
+          .then(response => {
+            if (response.error) {
+              alert(response.error)
+            } else {
+              console.log(response)
+              dispatch(setStash(response.data))
+            }
+          })
+          .catch(console.log)
+        }
+      }
