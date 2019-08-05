@@ -4,6 +4,7 @@ import HeaderLinks from "components/Header/HeaderLinks.jsx"
 import Button from "components/CustomButtons/Button.jsx";
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
+import NavLinks from './NavLinks'
 
 
 const NavBar = () => {
@@ -11,7 +12,7 @@ const NavBar = () => {
         return(
             <div>
                 <Header color="info" brand="Stash App" position="sticky" 
-                rightLinks={<HeaderLinks />}>
+                rightLinks={<NavLinks />}>
                 </Header>
             </div>
         )
