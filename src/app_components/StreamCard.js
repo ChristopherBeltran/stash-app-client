@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const StreamCard = ({ article, handleStashClick }) => {
+const StreamCard = ({ article }) => {
   const classes = useStyles();
 
   const imageHandler = (article) => {
@@ -67,7 +67,7 @@ const StreamCard = ({ article, handleStashClick }) => {
   }
 
   return (
-     <Card className={classes.card} >
+     <Card className={classes.card} onClick={console.log('clicked')}>
       <CardHeader
         title={article.title}
         subheader={article.source.name}
