@@ -17,10 +17,18 @@ class App extends React.Component {
     this.props.getCurrentUser()
   }
 
+  handleNavBar = () => {
+    if(window.location.pathname !== "/stream/setup"){
+      return(
+        <NavBar loggedIn={this.props.loggedIn}></NavBar>
+      )
+    }
+  }
+
   render(){
   return (
     <div className="App">
-    <NavBar></NavBar>
+    {this.handleNavBar()}
     <Switch>
     <Route exact path='/' render={({history})=><Home history={history}/>}/>
     <Route exact path='/signup' render={({history})=><SignupPage history={history}/>}/>

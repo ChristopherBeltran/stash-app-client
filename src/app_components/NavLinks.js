@@ -1,21 +1,3 @@
-/*!
-
-=========================================================
-* Material Kit React - v1.7.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/material-kit-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-/*eslint-disable*/
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
@@ -27,7 +9,9 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
-import Logout from '../../app_components/Logout.js'
+import { connect } from 'react-redux'
+import { logout } from "../actions/currentUser.js"
+import { withRouter } from 'react-router-dom'
 
 // @material-ui/icons
 import { Apps, CloudDownload, Dashboard, CollectionsBookmark, Person, Explore, Bookmarks } from "@material-ui/icons";
@@ -38,8 +22,9 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
-function HeaderLinks({ ...props }) {
+function NavLinks({ ...props }) {
   const { classes } = props;
+  const { logout, history } = props
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -67,12 +52,17 @@ function HeaderLinks({ ...props }) {
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Logout
-          className={classes.navLink}>
-      </Logout>
+      <form onSubmit={(event) => {
+        event.preventDefault()
+        logout()
+        history.push('/')
+      }
+    }>
+      <Button color="transparent" size="lg" block={true} type="submit" className={classes.navLink}>Log Out</Button>
+    </form>
       </ListItem>
     </List>
   );
 }
 
-export default withStyles(headerLinksStyle)(HeaderLinks);
+export default withRouter(connect(null, { logout } )(withStyles(headerLinksStyle)(NavLinks)))

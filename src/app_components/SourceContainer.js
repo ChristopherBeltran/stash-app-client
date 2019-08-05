@@ -4,8 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import GridItem from '../components/Grid/GridItem.jsx'
 import Button from '../components/CustomButtons/Button.jsx'
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
+import ScrollUpButton from "react-scroll-up-button";
 
 
 
@@ -30,33 +29,22 @@ class SourceContainer extends React.Component {
         },
       }));
 
-      handleSubmit = (event) => {
-        event.preventDefault();
-        this.props.streamUpdate()
-      }
-
     render(){
         const classes = this.useStyles
         const { sources, user, updateSource, deleteSource } = this.props;
         const sourceCards = sources.map((source, index) => {
             return (
-            //<GridListTile key={index} cols={1}>
+            <GridItem key={index} md={3}>
             <SourceCard key={index} source={source} user={user} className={classes.sourceStyle} deleteSource={deleteSource}updateSource={updateSource}></SourceCard>
-            //</GridListTile>
+            </GridItem>
             )
             })
         return(
             <div className={classes.root}>
-            <GridList cellHeight={180} className={classes.gridList} cols={2} >
-                <GridListTile  style={{ height: 'auto' }} cols={1}>
+            <Grid container spacing={8} >
                 {sourceCards}
-                </GridListTile>
-                <GridItem xs={4} position="relative">
-                <form onSubmit={this.handleSubmit} >
-                <Button color="primary" round size="lg" block={true} type="submit">Create Stream</Button>
-                </form>
-                </GridItem>
-                </GridList>
+                </Grid>
+                <ScrollUpButton color="primary"/>
             </div>
         )
     }

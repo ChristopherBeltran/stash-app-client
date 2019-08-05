@@ -5,6 +5,7 @@ import { getSources } from '../actions/sources.js'
 import SourceModal from './SourceModal.js'
 import Loading from './Loading.js'
 import { addSource, removeSource, updateStream } from '../actions/stream.js'
+import NavBar from './Navbar.js'
 
 
 class StreamSetup extends React.Component {
@@ -31,6 +32,7 @@ class StreamSetup extends React.Component {
         if(this.props.sources != null){
         return(
             <div>
+                <NavBar streamUpdate={this.streamUpdate} loggedIn={this.props.loggedIn}></NavBar>
                 <SourceModal></SourceModal>
                 <SourceContainer sources={this.props.sources} user={this.props.user} deleteSource={this.deleteSource}updateSource={this.updateSource} history={this.props.history} streamUpdate={this.streamUpdate}></SourceContainer>
             </div>
@@ -38,6 +40,7 @@ class StreamSetup extends React.Component {
         } else {
             return(
                 <div>
+                    <NavBar streamUpdate={this.streamUpdate}></NavBar>
                     <Loading></Loading>
                 </div>
             )
@@ -49,7 +52,8 @@ const mapStateToProps = (state) => {
     return {
         sources: state.sources,
         user: state.currentUser,
-        stream: state.stream
+        stream: state.stream,
+        loggedIn: !!state.currentUser
     }
 }
 
