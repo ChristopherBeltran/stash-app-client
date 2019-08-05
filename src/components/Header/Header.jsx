@@ -88,7 +88,7 @@ class Header extends React.Component {
       [classes.absolute]: absolute,
       [classes.fixed]: fixed
     });
-    const brandComponent = <Button className={classes.title} justify="center" alignItems="center" >{brand}</Button>;
+    const brandComponent = <Button className={classes.title} justify="center" >{brand}</Button>;
     return (
       <AppBar className={appBarClasses}>
         <Toolbar className={classes.container}>
