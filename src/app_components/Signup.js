@@ -72,7 +72,8 @@ class SignupPage extends React.Component {
           style={{
             //backgroundImage: "url(" + image + ")",
             backgroundSize: "cover",
-            backgroundPosition: "top center"
+            backgroundPosition: "top center",
+            backgroundColor: "#b2ebf2"
           }}
         >
           <div className={classes.container}>
