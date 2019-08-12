@@ -23,6 +23,10 @@ class ArticleModal extends React.Component{
     const { classes } = this.props;
     const { article } = this.props;
     const { articleModalDisplay, hideArticleModal } = this.props;
+
+    const handleClose = () => {
+      hideArticleModal()
+    }
     return (
       <div>
         <Dialog
@@ -33,7 +37,7 @@ class ArticleModal extends React.Component{
           open={articleModalDisplay}
           TransitionComponent={Transition}
           keepMounted
-          onClose={this.hideArticleModal()}
+          onClose={handleClose()}
           aria-labelledby="modal-slide-title"
           aria-describedby="modal-slide-description">
           <DialogTitle
@@ -45,7 +49,7 @@ class ArticleModal extends React.Component{
               key="close"
               aria-label="Close"
               color="inherit"
-              onClick={this.hideArticleModal()}>
+              onClick={handleClose()}>
               <Close className={classes.modalClose} />
             </IconButton>
             <h4 className={classes.modalTitle} align="center">{article.title}</h4>
@@ -58,7 +62,7 @@ class ArticleModal extends React.Component{
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
             <Button
-              onClick={this.hideArticleModal()}
+              onClick={handleClose()}
               color="info">
               OK
             </Button>
