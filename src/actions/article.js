@@ -37,6 +37,12 @@ export const createArticle = (article) => {
 
 export const showArticleModal = () => {
     return {
-        type: "TOGGLE_ARTICLE_MODAL"
+        type: "OPEN_ARTICLE_MODAL"
+    }
+}
+
+export const hideArticleModal = () => {
+    return {
+        type: "HIDE_ARTICLE_MODAL"
     }
 }
