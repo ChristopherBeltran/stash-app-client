@@ -19,21 +19,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 class ArticleModal extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: true
-    };
-  }
-
-  handleClose(modal) {
-    var x = [];
-    x[modal] = false;
-    this.setState(x);
-  }
   render(){
     const { classes } = this.props;
     const { article } = this.props;
+    const { articleModalDisplay, hideArticleModal } = this.props;
     return (
       <div>
         <Dialog
@@ -41,10 +30,10 @@ class ArticleModal extends React.Component{
             root: classes.center,
             paper: classes.modal
           }}
-          open={this.state.modal}
+          open={articleModalDisplay}
           TransitionComponent={Transition}
           keepMounted
-          onClose={() => this.handleClose("modal")}
+          onClose={this.hideArticleModal()}
           aria-labelledby="modal-slide-title"
           aria-describedby="modal-slide-description">
           <DialogTitle
@@ -56,7 +45,7 @@ class ArticleModal extends React.Component{
               key="close"
               aria-label="Close"
               color="inherit"
-              onClick={() => this.handleClose("modal")}>
+              onClick={this.hideArticleModal()}>
               <Close className={classes.modalClose} />
             </IconButton>
             <h4 className={classes.modalTitle} align="center">{article.title}</h4>
@@ -69,7 +58,7 @@ class ArticleModal extends React.Component{
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
             <Button
-              onClick={() => this.handleClose("modal")}
+              onClick={this.hideArticleModal()}
               color="info">
               OK
             </Button>
