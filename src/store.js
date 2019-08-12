@@ -7,6 +7,7 @@ import currentUser from './reducers/currentUser'
 import stream from './reducers/stream'
 import sources from './reducers/sources'
 import stash from './reducers/stash'
+import articleModalDisplay from './reducers/article'
 
 // just displaying different syntax options here (lines 8 and 9)
 const reducer = combineReducers({
@@ -15,7 +16,8 @@ const reducer = combineReducers({
   currentUser,
   stream,
   sources,
-  stash
+  stash,
+  articleModalDisplay
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

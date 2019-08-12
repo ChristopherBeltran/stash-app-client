@@ -35,7 +35,7 @@ export const createArticle = (article) => {
     }
 }
 
-export const showArticleModal = () => {
+export const openArticleModal = () => {
     return {
         type: "OPEN_ARTICLE_MODAL"
     }
