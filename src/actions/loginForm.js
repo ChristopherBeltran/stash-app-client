@@ -34,7 +34,7 @@ export const updateLoginForm = (formData) => {
             alert(response.error)
           } else {
             dispatch(setCurrentUser(response.data))
-            history.push('/')
+            history.push('/stream')
           }
         })
         .catch(console.log)
