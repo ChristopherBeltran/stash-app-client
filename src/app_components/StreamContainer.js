@@ -7,12 +7,17 @@ import GridItem from '../components/Grid/GridItem.jsx'
 import { createStash } from '../actions/stash.js'
 import StreamModal from './StreamModal.js'
 import Loading from './Loading.js'
+import ArticleModal from './ArticleModal'
 
 
 class StreamContainer extends React.Component {
 
     componentDidMount() {
         this.props.getStream()
+    }
+
+    handleClick = (article) => {
+        console.log(`clicked ${article.title}`)
     }
 
     render() {

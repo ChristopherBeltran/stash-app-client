@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import StashButton from './StashButton.js'
+import ArticleModal from './ArticleModal.js'
 
 const moment = require('moment');
 
@@ -67,7 +68,7 @@ const StreamCard = ({ article }) => {
   }
 
   return (
-     <Card className={classes.card} onClick={console.log('clicked')}>
+     <Card className={classes.card} raised={true} >
       <CardHeader
         title={article.title}
         subheader={article.source.name}

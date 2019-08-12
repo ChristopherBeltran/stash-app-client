@@ -34,3 +34,9 @@ export const createArticle = (article) => {
         .catch(console.log)
     }
 }
+
+export const showArticleModal = () => {
+    return {
+        type: "TOGGLE_ARTICLE_MODAL"
+    }
+}

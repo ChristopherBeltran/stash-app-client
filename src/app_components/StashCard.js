@@ -77,7 +77,7 @@ const StashCard = ({ article, handleRemove, stash }) => {
   }
 
   return (
-     <Card className={classes.card} >
+     <Card className={classes.card} raised={true}>
       <CardHeader
         title={article.title}
         subheader={article.source.name}
