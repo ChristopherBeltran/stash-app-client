@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const StreamCard = ({ article }) => {
+const StreamCard = ({ article, openArticleModal }) => {
   const classes = useStyles();
 
   const imageHandler = (article) => {
@@ -67,8 +67,12 @@ const StreamCard = ({ article }) => {
     )
   }
 
+  const handleClick = () => {
+    this.props.openArticleModal()
+  }
+
   return (
-     <Card className={classes.card} raised={true} >
+     <Card className={classes.card} raised={true} onClick={handleClick}>
       <CardHeader
         title={article.title}
         subheader={article.source.name}

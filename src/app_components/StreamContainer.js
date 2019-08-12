@@ -8,6 +8,7 @@ import { createStash } from '../actions/stash.js'
 import StreamModal from './StreamModal.js'
 import Loading from './Loading.js'
 import ArticleModal from './ArticleModal'
+import { openArticleModal, hideArticleModal } from '../actions/article.js'
 
 
 class StreamContainer extends React.Component {
@@ -16,9 +17,6 @@ class StreamContainer extends React.Component {
         this.props.getStream()
     }
 
-    handleClick = (article) => {
-        console.log(`clicked ${article.title}`)
-    }
 
     render() {
         if(this.props.stream !== null){
@@ -29,7 +27,8 @@ class StreamContainer extends React.Component {
         const renderCards = stream.map((article, index) => {
                 return(
                 <GridItem key={index} md={3}>
-                <StreamCard key={index} article={article} ></StreamCard>
+                <StreamCard key={index} article={article} openArticleModal={this.props.openArticleModal}></StreamCard>
+                <ArticleModal key={index} article={article} articleModalDisplay={this.props.articleModalDisplay} hideArticleModal={this.props.hideArticleModal}></ArticleModal>
                 </GridItem>
                 )
             })
@@ -55,8 +54,10 @@ const mapStateToProps = (state) => {
     return {
         stream: state.stream,
         user: state.currentUser,
-        stash: state.stash
+        stash: state.stash,
+        articleModalDisplay: state.articleModalDisplay
+
     }
 }
 
-export default connect(mapStateToProps, { getStream, createStash}) (StreamContainer)
+export default connect(mapStateToProps, { getStream, createStash, openArticleModal, hideArticleModal }) (StreamContainer)
