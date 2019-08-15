@@ -1,4 +1,5 @@
 import { setCurrentUser } from './currentUser.js'
+import { getStash } from './stash.js'
 
 
 
@@ -34,6 +35,7 @@ export const updateLoginForm = (formData) => {
             alert(response.error)
           } else {
             dispatch(setCurrentUser(response.data))
+            dispatch(getStash())
             history.push('/stream')
           }
         })
