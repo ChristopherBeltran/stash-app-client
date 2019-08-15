@@ -4,7 +4,8 @@ export default (state = false, action) => {
             let newState = true
             return newState
         case "RESET_FIRST_TIME_USER":
-            return state
+            let resetState = false
+            return resetState
         default:
         return state
     }

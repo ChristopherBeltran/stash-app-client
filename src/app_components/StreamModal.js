@@ -32,6 +32,7 @@ class StreamModal extends React.Component{
     var x = [];
     x[modal] = false;
     this.setState(x);
+    this.props.resetFirstTimeUser()
   }
   render(){
     const { classes } = this.props;

@@ -7,6 +7,7 @@ import GridItem from '../components/Grid/GridItem.jsx'
 import { createStash } from '../actions/stash.js'
 import StreamModal from './StreamModal.js'
 import Loading from './Loading.js'
+import { resetFirstTimeUser } from '../actions/firstTimeUser.js'
 
 
 class StreamContainer extends React.Component {
@@ -27,7 +28,7 @@ class StreamContainer extends React.Component {
             })
         return (
             <div>
-            <StreamModal></StreamModal>
+            {this.props.firstTimeUser ? <StreamModal resetFirstTimeUser={this.props.resetFirstTimeUser}></StreamModal> : null}
             <Grid container spacing={8} >
             {renderCards}
             </Grid>
@@ -47,8 +48,9 @@ const mapStateToProps = (state) => {
     return {
         stream: state.stream,
         user: state.currentUser,
-        stash: state.stash
+        stash: state.stash,
+        firstTimeUser: state.firstTimeUser
     }
 }
 
-export default connect(mapStateToProps, { getStream, createStash}) (StreamContainer)
+export default connect(mapStateToProps, { getStream, createStash, resetFirstTimeUser }) (StreamContainer)
