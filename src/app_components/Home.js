@@ -47,7 +47,7 @@ class Home extends React.Component {
         <GridItem xs={12} sm={12} md={4}>
             <Card className={classes[this.state.cardAnimaton]} style={{width: "30rem"}}>
             <CardBody>
-            <h2 style={typography.defaultFontStyle}>Get stashing today!</h2>
+            <h2 style={typography.defaultFontStyle}>Read it. Like it. Stash it!</h2>
             <p>
                 Sign up or log in below.
             </p>

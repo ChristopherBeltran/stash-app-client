@@ -86,22 +86,7 @@ export const updateStream = (stream, history, currentUser) => {
          if (resp.error) {
            alert(resp.error)
          } else {
-          //  let streamId = resp.data.id
-          //  let sources = resp.included
-          //  var newStream = {
-          //    id: streamId,
-          //    sources: []
-          //  }
-          //  sources.forEach(function(source){
-          //    let sourceAttr = {
-          //      id: source.id,
-          //      name: source.attributes.name,
-          //      api_id: source.attributes.api_id
-          //    };
-          //    newStream.sources.push(sourceAttr)
-          //  })
-           //dispatch(updateStreamSuccess(newStream))
-           dispatch(getStream(history))
+           dispatch(getStream(history, currentUser))
          }
        })
        .catch(console.log)
@@ -111,7 +96,7 @@ export const updateStream = (stream, history, currentUser) => {
 
 
 
-export const getStream = (history) => {
+export const getStream = (history, currentUser) => {
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/get_stream", {
       credentials: "include",
@@ -127,6 +112,7 @@ export const getStream = (history) => {
       } else {
         console.log(response)
         dispatch(updateStreamSuccess(response.articles))
+        dispatch(createStash(currentUser))
         history.push('/stream')
       }
     })
