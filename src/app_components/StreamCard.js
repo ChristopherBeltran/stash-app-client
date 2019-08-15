@@ -12,6 +12,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import StashButton from './StashButton.js'
+import Button from 'components/CustomButtons/Button.jsx';
+
 
 const moment = require('moment');
 
@@ -78,13 +80,22 @@ const StreamCard = ({ article, handleStashClick }) => {
         {article.description}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions >
         <IconButton aria-label="add to favorites">
           <StashButton article={article} />
         </IconButton>
-        <Typography variant="body2" color="textSecondary" component="p" align="right">
+        <Typography variant="body2" color="textSecondary" component="p" align="right" padding="10px">
         {dateFormatter(article)}
         </Typography>
+        <Button
+        size="sm"
+        color="primary"
+        href={article.url}
+        fullWidth={false}
+        align="right"
+        target="_blank"
+        >Full Article 
+        </Button>
       </CardActions>
     </Card>
   );

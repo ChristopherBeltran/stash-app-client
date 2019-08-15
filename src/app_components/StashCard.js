@@ -88,10 +88,19 @@ const StashCard = ({ article, handleRemove, stash }) => {
         {article.description}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions >
         <Tooltip title="Remove From Stash" aria-label="remove" placement="right-end">
-        <Button justIcon round color="danger" size="sm" onClick={handleClick}><RemoveIcon></RemoveIcon></Button>
+        <Button justIcon round color="danger" size="sm" align="left" onClick={handleClick}><RemoveIcon></RemoveIcon></Button>
         </Tooltip>
+        <Button
+        size="sm"
+        color="primary"
+        href={article.url}
+        fullWidth={false}
+        align="right"
+        target="_blank"
+        >Full Article 
+        </Button>
       </CardActions>
     </Card>
   );

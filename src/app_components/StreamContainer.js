@@ -8,12 +8,14 @@ import { createStash } from '../actions/stash.js'
 import StreamModal from './StreamModal.js'
 import Loading from './Loading.js'
 import { resetFirstTimeUser } from '../actions/firstTimeUser.js'
+import { getStash } from '../actions/stash.js'
 
 
 class StreamContainer extends React.Component {
 
     componentDidMount() {
         this.props.getStream()
+        this.props.getStash()
     }
 
     render() {
@@ -53,4 +55,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getStream, createStash, resetFirstTimeUser }) (StreamContainer)
+export default connect(mapStateToProps, { getStream, createStash, resetFirstTimeUser, getStash }) (StreamContainer)
