@@ -1,5 +1,6 @@
 import { setCurrentUser } from './currentUser.js'
 import { createStream } from './stream.js'
+import { setFirstTimeUser } from './firstTimeUser.js'
 
 export const updateSignupForm = formData => {
     return {
@@ -35,6 +36,7 @@ export const updateSignupForm = formData => {
             dispatch(setCurrentUser(response.data))
             let user = response.data.id
             dispatch(createStream(user))
+            dispatch(setFirstTimeUser())
             history.push('/stream/setup')
           }
         })
