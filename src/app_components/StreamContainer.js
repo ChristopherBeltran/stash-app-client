@@ -17,9 +17,6 @@ class StreamContainer extends React.Component {
 
     render() {
         if(this.props.stream !== null){
-            if(this.props.stash === null){
-                this.props.createStash(this.props.user)
-                }
         const stream = this.props.stream
         const renderCards = stream.map((article, index) => {
                 return(
