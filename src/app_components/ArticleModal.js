@@ -37,7 +37,7 @@ class ArticleModal extends React.Component{
           open={articleModalDisplay}
           TransitionComponent={Transition}
           keepMounted
-          onClose={handleClose()}
+          onClose={handleClose}
           aria-labelledby="modal-slide-title"
           aria-describedby="modal-slide-description">
           <DialogTitle
@@ -49,7 +49,7 @@ class ArticleModal extends React.Component{
               key="close"
               aria-label="Close"
               color="inherit"
-              onClick={handleClose()}>
+              onClick={handleClose}>
               <Close className={classes.modalClose} />
             </IconButton>
             <h4 className={classes.modalTitle} align="center">{article.title}</h4>
@@ -57,12 +57,12 @@ class ArticleModal extends React.Component{
           <DialogContent
             id="modal-slide-description"
             className={classes.modalBody}>
-            <h5>Toggle which news sources you would like to see populate your stream.</h5>
+            <h5>{article.description}</h5>
           </DialogContent>
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
             <Button
-              onClick={handleClose()}
+              onClick={handleClose}
               color="info">
               OK
             </Button>
