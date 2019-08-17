@@ -44,24 +44,6 @@ const useStyles = makeStyles(theme => ({
 const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModal, stream }) => {
   const classes = useStyles();
 
-  const imageHandler = (article) => {
-    if (article.urlToImage !== "" || null){
-      return(
-        <CardMedia
-        className={classes.media}
-        image={article.urlToImage}
-      />
-      )
-    } else {
-      return(
-        <CardMedia
-        className={classes.media}
-        image=""
-        />
-      )
-    }
-  }
-
   const dateFormatter = (article) => {
     let a = moment(article.publishedAt, moment.ISO_8601)
     return (
@@ -83,15 +65,36 @@ const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModal,
     }
   }
 
+  const imageHandler = (article) => {
+    if (article.urlToImage !== "" || null){
+      return(
+        <CardMedia
+        className={classes.media}
+        image={article.urlToImage}
+        onClick={ e => handleClick(e) }
+      />
+      )
+    } else {
+      return(
+        <CardMedia
+        className={classes.media}
+        image=""
+        onClick={ e => handleClick(e) }
+        />
+      )
+    }
+  }
+
   return (
-     <Card className={classes.card} raised={true} onClick={ e => handleClick(e) }>
+     <Card className={classes.card} raised={true} >
      {handleModal()}
       <CardHeader
+        onClick={ e => handleClick(e) }
         title={article.title}
         subheader={article.source.name}
       />
       {imageHandler(article)}
-      <CardContent>
+      <CardContent onClick={ e => handleClick(e) }>
         <Typography variant="body2" color="textSecondary" component="p">
         {article.description}
         </Typography>
