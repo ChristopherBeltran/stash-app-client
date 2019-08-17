@@ -1,19 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import StashButton from './StashButton.js'
 import Button from 'components/CustomButtons/Button.jsx';
-
+import RemoveIcon from '@material-ui/icons/Remove';
+import Tooltip from '@material-ui/core/Tooltip';
 import ArticleModal from './ArticleModal.js'
 
 const moment = require('moment');
@@ -41,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModal, stream }) => {
+const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal, stream, handleRemove, stash }) => {
   const classes = useStyles();
 
   const dateFormatter = (article) => {
@@ -57,10 +55,14 @@ const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModal,
     }
   }
 
+  const handleButtonClick = () => {
+    handleRemove(article, stash)
+  }
+
   const handleModal = () => {
     if(articleModal.display === true && articleModal.articleTitle === article.title){
       return(
-      <ArticleModal stream={stream}hideArticleModal={hideArticleModal} article={article} articleModal={articleModal}></ArticleModal>
+      <ArticleModal hideArticleModal={hideArticleModal} article={article} articleModal={articleModal}></ArticleModal>
       )
     }
   }
@@ -99,18 +101,25 @@ const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModal,
         {article.description}
         </Typography>
       </CardContent>
-      <CardActions >
+      {window.location.pathname === "/stream" ?
+      <CardActions > 
         <IconButton aria-label="add to favorites">
           <StashButton article={article} />
         </IconButton>
         <Typography variant="body2" color="textSecondary" component="p" align="right" padding="10px">
         {dateFormatter(article)}
         </Typography>
-      </CardActions>
+        </CardActions> 
+        :
+        <CardActions >
+        <Tooltip title="Remove From Stash" aria-label="remove" placement="right-end">
+        <Button justIcon round color="danger" size="sm" align="left" onClick={handleButtonClick}><RemoveIcon></RemoveIcon></Button>
+        </Tooltip>
+        </CardActions>}
     </Card>
   );
 }
 
-export default StreamCard;
+export default ArticleCard;
 
 
