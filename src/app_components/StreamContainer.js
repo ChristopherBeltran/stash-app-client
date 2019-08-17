@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux'
 import { getStream } from '../actions/stream.js'
-import StreamCard from './StreamCard.js'
+import ArticleCard from './ArticleCard.js'
 import Grid from '@material-ui/core/Grid';
 import GridItem from '../components/Grid/GridItem.jsx'
 import { createStash } from '../actions/stash.js'
@@ -27,7 +27,7 @@ class StreamContainer extends React.Component {
         const renderCards = stream.map((article, index) => {
                 return(
                 <GridItem key={index} md={3}>
-                <StreamCard key={index} stream={this.props.stream} article={article} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} ></StreamCard>
+                <ArticleCard key={index} stream={this.props.stream} article={article} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} ></ArticleCard>
                 </GridItem>
                 )
             })

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Grid from '@material-ui/core/Grid';
 import GridItem from '../components/Grid/GridItem.jsx'
 import { getStash, removeFromStash } from '../actions/stash.js'
-import StashCard from './StashCard.js'
+import ArticleCard from './ArticleCard.js'
 import Loading from './Loading.js'
 import { openArticleModal, hideArticleModal } from '../actions/article.js'
 
@@ -25,7 +25,7 @@ class StashContainer extends React.Component {
         const renderCards = stashArticles.map((article, index) => {
             return(
                 <GridItem key={index} md={3}>
-                    <StashCard key={index} article={article} handleRemove={this.handleRemove} stash={this.props.stash} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} ></StashCard>
+                    <ArticleCard key={index} article={article} handleRemove={this.handleRemove} stash={this.props.stash} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} ></ArticleCard>
                 </GridItem>
             )
         })
