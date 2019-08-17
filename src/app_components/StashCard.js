@@ -11,7 +11,7 @@ import { red } from '@material-ui/core/colors';
 import Button from "components/CustomButtons/Button.jsx";
 import RemoveIcon from '@material-ui/icons/Remove';
 import Tooltip from '@material-ui/core/Tooltip';
-const moment = require('moment');
+import ArticleModal from './ArticleModal.js'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const StashCard = ({ article, handleRemove, stash }) => {
+const StashCard = ({ article, handleRemove, stash, openArticleModal, hideArticleModal, articleModal }) => {
   const classes = useStyles();
 
   const imageHandler = (article) => {
@@ -53,6 +53,7 @@ const StashCard = ({ article, handleRemove, stash }) => {
         <CardMedia
         className={classes.media}
         image={article.url_to_image}
+        onClick={ e => handleClick(e) }
       />
       )
     } else {
@@ -60,47 +61,49 @@ const StashCard = ({ article, handleRemove, stash }) => {
         <CardMedia
         className={classes.media}
         image=""
+        onClick={ e => handleClick(e) }
         />
       )
     }
   }
 
-  const dateFormatter = (article) => {
-    let a = moment(article.publishedAt, moment.ISO_8601)
-    return (
-      a.fromNow()
-    )
+
+  const handleButtonClick = () => {
+    handleRemove(article, stash)
   }
 
-  const handleClick = () => {
-    handleRemove(article, stash)
+  const handleClick = (e) => {
+    if(articleModal.display !== true){
+    openArticleModal(article.title)
+    }
+  }
+
+  const handleModal = () => {
+    if(articleModal.display === true && articleModal.articleTitle === article.title){
+      return(
+      <ArticleModal hideArticleModal={hideArticleModal} article={article} articleModal={articleModal}></ArticleModal>
+      )
+    }
   }
 
   return (
      <Card className={classes.card} raised={true}>
+     {handleModal()}
       <CardHeader
         title={article.title}
         subheader={article.source.name}
+        onClick={ e => handleClick(e) }
       />
       {imageHandler(article)}
-      <CardContent>
+      <CardContent onClick={ e => handleClick(e) }>
         <Typography variant="body2" color="textSecondary" component="p">
         {article.description}
         </Typography>
       </CardContent>
       <CardActions >
         <Tooltip title="Remove From Stash" aria-label="remove" placement="right-end">
-        <Button justIcon round color="danger" size="sm" align="left" onClick={handleClick}><RemoveIcon></RemoveIcon></Button>
+        <Button justIcon round color="danger" size="sm" align="left" onClick={handleButtonClick}><RemoveIcon></RemoveIcon></Button>
         </Tooltip>
-        <Button
-        size="sm"
-        color="primary"
-        href={article.url}
-        fullWidth={false}
-        align="right"
-        target="_blank"
-        >Full Article 
-        </Button>
       </CardActions>
     </Card>
   );
