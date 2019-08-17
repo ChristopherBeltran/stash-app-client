@@ -28,6 +28,11 @@ class ArticleModal extends React.Component{
     const handleClose = () => {
       hideArticleModal()
     }
+
+    const contentFormat = () => {
+      let formattedContent = article.content.replace(/ *\[[^\]]*]/, '')
+      return formattedContent
+    }
     return (
       <div id="article-modal" name="article-modal">
         <Dialog
@@ -59,7 +64,7 @@ class ArticleModal extends React.Component{
           <DialogContent
             id="modal-slide-description"
             className={classes.modalBody}>
-            <h5>{article.content}</h5>
+            <h5>{contentFormat()}</h5>
           </DialogContent>
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
