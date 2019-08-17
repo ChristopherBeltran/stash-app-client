@@ -103,15 +103,6 @@ const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModal,
         <Typography variant="body2" color="textSecondary" component="p" align="right" padding="10px">
         {dateFormatter(article)}
         </Typography>
-        <Button
-        size="sm"
-        color="primary"
-        href={article.url}
-        fullWidth={false}
-        align="right"
-        target="_blank"
-        >Full Article 
-        </Button>
       </CardActions>
     </Card>
   );

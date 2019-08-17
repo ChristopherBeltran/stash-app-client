@@ -70,10 +70,15 @@ class ArticleModal extends React.Component{
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
             <Button
               onClick={handleClose}
-              id="modal-close"
-              color="info">
-              OK
+              id="modal-close">
+              CLOSE
             </Button>
+            <Button 
+            type="button"
+            color="primary"
+            href={article.url}
+            target="_blank">
+            Full Article</Button>
           </DialogActions>
         </Dialog>
       </div>
