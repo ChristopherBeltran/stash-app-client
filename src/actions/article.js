@@ -35,14 +35,16 @@ export const createArticle = (article) => {
     }
 }
 
-export const openArticleModal = () => {
+export const openArticleModal = (articleTitle) => {
     return {
-        type: "OPEN_ARTICLE_MODAL"
+        type: "OPEN_ARTICLE_MODAL",
+        articleTitle
     }
 }
 
-export const hideArticleModal = () => {
+export const hideArticleModal = (articleTitle) => {
     return {
-        type: "HIDE_ARTICLE_MODAL"
+        type: "HIDE_ARTICLE_MODAL",
+        articleTitle
     }
 }

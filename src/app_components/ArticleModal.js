@@ -19,22 +19,23 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 class ArticleModal extends React.Component{
+
   render(){
     const { classes } = this.props;
     const { article } = this.props;
-    const { articleModalDisplay, hideArticleModal } = this.props;
+    const { articleModal, hideArticleModal } = this.props;
 
     const handleClose = () => {
       hideArticleModal()
     }
     return (
-      <div>
+      <div id="article-modal" name="article-modal">
         <Dialog
           classes={{
             root: classes.center,
             paper: classes.modal
           }}
-          open={articleModalDisplay}
+          open={articleModal.display}
           TransitionComponent={Transition}
           keepMounted
           onClose={handleClose}
@@ -46,6 +47,7 @@ class ArticleModal extends React.Component{
             className={classes.modalHeader}>
             <IconButton
               className={classes.modalCloseButton}
+              id="modal-close"
               key="close"
               aria-label="Close"
               color="inherit"
@@ -57,12 +59,13 @@ class ArticleModal extends React.Component{
           <DialogContent
             id="modal-slide-description"
             className={classes.modalBody}>
-            <h5>{article.description}</h5>
+            <h5>{article.content}</h5>
           </DialogContent>
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
             <Button
               onClick={handleClose}
+              id="modal-close"
               color="info">
               OK
             </Button>

@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModalDisplay }) => {
+const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModal, stream }) => {
   const classes = useStyles();
 
   const imageHandler = (article) => {
@@ -67,13 +67,23 @@ const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModalD
     )
   }
 
-  const handleClick = () => {
-    openArticleModal()
+  const handleClick = (e) => {
+    if(articleModal.display !== true){
+    openArticleModal(article.title)
+    }
+  }
+
+  const handleModal = () => {
+    if(articleModal.display === true && articleModal.articleTitle === article.title){
+      return(
+      <ArticleModal stream={stream}hideArticleModal={hideArticleModal} article={article} articleModal={articleModal}></ArticleModal>
+      )
+    }
   }
 
   return (
-     <Card className={classes.card} raised={true} onClick={handleClick}>
-         <ArticleModal hideArticleModal={hideArticleModal} article={article} articleModalDisplay={articleModalDisplay}></ArticleModal>
+     <Card className={classes.card} raised={true} onClick={ e => handleClick(e) }>
+     {handleModal()}
       <CardHeader
         title={article.title}
         subheader={article.source.name}
@@ -93,7 +103,6 @@ const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModalD
         </Typography>
       </CardActions>
     </Card>
-    
   );
 }
 

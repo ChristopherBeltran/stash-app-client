@@ -27,10 +27,11 @@ class StreamContainer extends React.Component {
         const renderCards = stream.map((article, index) => {
                 return(
                 <GridItem key={index} md={3}>
-                <StreamCard key={index} article={article} openArticleModal={this.props.openArticleModal} articleModalDisplay={this.props.articleModalDisplay} hideArticleModal={this.props.hideArticleModal} ></StreamCard>
+                <StreamCard key={index} stream={this.props.stream} article={article} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} ></StreamCard>
                 </GridItem>
                 )
             })
+        
         return (
             <div>
             <StreamModal></StreamModal>
@@ -54,7 +55,7 @@ const mapStateToProps = (state) => {
         stream: state.stream,
         user: state.currentUser,
         stash: state.stash,
-        articleModalDisplay: state.articleModalDisplay
+        articleModal: state.articleModal
 
     }
 }
