@@ -9,6 +9,8 @@ import StreamModal from './StreamModal.js'
 import Loading from './Loading.js'
 import { resetFirstTimeUser } from '../actions/firstTimeUser.js'
 import { getStash } from '../actions/stash.js'
+import ArticleModal from './ArticleModal'
+import { openArticleModal, hideArticleModal } from '../actions/article.js'
 
 
 class StreamContainer extends React.Component {
@@ -18,16 +20,18 @@ class StreamContainer extends React.Component {
         this.props.getStash()
     }
 
+
     render() {
         if(this.props.stream !== null){
         const stream = this.props.stream
         const renderCards = stream.map((article, index) => {
                 return(
                 <GridItem key={index} md={3}>
-                <StreamCard key={index} article={article} ></StreamCard>
+                <StreamCard key={index} stream={this.props.stream} article={article} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} ></StreamCard>
                 </GridItem>
                 )
             })
+        
         return (
             <div>
             {this.props.firstTimeUser ? <StreamModal resetFirstTimeUser={this.props.resetFirstTimeUser}></StreamModal> : null}
@@ -51,8 +55,9 @@ const mapStateToProps = (state) => {
         stream: state.stream,
         user: state.currentUser,
         stash: state.stash,
-        firstTimeUser: state.firstTimeUser
+        firstTimeUser: state.firstTimeUser,
+        articleModal: state.articleModal
     }
 }
 
-export default connect(mapStateToProps, { getStream, createStash, resetFirstTimeUser, getStash }) (StreamContainer)
+export default connect(mapStateToProps, { getStream, createStash, resetFirstTimeUser, getStash, openArticleModal, hideArticleModal }) (StreamContainer)

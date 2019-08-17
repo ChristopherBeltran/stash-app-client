@@ -14,6 +14,7 @@ import { red } from '@material-ui/core/colors';
 import StashButton from './StashButton.js'
 import Button from 'components/CustomButtons/Button.jsx';
 
+import ArticleModal from './ArticleModal.js'
 
 const moment = require('moment');
 
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const StreamCard = ({ article, handleStashClick }) => {
+const StreamCard = ({ article, openArticleModal, hideArticleModal, articleModal, stream }) => {
   const classes = useStyles();
 
   const imageHandler = (article) => {
@@ -68,8 +69,23 @@ const StreamCard = ({ article, handleStashClick }) => {
     )
   }
 
+  const handleClick = (e) => {
+    if(articleModal.display !== true){
+    openArticleModal(article.title)
+    }
+  }
+
+  const handleModal = () => {
+    if(articleModal.display === true && articleModal.articleTitle === article.title){
+      return(
+      <ArticleModal stream={stream}hideArticleModal={hideArticleModal} article={article} articleModal={articleModal}></ArticleModal>
+      )
+    }
+  }
+
   return (
-     <Card className={classes.card} >
+     <Card className={classes.card} raised={true} onClick={ e => handleClick(e) }>
+     {handleModal()}
       <CardHeader
         title={article.title}
         subheader={article.source.name}

@@ -34,3 +34,17 @@ export const createArticle = (article) => {
         .catch(console.log)
     }
 }
+
+export const openArticleModal = (articleTitle) => {
+    return {
+        type: "OPEN_ARTICLE_MODAL",
+        articleTitle
+    }
+}
+
+export const hideArticleModal = (articleTitle) => {
+    return {
+        type: "HIDE_ARTICLE_MODAL",
+        articleTitle
+    }
+}

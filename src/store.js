@@ -8,8 +8,8 @@ import stream from './reducers/stream'
 import sources from './reducers/sources'
 import stash from './reducers/stash'
 import firstTimeUser from './reducers/firstTimeUser'
+import articleModal from './reducers/articleModal'
 
-// just displaying different syntax options here (lines 8 and 9)
 const reducer = combineReducers({
   signupForm,
   loginForm,
@@ -17,7 +17,8 @@ const reducer = combineReducers({
   stream,
   sources,
   stash,
-  firstTimeUser
+  firstTimeUser,
+  articleModal
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
