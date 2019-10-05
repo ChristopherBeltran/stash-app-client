@@ -24,7 +24,7 @@ export const setCurrentUser = user => {
   export const getCurrentUser = () => {
     return dispatch => {
       return fetch("https://the-stash-app.herokuapp.com/api/v1/get_current_user", {
-        credentials: "include",
+        //credentials: "include",
         method: "GET",
         headers: {
           "Content-Type": "application/json"
