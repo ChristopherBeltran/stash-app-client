@@ -23,7 +23,7 @@ export const setCurrentUser = user => {
   
   export const getCurrentUser = () => {
     return dispatch => {
-      return fetch("https://cors-anywhere.herokuapp.com/https://the-stash-app.herokuapp.com/api/v1/get_current_user", {
+      return fetch("https://the-stash-app.herokuapp.com/api/v1/get_current_user", {
         credentials: "include",
         method: "GET",
         headers: {
