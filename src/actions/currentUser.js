@@ -27,7 +27,8 @@ export const setCurrentUser = user => {
         credentials: "include",
         method: "GET",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
         },
       })
         .then(r => r.json())
