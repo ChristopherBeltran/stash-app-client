@@ -18,7 +18,8 @@ export const createStash = (currentUser) => {
             credentials: "include",
             method: "POST",
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
             },
             body: JSON.stringify(stashInfo)
           })
@@ -42,7 +43,8 @@ export const createStash = (currentUser) => {
             credentials: "include",
             method: "GET",
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
             }
           })
           .then(r => r.json())
@@ -82,7 +84,8 @@ export const createStash = (currentUser) => {
                 credentials: "include",
                 method: "PATCH",
                 headers: {
-                  "Content-Type": "application/json"
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
                 },
                 body: JSON.stringify(formattedArticle)
             })
@@ -105,7 +108,8 @@ export const createStash = (currentUser) => {
             credentials: "include",
             method: "DELETE",
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
             }
             //body: JSON.stringify(formattedArticle)
           })

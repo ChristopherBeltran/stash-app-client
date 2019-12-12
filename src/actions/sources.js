@@ -15,7 +15,8 @@ export const getSources = () => {
         return fetch("https://the-stash-app.herokuapp.com/api/v1/sources", {
           method: "GET",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
           },
         })
           .then(r => r.json())

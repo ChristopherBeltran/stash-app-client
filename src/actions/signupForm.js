@@ -24,7 +24,8 @@ export const updateSignupForm = formData => {
         credentials: "include",
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
         },
         body: JSON.stringify(userInfo)
       })

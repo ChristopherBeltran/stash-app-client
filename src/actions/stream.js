@@ -26,7 +26,8 @@ export const createStream = (user) => {
         credentials: "include",
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
         },
         body: JSON.stringify(streamInfo)
       })
@@ -77,7 +78,8 @@ export const updateStream = (stream, history, currentUser) => {
       credentials: "include",
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
       },
       body: JSON.stringify(streamToSend)
     })
@@ -102,7 +104,8 @@ export const getStream = (history, currentUser) => {
       credentials: "include",
       method: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
       }
     })
     .then(r => r.json())
