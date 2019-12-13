@@ -14,7 +14,7 @@ export const createStash = (currentUser) => {
             }
           }
     
-          return fetch("https://the-stash-app.herokuapp.com/api/v1/stashes", {
+          return fetch("api/v1/stashes", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -39,7 +39,7 @@ export const createStash = (currentUser) => {
 
       export const getStash = () => {
         return dispatch => {
-          return fetch("https://the-stash-app.herokuapp.com/api/v1/get_stash", {
+          return fetch("api/v1/get_stash", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -52,7 +52,6 @@ export const createStash = (currentUser) => {
             if (response.error) {
               alert(response.error)
             } else {
-              console.log(response)
               dispatch(setStash(response.data))
             }
           })
@@ -118,7 +117,6 @@ export const createStash = (currentUser) => {
             if (response.error) {
               alert(response.error)
             } else {
-              console.log(response)
               dispatch(setStash(response.data))
             }
           })

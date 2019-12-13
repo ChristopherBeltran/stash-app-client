@@ -6,7 +6,7 @@ import { getStash, removeFromStash } from '../actions/stash.js'
 import ArticleCard from './ArticleCard.js'
 import Loading from './Loading.js'
 import { openArticleModal, hideArticleModal } from '../actions/article.js'
-
+import { Link } from 'react-router-dom'
 
 class StashContainer extends React.Component {
 
@@ -38,7 +38,12 @@ class StashContainer extends React.Component {
         )
         } else {
             return(
-                <Loading></Loading>
+                <div>
+                <h1>No articles stashed yet!</h1>
+                <br>
+                </br>
+                <h2>Return to your <Link to='/stream' style={{ textDecoration: 'none' }} >Stream</Link> to stash articles.</h2>
+                </div>
             )
         }
     }
