@@ -39,7 +39,7 @@ export const createStash = (currentUser) => {
 
       export const getStash = () => {
         return dispatch => {
-          return fetch("https://localhost:3000/api/v1/get_stash", {
+          return fetch("/api/v1/get_stash", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -79,7 +79,7 @@ export const createStash = (currentUser) => {
 
             const stashId = stash.id
     
-            return fetch(`https://the-stash-app.herokuapp.com/api/v1/stashes/${stashId}`, {
+            return fetch(`/api/v1/stashes/${stashId}`, {
                 credentials: "include",
                 method: "PATCH",
                 headers: {
@@ -103,7 +103,7 @@ export const createStash = (currentUser) => {
 
     export const removeFromStash = (article, stash) => {
         return dispatch => {
-          return fetch(`https://the-stash-app.herokuapp.com/api/v1/stashes/${stash.id}/remove_article/${article.id}`, {
+          return fetch(`/api/v1/stashes/${stash.id}/remove_article/${article.id}`, {
             credentials: "include",
             method: "DELETE",
             headers: {
