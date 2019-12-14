@@ -39,7 +39,7 @@ export const createStash = (currentUser) => {
 
       export const getStash = () => {
         return dispatch => {
-          return fetch("api/v1/get_stash", {
+          return fetch("https://localhost:3000/api/v1/get_stash", {
             credentials: "include",
             method: "GET",
             headers: {

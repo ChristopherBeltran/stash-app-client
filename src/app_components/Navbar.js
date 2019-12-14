@@ -24,9 +24,10 @@ const NavBar = ({ loggedIn, streamUpdate }) => {
      }
 
         return(
-            <div>
+            <div id='navbar-header'>
                 <Header color="info" brand="Stash App" position="sticky" 
-                rightLinks={linkHandler()}>
+                rightLinks={linkHandler()}
+                id="header">
                 </Header>
             </div>
         )

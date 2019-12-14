@@ -15,7 +15,7 @@ function NavStaticLink({ ...props }) {
   const { classes } = props;
   return (
     <List className={classes.list}>
-      <ListItem className={classes.listItem}>
+      <ListItem className={classes.listItem} float={'right'}>
         <Button
         href="/"
         color="transparent"

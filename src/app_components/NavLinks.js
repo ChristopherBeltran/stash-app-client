@@ -27,7 +27,7 @@ function NavLinks({ ...props }) {
   const { logout, history } = props
   return (
     <List className={classes.list}>
-      <ListItem className={classes.listItem}>
+      <ListItem className={classes.listItem} id="nav-list">
         <Button
         href="/stream"
         color="transparent"
@@ -35,7 +35,7 @@ function NavLinks({ ...props }) {
         ><Explore></Explore>Stream
         </Button>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      <ListItem className={classes.listItem} id="nav-list">
         <Button
           href="/stash"
           color="transparent"
@@ -53,7 +53,7 @@ function NavLinks({ ...props }) {
         ><Person></Person>Profile
         </Button>
       </ListItem> */}
-      <ListItem className={classes.listItem}>
+      <ListItem className={classes.listItem} id="nav-list">
       <form onSubmit={(event) => {
         event.preventDefault()
         logout()

@@ -73,6 +73,7 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
         <CardMedia
         className={classes.media}
         image={article.urlToImage}
+        src=''
         onClick={ e => handleClick(e) }
       />
       )
@@ -88,7 +89,7 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
   }
 
   return (
-     <Card className={classes.card} raised={true} >
+     <Card className={classes.card} raised={true} id="cards">
      {handleModal()}
       <CardHeader
         onClick={ e => handleClick(e) }

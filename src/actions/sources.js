@@ -12,7 +12,7 @@ export const setSources = (sources) => {
 
 export const getSources = () => {
     return dispatch => {
-        return fetch("api/v1/sources", {
+        return fetch("/api/v1/sources", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

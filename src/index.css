@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
-#stream-link {
-  color: FFFF
+#nav-list {
+  text-align: right;
+}
+
+#cards:hover {
+  cursor: pointer;
 }
