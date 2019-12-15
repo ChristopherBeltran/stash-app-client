@@ -25,7 +25,7 @@ import Grid from "@material-ui/core/Grid";
 const style = {
   grid: {
     position: "relative",
-    width: "100%",
+    width: "auto",
     minHeight: "1px",
     paddingRight: "15px",
     paddingLeft: "15px",

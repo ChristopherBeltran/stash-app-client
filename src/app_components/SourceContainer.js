@@ -16,7 +16,7 @@ class SourceContainer extends React.Component {
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-around',
-          overflow: 'hidden',
+          overflow: 'visible',
         },
         sourceStyle: {
           padding: theme.spacing(2),
@@ -24,7 +24,7 @@ class SourceContainer extends React.Component {
           color: theme.palette.text.secondary,
         },
         gridList: {
-          width: 500,
+          width: 100,
           height: 450,
         },
       }));
@@ -34,14 +34,14 @@ class SourceContainer extends React.Component {
         const { sources, user, updateSource, deleteSource } = this.props;
         const sourceCards = sources.map((source, index) => {
             return (
-            <GridItem key={index} md={3}>
+            <GridItem key={index} xs={10} sm={4} md={4}>
             <SourceCard key={index} source={source} user={user} className={classes.sourceStyle} deleteSource={deleteSource}updateSource={updateSource}></SourceCard>
             </GridItem>
             )
             })
         return(
-            <div className={classes.root}>
-            <Grid container spacing={8} >
+            <div id="source-container">
+            <Grid container justify="space-evenly">
                 {sourceCards}
                 </Grid>
                 <ScrollUpButton color="primary"/>

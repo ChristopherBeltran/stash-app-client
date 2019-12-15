@@ -19,7 +19,7 @@ const style = {
 const SourceCard = ({ source, updateSource, deleteSource }) => {
 
       return (
-      <Card style={{width: "20rem", height: "20rem"}} >
+      <Card style={{width: "auto", height: "auto"}} justify="center">
         <CardBody>
             <Typography gutterBottom variant="h4">
                 {source.name}
