@@ -2,7 +2,7 @@
   "name": "stash-app-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "proxy": "https://the-stash-app.herokuapp.com",
   "engines": {
     "npm": "6.12.1",
     "node": "12.13.1"
