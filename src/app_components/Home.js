@@ -42,10 +42,10 @@ class Home extends React.Component {
             margin: "25px"
         }
     return (
-        <div name="home-card">
+        <div id="home-card">
         <GridContainer justify="center">
-        <GridItem xs={12} sm={12} md={4}>
-            <Card className={classes[this.state.cardAnimaton]} style={{width: "30rem"}}>
+        <GridItem xs={12} sm={8} md={4}>
+            <Card className={classes[this.state.cardAnimaton]} >
             <CardBody>
             <h2 style={typography.defaultFontStyle}>Read it. Like it. Stash it!</h2>
             <p>

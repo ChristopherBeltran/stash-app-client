@@ -19,3 +19,16 @@ code {
 #cards:hover {
   cursor: pointer;
 }
+
+#navbar-header {
+  width: 100%;
+  white-space: nowrap;
+}
+
+#home-card {  
+  display: grid;  
+  grid-gap: 5px;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+}
+
