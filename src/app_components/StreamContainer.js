@@ -26,7 +26,7 @@ class StreamContainer extends React.Component {
         const stream = this.props.stream
         const renderCards = stream.map((article, index) => {
                 return(
-                <GridItem key={index} xs={10} sm={4} md={3}>
+                <GridItem key={index} xs={10} sm={4} md={3} lg={3}>
                 <ArticleCard key={index} stream={this.props.stream} article={article} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} ></ArticleCard>
                 </GridItem>
                 )
@@ -34,10 +34,10 @@ class StreamContainer extends React.Component {
         
         return (
             <div id="stream-container">
-            {this.props.firstTimeUser ? <StreamModal resetFirstTimeUser={this.props.resetFirstTimeUser}></StreamModal> : null}
-            <Grid container justify="space-evenly" spacing={4}>
-            {renderCards}
-            </Grid>
+                <Grid container justify="space-evenly" spacing={4}>
+                    {renderCards}
+                </Grid>
+                {this.props.firstTimeUser ? <StreamModal resetFirstTimeUser={this.props.resetFirstTimeUser}></StreamModal> : null}
             </div>
         )
         } else {
