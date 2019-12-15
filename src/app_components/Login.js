@@ -19,7 +19,6 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 import { connect } from 'react-redux'
 import { updateLoginForm } from "../actions/loginForm.js"
 import { login } from "../actions/loginForm.js"
-
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 
 //import image from "images/bg7.jpg";

@@ -9,6 +9,7 @@ import sources from './reducers/sources'
 import stash from './reducers/stash'
 import firstTimeUser from './reducers/firstTimeUser'
 import articleModal from './reducers/articleModal'
+import isDesktop from './reducers/isDesktop'
 
 const reducer = combineReducers({
   signupForm,
@@ -18,7 +19,8 @@ const reducer = combineReducers({
   sources,
   stash,
   firstTimeUser,
-  articleModal
+  articleModal,
+  isDesktop
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

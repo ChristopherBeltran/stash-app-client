@@ -9,7 +9,8 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import typographyStyle from "assets/jss/material-kit-react/components/typographyStyle.jsx"
-
+import { setNonDesktop } from '../actions/isDesktop'
+import { connect } from 'react-redux'
 import { cardTitle, cardLink, cardSubtitle } from "assets/jss/material-kit-react.jsx";
 
 const style = {
@@ -34,7 +35,13 @@ class Home extends React.Component {
           }.bind(this),
           700
         );
+          if(window.innerWidth <= 784){
+            this.props.setNonDesktop()
+          }
+        
       }
+
+
       render() {
         const { classes, ...rest } = this.props;
         const typography = { typographyStyle }
@@ -66,4 +73,4 @@ class Home extends React.Component {
   }
 }
 
-export default withStyles(style)(Home);
+export default connect(null, { setNonDesktop } ) (withStyles(style)(Home));
