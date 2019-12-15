@@ -89,7 +89,7 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
   }
 
   return (
-     <Card className={classes.card} raised={true} id="cards">
+     <Card  raised={true} id="cards" style={{width: "auto", height: "auto"}} justify="center" padding={2}>
      {handleModal()}
       <CardHeader
         onClick={ e => handleClick(e) }

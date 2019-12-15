@@ -71,9 +71,9 @@ class SignupPage extends React.Component {
           //className={classes.pageHeader}
         >
           <div className={classes.container}>
-            <GridContainer justify="center">
+            <GridContainer justify="space-evenly">
               <GridItem xs={10} sm={4} md={4}>
-                <Card className={classes[this.state.cardAnimaton]} justify="center">
+                <Card className={classes[this.state.cardAnimaton]}>
                   <form className={classes.form} onSubmit={this.handleSubmit} >
                     <CardHeader color="primary" className={classes.cardHeader}>
                       <h4>Sign Up</h4>

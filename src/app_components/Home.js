@@ -43,7 +43,7 @@ class Home extends React.Component {
         }
     return (
         <div id="home-card">
-        <GridContainer justify="center">
+        <GridContainer justify="space-evenly">
         <GridItem xs={12} sm={8} md={4}>
             <Card className={classes[this.state.cardAnimaton]} >
             <CardBody>
