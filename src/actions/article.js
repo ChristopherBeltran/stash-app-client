@@ -15,7 +15,7 @@ export const createArticle = (article) => {
             }
         }
 
-        return fetch("api/v1/articles", {
+        return fetch("https://the-stash-app.herokuapp.com/api/v1/articles", {
             credentials: "include",
             method: "POST",
             headers: {

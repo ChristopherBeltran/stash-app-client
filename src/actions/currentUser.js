@@ -14,7 +14,7 @@ export const setCurrentUser = user => {
   export const logout = event => {
     return dispatch => {
       dispatch(clearCurrentUser())
-      return fetch('api/v1/logout', {
+      return fetch('https://the-stash-app.herokuapp.com/api/v1/logout', {
         credentials: "include",
         method: "DELETE"
       })
@@ -23,7 +23,7 @@ export const setCurrentUser = user => {
   
   export const getCurrentUser = () => {
     return dispatch => {
-      return fetch("api/v1/get_current_user", {
+      return fetch("https://the-stash-app.herokuapp.com/api/v1/get_current_user", {
         credentials: "include",
         method: "GET",
         headers: {
