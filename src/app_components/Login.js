@@ -63,18 +63,10 @@ class LoginPage extends React.Component {
     const loginFormData = this.props.loginFormData
     //const image = <img src={require('images/bg7.jpg')} alt='background'/>
     return (
-      <div>
-        <div
-          className={classes.pageHeader}
-          style={{
-            //backgroundImage: "url(" + image + ")",
-            backgroundSize: "cover",
-            backgroundPosition: "top center"
-          }}
-        >
+      <div id="login-page" width="auto">
           <div className={classes.container}>
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={4}>
+            <GridContainer justify="center" width="auto">
+              <GridItem xs={10} sm={4} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
                   <form className={classes.form} onSubmit={this.handleSubmit}>
                     <CardHeader color="primary" className={classes.cardHeader}>
@@ -133,7 +125,6 @@ class LoginPage extends React.Component {
             </GridContainer>
           </div>
         </div>
-      </div>
     );
   }
 }
