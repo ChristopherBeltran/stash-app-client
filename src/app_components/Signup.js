@@ -66,20 +66,14 @@ class SignupPage extends React.Component {
     const signupFormData = this.props.signupFormData
     //const image = <img src={require('images/bg7.jpg')} alt='background'/>
     return (
-      <div>
+      <div id="signup-card">
         <div
-          className={classes.pageHeader}
-          style={{
-            //backgroundImage: "url(" + image + ")",
-            backgroundSize: "cover",
-            backgroundPosition: "top center",
-            backgroundColor: "#b2ebf2"
-          }}
+          //className={classes.pageHeader}
         >
           <div className={classes.container}>
             <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={4}>
-                <Card className={classes[this.state.cardAnimaton]}>
+              <GridItem xs={10} sm={4} md={4}>
+                <Card className={classes[this.state.cardAnimaton]} justify="center">
                   <form className={classes.form} onSubmit={this.handleSubmit} >
                     <CardHeader color="primary" className={classes.cardHeader}>
                       <h4>Sign Up</h4>

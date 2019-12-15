@@ -3,7 +3,7 @@
   "name": "Stash App Final React Project",
   "icons": [
     {
-      "src": "baseline_bookmarks_white_18dp.png",
+      "snpmc": "baseline_bookmarks_white_18dp.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
