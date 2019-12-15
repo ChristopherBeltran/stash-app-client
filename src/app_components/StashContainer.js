@@ -24,14 +24,14 @@ class StashContainer extends React.Component {
         const stashArticles = this.props.stash.attributes.articles
         const renderCards = stashArticles.map((article, index) => {
             return(
-                <GridItem key={index} md={3}>
+                <GridItem key={index} xs={10} sm={4} md={3} lg={3}>
                     <ArticleCard key={index} article={article} handleRemove={this.handleRemove} stash={this.props.stash} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} ></ArticleCard>
                 </GridItem>
             )
         })
         return(
             <div>
-            <Grid container spacing={8} >
+            <Grid container justify="space-evenly" spacing={4} >
             {renderCards}
             </Grid>
             </div>
