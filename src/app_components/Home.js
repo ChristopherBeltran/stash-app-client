@@ -35,9 +35,6 @@ class Home extends React.Component {
           }.bind(this),
           700
         );
-          if(window.innerWidth <= 784){
-            this.props.setNonDesktop()
-          }
         
       }
 
@@ -73,4 +70,4 @@ class Home extends React.Component {
   }
 }
 
-export default connect(null, { setNonDesktop } ) (withStyles(style)(Home));
+export default withStyles(style)(Home);

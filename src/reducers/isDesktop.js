@@ -1,8 +1,9 @@
-export default (state = true, action) => {
+const initialState = true;
+
+export default (state = initialState, action) => {
     switch(action.type){
         case "SET_NON_DESKTOP":
-            let newState = false
-            return newState
+            return false
         default:
         return state
     }

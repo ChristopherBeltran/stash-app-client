@@ -10,11 +10,17 @@ import { getCurrentUser } from "./actions/currentUser.js"
 import StreamSetup from './app_components/StreamSetup';
 import StreamContainer from './app_components/StreamContainer'
 import StashContainer from './app_components/StashContainer'
+import { setNonDesktop } from './actions/isDesktop'
 
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.getCurrentUser()
+    this.props.getCurrentUser();
+
+    if(window.innerWidth <= 784){
+      this.props.setNonDesktop()
+    }
+
   }
 
   handleNavBar = () => {
@@ -48,4 +54,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser, setNonDesktop })(App));
