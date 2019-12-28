@@ -3,11 +3,12 @@ import Header from "components/Header/Header.jsx"
 import NavLinks from './NavLinks'
 import NavStaticLink from './NavStaticLink'
 import NavSubmit from './NavSubmit'
+import { connect } from 'react-redux'
 
 
-const NavBar = ({ loggedIn, streamUpdate }) => {
+const NavBar = ({ loggedIn, streamUpdate, isDesktop }) => {
      const linkHandler = () => {
-         if(window.location.pathname === "/stream/setup"){
+         if(window.location.pathname === "/stream/setup" && isDesktop === true){
             return(
                 <NavSubmit streamUpdate={streamUpdate}></NavSubmit>
             )

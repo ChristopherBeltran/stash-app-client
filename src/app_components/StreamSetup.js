@@ -6,6 +6,7 @@ import SourceModal from './SourceModal.js'
 import Loading from './Loading.js'
 import { addSource, removeSource, updateStream } from '../actions/stream.js'
 import NavBar from './Navbar.js'
+import NavSubmit from './NavSubmit.js'
 
 
 class StreamSetup extends React.Component {
@@ -27,14 +28,22 @@ class StreamSetup extends React.Component {
         this.props.updateStream(stream, this.props.history, this.props.user)
     }
 
+    mobileHandler = () => {
+        if(this.props.isDesktop !== true){
+            return (
+                <NavSubmit streamUpdate={this.streamUpdate}></NavSubmit>
+            )
+        }
+    }
+
     render(){
 
         if(this.props.sources != null){
         return(
             <div>
-                <NavBar streamUpdate={this.streamUpdate} loggedIn={this.props.loggedIn}></NavBar>
+                <NavBar streamUpdate={this.streamUpdate} loggedIn={this.props.loggedIn} isDesktop={this.props.isDesktop}></NavBar>
                 <SourceModal></SourceModal>
-                <SourceContainer sources={this.props.sources} user={this.props.user} deleteSource={this.deleteSource}updateSource={this.updateSource} history={this.props.history} streamUpdate={this.streamUpdate}></SourceContainer>
+                <SourceContainer mobileHandler={this.mobileHandler} sources={this.props.sources} user={this.props.user} deleteSource={this.deleteSource}updateSource={this.updateSource} history={this.props.history} streamUpdate={this.streamUpdate}></SourceContainer>
             </div>
         )
         } else {
@@ -53,7 +62,8 @@ const mapStateToProps = (state) => {
         sources: state.sources,
         user: state.currentUser,
         stream: state.stream,
-        loggedIn: !!state.currentUser
+        loggedIn: !!state.currentUser,
+        isDesktop: state.isDesktop
     }
 }
 

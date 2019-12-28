@@ -31,7 +31,7 @@ class SourceContainer extends React.Component {
 
     render(){
         const classes = this.useStyles
-        const { sources, user, updateSource, deleteSource } = this.props;
+        const { sources, user, updateSource, deleteSource, mobileHandler } = this.props;
         const sourceCards = sources.map((source, index) => {
             return (
             <GridItem key={index} xs={10} sm={4} md={4}>
@@ -42,6 +42,7 @@ class SourceContainer extends React.Component {
         return(
             <div id="source-container">
             <Grid container justify="space-evenly">
+                {mobileHandler()}
                 {sourceCards}
                 </Grid>
                 <ScrollUpButton color="primary"/>
