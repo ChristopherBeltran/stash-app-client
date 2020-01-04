@@ -101,7 +101,7 @@ export const updateStream = (stream, history, currentUser) => {
 
 export const getStream = (history, currentUser) => {
   return dispatch => {
-    return fetch("https://the-stash-app.herokuapp.com/api/v1/get_stream", {
+    return fetch(`https://the-stash-app.herokuapp.com/api/v1/get_stream/${currentUser.id}`, {
       credentials: "include",
       method: "GET",
       headers: {
