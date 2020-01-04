@@ -37,9 +37,9 @@ export const createStash = (currentUser) => {
 
 
 
-      export const getStash = () => {
+      export const getStash = (currentUser) => {
         return dispatch => {
-          return fetch("https://the-stash-app.herokuapp.com/api/v1/get_stash", {
+          return fetch(`https://the-stash-app.herokuapp.com/api/v1/get_stash/${currentUser.id}`, {
             credentials: "include",
             method: "GET",
             headers: {

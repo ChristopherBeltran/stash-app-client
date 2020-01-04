@@ -17,7 +17,7 @@ class StreamContainer extends React.Component {
 
     componentDidMount() {
         this.props.getStream()
-        this.props.getStash()
+        this.props.getStash(this.props.user)
     }
 
 

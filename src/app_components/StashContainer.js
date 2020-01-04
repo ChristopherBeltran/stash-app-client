@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 class StashContainer extends React.Component {
 
     componentDidMount(){
-        this.props.getStash()
+        this.props.getStash(this.props.user)
     }
 
     handleRemove = (article, stash) => {
@@ -52,6 +52,7 @@ class StashContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         stash: state.stash,
+        user: state.currentUser,
         articleModal: state.articleModal
     }
 }
