@@ -40,8 +40,8 @@ class App extends React.Component {
     <Route exact path='/signup' render={({history})=><SignupPage history={history}/>}/>
     <Route exact path='/login' render={({history})=><LoginPage history={history}/>}/>
     <Route exact path='/stream/setup' render={({history})=><StreamSetup history={history}/>}/>
-    <Route exact path='/stream' render={({history})=><StreamContainer history={history}/>}/>
-    <Route exact path='/stash' render={({history})=><StashContainer history={history}/>}/>
+    <Route exact path='/stream' render={({history})=><StreamContainer user={this.props.user} history={history}/>}/>
+    <Route exact path='/stash' render={({history})=><StashContainer user={this.props.user} history={history}/>}/>
     </Switch>
     </div>
   );
@@ -50,7 +50,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser,
+    user: state.currentUser
   })
 }
 

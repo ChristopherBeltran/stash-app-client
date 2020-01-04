@@ -10,8 +10,10 @@ import stash from './reducers/stash'
 import firstTimeUser from './reducers/firstTimeUser'
 import articleModal from './reducers/articleModal'
 import isDesktop from './reducers/isDesktop'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
-const reducer = combineReducers({
+const rootReducer = combineReducers({
   signupForm,
   loginForm,
   currentUser,
@@ -23,8 +25,17 @@ const reducer = combineReducers({
   isDesktop
 })
 
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+//const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
 
-const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
-
-export default store
+export default () => {
+  let store = createStore(persistedReducer, composeEnhancer(applyMiddleware(thunk)))
+  let persistor = persistStore(store)
+  return { store, persistor }
+}

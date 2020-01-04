@@ -94,7 +94,7 @@ export const createStash = (currentUser) => {
                 if (response.error) {
                     alert(response.error)
                 } else {
-                    dispatch(getStash())
+                    dispatch(getStash(currentUser))
                 }
             })
             .catch(console.log)

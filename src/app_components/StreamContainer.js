@@ -16,7 +16,7 @@ import { openArticleModal, hideArticleModal } from '../actions/article.js'
 class StreamContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getStream(this.props.history, this.props.user)
+        this.props.getStream(this.props.history,this.props.user)
         this.props.getStash(this.props.user)
     }
 
@@ -53,7 +53,7 @@ class StreamContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         stream: state.stream,
-        user: state.currentUser,
+        //user: state.currentUser,
         stash: state.stash,
         firstTimeUser: state.firstTimeUser,
         articleModal: state.articleModal
