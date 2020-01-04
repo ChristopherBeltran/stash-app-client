@@ -15,7 +15,7 @@ class StashButton extends React.Component {
     handleCLick = () => {
         if(this.state.color === 'disabled'){
             this.setState({ color: 'primary' });
-            this.props.addToStash(this.props.article, this.props.stash)
+            this.props.addToStash(this.props.article, this.props.stash, this.props.user)
         } else if(this.state.color === 'primary'){
             this.setState({ color: 'disabled' });
             let articleToRemove = this.articleSync()

@@ -59,11 +59,12 @@ export const createStash = (currentUser) => {
         }
       }
 
-
-      export const addToStash= (article, stash) => {
+//TODO: Add USER ID to request
+      export const addToStash= (article, stash, currentUser) => {
         return dispatch => {
             const formattedArticle = {
                 stash: {
+                user_id: currentUser.id,
                 article_attributes: {
                     title: article.title,
                     url: article.url,

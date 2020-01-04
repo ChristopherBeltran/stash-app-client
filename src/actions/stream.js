@@ -66,11 +66,12 @@ export const updateStreamSuccess = (stream) => {
   }
 }
 
-
+//TO-DO: ADD USER ID TO streamToSend
 export const updateStream = (stream, history, currentUser) => {
   return dispatch => {
     const streamToSend = {
       stream: {
+        user_id: currentUser.id,
       source_ids: stream.source_ids
       }
     }
