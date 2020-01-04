@@ -90,6 +90,7 @@ export const updateStream = (stream, history, currentUser) => {
            alert(resp.error)
          } else {
            dispatch(getStream(history, currentUser))
+           dispatch(createStash(currentUser))
          }
        })
        .catch(console.log)
@@ -115,7 +116,6 @@ export const getStream = (history, currentUser) => {
         alert(response.error)
       } else {
         dispatch(updateStreamSuccess(response.articles))
-        dispatch(createStash(currentUser))
         history.push('/stream')
       }
     })
