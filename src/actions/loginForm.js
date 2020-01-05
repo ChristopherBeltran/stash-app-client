@@ -1,5 +1,6 @@
 import { setCurrentUser } from './currentUser.js'
 import { getStash } from './stash.js'
+import { getStream } from './stream.js'
 
 
 
@@ -17,10 +18,10 @@ export const updateLoginForm = (formData) => {
   }
 
   export const login = (credentials, history) => {
+    return dispatch => {
       var auth_params = {auth:
         credentials
     }
-    return dispatch => {
       return fetch("https://the-stash-app.herokuapp.com/api/v1/login", {
         credentials: "include",
         method: "POST",
@@ -35,9 +36,11 @@ export const updateLoginForm = (formData) => {
           if (response.error) {
             alert(response.error)
           } else {
-            dispatch(setCurrentUser(response.data))
-            dispatch(getStash())
-            history.push('/stream')
+            let user = response.data
+            dispatch(setCurrentUser(user))
+            dispatch(getStream(history, user))
+            dispatch(getStash(user))
+            //history.push('/stash')
           }
         })
         .catch(console.log)
