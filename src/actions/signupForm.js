@@ -38,6 +38,7 @@ export const updateSignupForm = formData => {
             let user = response.data.id
             dispatch(createStream(user))
             dispatch(setFirstTimeUser())
+            dispatch(resetSignupForm())
             history.push('/stream/setup')
           }
         })

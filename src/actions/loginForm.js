@@ -40,6 +40,7 @@ export const updateLoginForm = (formData) => {
             dispatch(setCurrentUser(user))
             dispatch(getStream(history, user))
             dispatch(getStash(user))
+            dispatch(resetLoginForm())
             //history.push('/stash')
           }
         })
