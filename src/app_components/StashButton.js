@@ -12,6 +12,20 @@ class StashButton extends React.Component {
         }
     }
 
+    componentDidMount(){
+        this.streamCheck();
+    }
+
+    streamCheck = () => {
+        if(this.props.stash.attributes.articles.length > 1){
+            for(const article of this.props.stash.attributes.articles){
+                if(article.url === this.props.article.url){
+                    this.setState({ color: 'primary' })
+                }
+            }
+        }
+    }
+
     handleCLick = () => {
         if(this.state.color === 'disabled'){
             this.setState({ color: 'primary' });
@@ -38,7 +52,7 @@ class StashButton extends React.Component {
     render() {
         return (
             <div>
-               <BookmarkIcon 
+               <BookmarkIcon
                color={this.state.color}
                onClick={this.handleCLick}
                ></BookmarkIcon>     
