@@ -173,18 +173,18 @@ class SignupPage extends React.Component {
                       />
                       <CustomInput
                         labelText="Confirm Password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        value={signupFormData.confirmPassword}
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        value={signupFormData.password_confirmation}
                         onChange={this.handleFormChange}
                         formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
                           type: "password",
-                          id: "confirmPassword",
-                          name: "confirmPassword",
-                          value: signupFormData.confirmPassword,
+                          id: "password_confirmation",
+                          name: "password_confirmation",
+                          value: signupFormData.password_confirmation,
                           onChange: (event) => this.handleFormChange(event),
                           endAdornment: (
                             <InputAdornment position="end">
