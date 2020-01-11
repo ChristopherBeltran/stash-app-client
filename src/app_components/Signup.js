@@ -61,6 +61,31 @@ class SignupPage extends React.Component {
     this.props.signup(this.props.signupFormData, this.props.history)
   }
 
+  buttonHandler = () => {
+    const values = Object.values(this.props.signupFormData)
+    var blankFields = 4
+
+    for(const v of values){
+      if(v !== ""){
+        blankFields --
+      }
+    }
+
+    if(blankFields > 0){
+      return(
+        <Button default disabled={true} color="primary" size="lg" type="submit">
+        Create Account
+      </Button>
+      )
+    } else {
+      return(
+        <Button default color="primary" size="lg" type="submit">
+        Create Account
+      </Button>
+        )
+      }
+    }
+
   render() {
     const { classes, ...rest } = this.props;
     const signupFormData = this.props.signupFormData
@@ -171,9 +196,7 @@ class SignupPage extends React.Component {
                       />
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button default color="primary" size="lg" type="submit">
-                        Get started
-                      </Button>
+                        {this.buttonHandler()}
                     </CardFooter>
                   </form>
                 </Card>
