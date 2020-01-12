@@ -1,6 +1,7 @@
 import { setCurrentUser } from './currentUser.js'
 import { createStream } from './stream.js'
 import { setFirstTimeUser } from './firstTimeUser.js'
+import { addErrors } from './errors.js'
 
 export const updateSignupForm = formData => {
     return {
@@ -32,7 +33,8 @@ export const updateSignupForm = formData => {
         .then(r => r.json())
         .then(response => {
           if (response.error) {
-            alert(response.error)
+            dispatch(addErrors(response.error))
+            window.location.reload(false)
           } else {
             dispatch(setCurrentUser(response.data))
             let user = response.data.id

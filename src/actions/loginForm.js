@@ -1,6 +1,8 @@
 import { setCurrentUser } from './currentUser.js'
 import { getStash } from './stash.js'
 import { getStream } from './stream.js'
+import { addErrors } from './errors.js'
+
 
 
 
@@ -34,7 +36,8 @@ export const updateLoginForm = (formData) => {
         .then(r => r.json())
         .then(response => {
           if (response.error) {
-            alert(response.error)
+            dispatch(addErrors(response.error))
+            window.location.reload(false)
           } else {
             let user = response.data
             dispatch(setCurrentUser(user))
