@@ -22,6 +22,7 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 import { connect } from 'react-redux'
 import { updateSignupForm } from "../actions/signupForm.js"
 import { signup } from "../actions/signupForm.js"
+import ErrorNotifications from "./ErrorNotifications.js"
 
 
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
@@ -43,7 +44,7 @@ class SignupPage extends React.Component {
       function() {
         this.setState({ cardAnimaton: "" });
       }.bind(this),
-      700
+      100
     );
   }
 
@@ -61,16 +62,48 @@ class SignupPage extends React.Component {
     this.props.signup(this.props.signupFormData, this.props.history)
   }
 
+  buttonHandler = () => {
+    const values = Object.values(this.props.signupFormData)
+    var blankFields = 4
+
+    for(const v of values){
+      if(v !== ""){
+        blankFields --
+      }
+    }
+
+    if(blankFields > 0){
+      return(
+        <Button default disabled={true} color="primary" size="lg" type="submit">
+        Create Account
+      </Button>
+      )
+    } else {
+      return(
+        <Button default color="primary" size="lg" type="submit">
+        Create Account
+      </Button>
+        )
+      }
+    }
+
+    errorHandler = () => {
+      if(this.props.errors !== null && this.props.errors.length >= 1){
+        return(
+          <ErrorNotifications errors={this.props.errors}></ErrorNotifications>
+        )
+      }
+    }
+
   render() {
     const { classes, ...rest } = this.props;
     const signupFormData = this.props.signupFormData
+    const errors = this.props.errors
     //const image = <img src={require('images/bg7.jpg')} alt='background'/>
     return (
       <div id="signup-card">
-        <div
-          //className={classes.pageHeader}
-        >
           <div className={classes.container}>
+          {this.errorHandler()}
             <GridContainer justify="space-evenly">
               <GridItem xs={10} sm={4} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
@@ -148,18 +181,18 @@ class SignupPage extends React.Component {
                       />
                       <CustomInput
                         labelText="Confirm Password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        value={signupFormData.confirmPassword}
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        value={signupFormData.password_confirmation}
                         onChange={this.handleFormChange}
                         formControlProps={{
                           fullWidth: true
                         }}
                         inputProps={{
                           type: "password",
-                          id: "confirmPassword",
-                          name: "confirmPassword",
-                          value: signupFormData.confirmPassword,
+                          id: "password_confirmation",
+                          name: "password_confirmation",
+                          value: signupFormData.password_confirmation,
                           onChange: (event) => this.handleFormChange(event),
                           endAdornment: (
                             <InputAdornment position="end">
@@ -171,9 +204,7 @@ class SignupPage extends React.Component {
                       />
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button default color="primary" size="lg" type="submit">
-                        Get started
-                      </Button>
+                        {this.buttonHandler()}
                     </CardFooter>
                   </form>
                 </Card>
@@ -181,7 +212,6 @@ class SignupPage extends React.Component {
             </GridContainer>
           </div>
         </div>
-      </div>
     );
   }
 }
@@ -192,7 +222,8 @@ SignupPage.propTypes = {
 
 const mapStateToProps = state => {
     return {
-      signupFormData: state.signupForm
+      signupFormData: state.signupForm,
+      errors: state.errors
     }
   }
 

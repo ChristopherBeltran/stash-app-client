@@ -20,6 +20,7 @@ import { connect } from 'react-redux'
 import { updateLoginForm } from "../actions/loginForm.js"
 import { login } from "../actions/loginForm.js"
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
+import ErrorNotifications from "./ErrorNotifications.js"
 
 //import image from "images/bg7.jpg";
 
@@ -37,7 +38,7 @@ class LoginPage extends React.Component {
       function() {
         this.setState({ cardAnimaton: "" });
       }.bind(this),
-      700
+      100
     );
   }
 
@@ -55,6 +56,39 @@ class LoginPage extends React.Component {
     this.props.login(this.props.loginFormData, this.props.history)
   }
 
+  buttonHandler = () => {
+    const values = Object.values(this.props.loginFormData)
+    var blankFields = 2
+
+    for(const v of values){
+      if(v !== ""){
+        blankFields --
+      }
+    }
+
+    if(blankFields > 0){
+      return(
+        <Button default disabled={true} color="primary" size="lg" type="submit">
+        Log In
+      </Button>
+      )
+    } else {
+      return(
+        <Button default color="primary" size="lg" type="submit">
+        Log In
+      </Button>
+        )
+      }
+    }
+
+    errorHandler = () => {
+      if(this.props.errors.length >= 1){
+        return(
+          <ErrorNotifications errors={this.props.errors}></ErrorNotifications>
+        )
+      }
+    }
+
 
 
   render() {
@@ -64,6 +98,7 @@ class LoginPage extends React.Component {
     return (
       <div id="login-page" width="auto">
           <div className={classes.container}>
+          {this.errorHandler()}
             <GridContainer justify="center" width="auto">
               <GridItem xs={10} sm={4} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
@@ -114,9 +149,7 @@ class LoginPage extends React.Component {
                       />
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button default color="primary" size="lg" type="submit" >
-                        Submit
-                      </Button>
+                      {this.buttonHandler()}
                     </CardFooter>
                   </form>
                 </Card>
@@ -134,7 +167,8 @@ LoginPage.propTypes = {
 
 const mapStateToProps = state => {
     return {
-      loginFormData: state.loginForm
+      loginFormData: state.loginForm,
+      errors: state.errors
     }
   }
 

@@ -3,7 +3,7 @@ const initialState = {
     name: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    password_confirmation: ""
     }
   
   export default (state=initialState, action) => {
