@@ -20,7 +20,7 @@ class StashContainer extends React.Component {
 
 
     render() {
-        if(this.props.stash != null){
+        if(this.props.stash != null && this.props.stash.attributes.articles.length >= 1){
         const stashArticles = this.props.stash.attributes.articles
         const renderCards = stashArticles.map((article, index) => {
             return(

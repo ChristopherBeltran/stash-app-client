@@ -17,7 +17,7 @@ class StashButton extends React.Component {
     }
 
     streamCheck = () => {
-        if(this.props.stash.attributes.articles.length > 1){
+        if(this.props.stash.attributes.articles !== null && this.props.stash.attributes.articles.length > 1){
             for(const article of this.props.stash.attributes.articles){
                 if(article.url === this.props.article.url){
                     this.setState({ color: 'primary' })
