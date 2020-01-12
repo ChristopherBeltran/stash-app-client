@@ -6,11 +6,11 @@ import NavSubmit from './NavSubmit'
 import { connect } from 'react-redux'
 
 
-const NavBar = ({ loggedIn, streamUpdate, isDesktop }) => {
+const NavBar = ({ loggedIn, streamUpdate, isDesktop, stream }) => {
      const linkHandler = () => {
          if(window.location.pathname === "/stream/setup" && isDesktop === true){
             return(
-                <NavSubmit streamUpdate={streamUpdate}></NavSubmit>
+                <NavSubmit stream={stream} streamUpdate={streamUpdate}></NavSubmit>
             )
          }
         else if(loggedIn && window.location.pathname !== "/stream/setup"){

@@ -14,15 +14,25 @@ import headerLinksStyle from "assets/jss/material-kit-react/components/headerLin
 function NavSubmit({ ...props }) {
   const { classes } = props;
   const { streamUpdate } = props;
+  const { stream } = props;
   const handleSubmit = (event) => {
     event.preventDefault();
     streamUpdate()
+  }
+
+  var submitButton = ''
+  if(stream.source_ids !== null && stream.source_ids !== undefined){
+    if(stream.source_ids.length > 0){
+      submitButton = <Button color="primary" size="lg" block={true} type="submit">Create Stream</Button>
+    } else {
+      submitButton = <Button disabled={true} color="primary" size="lg" block={true} type="submit">Create Stream</Button>
+    }
   }
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
       <form onSubmit={handleSubmit} >
-                <Button color="primary" size="lg" block={true} type="submit">Create Stream</Button>
+        {submitButton}
                 </form>
       </ListItem>
     </List>

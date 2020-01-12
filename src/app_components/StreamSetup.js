@@ -31,7 +31,7 @@ class StreamSetup extends React.Component {
     mobileHandler = () => {
         if(this.props.isDesktop !== true){
             return (
-                <NavSubmit streamUpdate={this.streamUpdate}></NavSubmit>
+                <NavSubmit stream={this.props.stream} streamUpdate={this.streamUpdate}></NavSubmit>
             )
         }
     }
@@ -41,7 +41,7 @@ class StreamSetup extends React.Component {
         if(this.props.sources != null){
         return(
             <div>
-                <NavBar streamUpdate={this.streamUpdate} loggedIn={this.props.loggedIn} isDesktop={this.props.isDesktop}></NavBar>
+                <NavBar stream={this.props.stream} streamUpdate={this.streamUpdate} loggedIn={this.props.loggedIn} isDesktop={this.props.isDesktop}></NavBar>
                 <SourceModal></SourceModal>
                 <SourceContainer mobileHandler={this.mobileHandler} sources={this.props.sources} user={this.props.user} deleteSource={this.deleteSource}updateSource={this.updateSource} history={this.props.history} streamUpdate={this.streamUpdate}></SourceContainer>
             </div>
