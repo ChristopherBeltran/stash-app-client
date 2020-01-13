@@ -22,17 +22,19 @@ code {
 
 #navbar-header {
   width: 100%;
-  white-space: nowrap;
+  
 }
 
-#home-card {  
+#home-card {
+  padding-top: 55px;  
   display: grid;  
   grid-gap: 5px;  
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: repeat(2, 100px);  
 }
 
-#signup-card {  
+#signup-card {
+  padding-top: 55px;   
   display: grid;  
   grid-gap: 5px;  
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -40,6 +42,7 @@ code {
 }
 
 #login-page {
+  padding-top: 55px; 
   display: grid;  
   grid-gap: 5px;  
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -47,10 +50,26 @@ code {
 }
 
 #source-container {
+  padding-top: 55px; 
   display: grid;  
   grid-gap: 5px;  
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: repeat(2, 100px);  
+}
+
+#stream-container {
+  padding-top: 100px;
+    display: grid;
+    padding-left: 15px;
+    padding-right: 15px;  
+}
+
+#stash-container {
+  padding-top: 100px;
+  display: grid;
+  padding-left: 15px;
+  padding-right: 15px; 
+
 }
 
 

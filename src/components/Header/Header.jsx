@@ -90,7 +90,7 @@ class Header extends React.Component {
     });
     const brandComponent = <Button className={classes.title} justify="center" >{brand}</Button>;
     return (
-      <AppBar className={appBarClasses}>
+      <AppBar position="fixed" className={appBarClasses}>
         <Toolbar className={classes.container}>
           {leftLinks !== undefined ? brandComponent : null}
           <div className={classes.flex}>

@@ -30,7 +30,7 @@ class StashContainer extends React.Component {
             )
         })
         return(
-            <div>
+            <div id='stash-container'>
             <Grid container justify="space-evenly" spacing={4} >
             {renderCards}
             </Grid>
