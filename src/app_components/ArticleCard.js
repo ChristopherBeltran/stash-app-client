@@ -14,6 +14,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import Tooltip from '@material-ui/core/Tooltip';
 import ArticleModal from './ArticleModal.js'
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import InsertPhotoOutlined from '@material-ui/icons/InsertPhotoOutlined';
 
 
 const moment = require('moment');
@@ -83,7 +84,8 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
       return(
         <CardMedia
         className={classes.media}
-        image=""
+        image='none'
+        src='none'
         onClick={ e => handleClick(e) }
         />
       )

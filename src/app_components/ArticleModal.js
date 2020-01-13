@@ -30,8 +30,10 @@ class ArticleModal extends React.Component{
     }
 
     const contentFormat = () => {
+      if(article.content !== null){
       let formattedContent = article.content.replace(/ *\[[^\]]*]/, '')
       return formattedContent
+      }
     }
     return (
       <div id="article-modal" name="article-modal">
