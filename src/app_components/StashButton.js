@@ -8,7 +8,7 @@ class StashButton extends React.Component {
     constructor() {
         super();
         this.state = {
-            color: 'disabled'
+            htmlColor: '#bcbcc2'
         }
     }
 
@@ -20,18 +20,18 @@ class StashButton extends React.Component {
         if(this.props.stash.attributes.articles !== null && this.props.stash.attributes.articles.length > 1){
             for(const article of this.props.stash.attributes.articles){
                 if(article.url === this.props.article.url){
-                    this.setState({ color: 'primary' })
+                    this.setState({ htmlColor: '#9c27b0' })
                 }
             }
         }
     }
 
     handleCLick = () => {
-        if(this.state.color === 'disabled'){
-            this.setState({ color: 'primary' });
+        if(this.state.htmlColor === '#bcbcc2'){
+            this.setState({ htmlColor: '#9c27b0' });
             this.props.addToStash(this.props.article, this.props.stash, this.props.user)
-        } else if(this.state.color === 'primary'){
-            this.setState({ color: 'disabled' });
+        } else if(this.state.htmlColor === '#9c27b0'){
+            this.setState({ htmlColor: '#bcbcc2' });
             let articleToRemove = this.articleSync()
             this.props.removeFromStash(articleToRemove, this.props.stash)
         }
@@ -53,7 +53,7 @@ class StashButton extends React.Component {
         return (
             <div>
                <BookmarkIcon
-               color={this.state.color}
+               htmlColor={this.state.htmlColor}
                onClick={this.handleCLick}
                ></BookmarkIcon>     
             </div>

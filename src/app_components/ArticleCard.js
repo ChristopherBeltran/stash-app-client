@@ -13,6 +13,8 @@ import Button from 'components/CustomButtons/Button.jsx';
 import RemoveIcon from '@material-ui/icons/Remove';
 import Tooltip from '@material-ui/core/Tooltip';
 import ArticleModal from './ArticleModal.js'
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+
 
 const moment = require('moment');
 
@@ -114,7 +116,7 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
         :
         <CardActions >
         <Tooltip title="Remove From Stash" aria-label="remove" placement="right-end">
-        <Button justIcon round color="danger" size="sm" align="left" onClick={handleButtonClick}><RemoveIcon></RemoveIcon></Button>
+        <Button justIcon round color="danger" size="sm" align="left" onClick={handleButtonClick}><DeleteOutlinedIcon></DeleteOutlinedIcon></Button>
         </Tooltip>
         </CardActions>}
     </Card>
