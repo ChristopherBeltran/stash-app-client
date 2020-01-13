@@ -1,7 +1,7 @@
 import { setCurrentUser } from './currentUser.js'
 import { createStream } from './stream.js'
 import { setFirstTimeUser } from './firstTimeUser.js'
-import { addErrors } from './errors.js'
+import { addErrors, removeErrors } from './errors.js'
 
 export const updateSignupForm = formData => {
     return {
@@ -21,7 +21,7 @@ export const updateSignupForm = formData => {
       const userInfo = {
         user: credentials
       }
-      return fetch("https://the-stash-app.herokuapp.com/api/v1/signup", {
+      return fetch("http://localhost:3000/api/v1/signup", {
         credentials: "include",
         method: "POST",
         headers: {
@@ -41,6 +41,7 @@ export const updateSignupForm = formData => {
             dispatch(createStream(user))
             dispatch(setFirstTimeUser())
             dispatch(resetSignupForm())
+            dispatch(removeErrors());
             history.push('/stream/setup')
           }
         })

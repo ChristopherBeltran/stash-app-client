@@ -82,11 +82,13 @@ class LoginPage extends React.Component {
     }
 
     errorHandler = () => {
+      if(this.props.errors !== null){
       if(this.props.errors.length >= 1){
         return(
           <ErrorNotifications errors={this.props.errors}></ErrorNotifications>
         )
       }
+    }
     }
 
 

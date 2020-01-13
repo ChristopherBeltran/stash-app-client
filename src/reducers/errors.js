@@ -3,7 +3,7 @@ export default (state = null, action) => {
         case "ADD_ERRORS":
             return action.parsedErrors
         case "REMOVE_ERRORS":
-            return state;
+            return '';
         default:
             return state;
     }
