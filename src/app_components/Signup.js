@@ -102,7 +102,7 @@ class SignupPage extends React.Component {
     //const image = <img src={require('images/bg7.jpg')} alt='background'/>
     return (
       <div id="signup-card">
-          <div className={classes.container}>
+          <div id="signup-container" className={classes.container}>
           {this.errorHandler()}
             <GridContainer justify="space-evenly">
               <GridItem xs={10} sm={4} md={4}>

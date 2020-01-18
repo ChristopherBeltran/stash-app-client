@@ -99,7 +99,7 @@ class LoginPage extends React.Component {
     //const image = <img src={require('images/bg7.jpg')} alt='background'/>
     return (
       <div id="login-page" width="auto">
-          <div className={classes.container}>
+          <div id="login-container" className={classes.container}>
           {this.errorHandler()}
             <GridContainer justify="center" width="auto">
               <GridItem xs={10} sm={4} md={4}>
