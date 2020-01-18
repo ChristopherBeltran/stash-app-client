@@ -26,7 +26,7 @@ code {
 }
 
 #home-card {
-  padding-top: 55px;  
+  padding-top: 100px;  
   display: grid;  
   grid-gap: 5px;  
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -50,7 +50,7 @@ code {
 }
 
 #source-container {
-  padding-top: 55px; 
+  padding-top: 100px; 
   display: grid;  
   grid-gap: 5px;  
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));

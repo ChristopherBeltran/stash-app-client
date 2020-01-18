@@ -14,7 +14,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import Tooltip from '@material-ui/core/Tooltip';
 import ArticleModal from './ArticleModal.js'
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
-import InsertPhotoOutlined from '@material-ui/icons/InsertPhotoOutlined';
+import newspaperIcon from '../newspaper-icon.png'
 
 
 const moment = require('moment');
@@ -71,7 +71,7 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
   }
 
   const imageHandler = (article) => {
-    if (article.urlToImage !== "" || null){
+    if (article.urlToImage !== "" && article.urlToImage !== "null" && article.urlToImage !== null){
       return(
         <CardMedia
         className={classes.media}
@@ -84,7 +84,7 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
       return(
         <CardMedia
         className={classes.media}
-        image='none'
+        image={newspaperIcon}
         src='none'
         onClick={ e => handleClick(e) }
         />
