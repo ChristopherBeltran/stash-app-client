@@ -39,6 +39,10 @@ code {
   justify-content: center;
 }
 
+#home-card-text {
+  line-height: 1.7;
+}
+
 #signup-card {
   padding-top: 55px;
   width: -webkit-fill-available;   
