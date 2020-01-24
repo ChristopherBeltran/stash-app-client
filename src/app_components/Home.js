@@ -14,8 +14,6 @@ import { connect } from 'react-redux'
 import { cardTitle, cardLink, cardSubtitle } from "assets/jss/material-kit-react.jsx";
 import LocalLibrary from "@material-ui/icons/LocalLibrarySharp";
 
-import HomeInfoArea from "./HomeInfoArea.js"
-
 const style = {
   cardTitle,
   cardLink,

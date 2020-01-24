@@ -67,10 +67,9 @@ class StreamModal extends React.Component{
             id="modal-slide-description"
             className={classes.modalBody}>
             <h5 align="center">Articles from all your favorite news sources will populate right here.</h5>
-            <br></br>
             <h5 align="center">Click on any article to read a preview.</h5>
-            <br></br>
-            <h5 align="center">We've also created a Stash for you where you can view all of your saved articles. Add any article to your Stash with <BookmarkIcon></BookmarkIcon></h5>
+            <h5 align="center">We've also created a Stash for you where you can view all of your saved articles.</h5>
+            <h5 align="center">Add any article to your Stash with <BookmarkIcon htmlColor='#9c27b0'></BookmarkIcon></h5>
           </DialogContent>
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>

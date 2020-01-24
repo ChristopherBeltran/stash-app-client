@@ -11,6 +11,7 @@ import { resetFirstTimeUser } from '../actions/firstTimeUser.js'
 import { getStash } from '../actions/stash.js'
 import ArticleModal from './ArticleModal'
 import { openArticleModal, hideArticleModal } from '../actions/article.js'
+import ScrollUpButton from "react-scroll-up-button";
 
 
 class StreamContainer extends React.Component {
@@ -38,6 +39,7 @@ class StreamContainer extends React.Component {
                     {renderCards}
                 </Grid>
                 {this.props.firstTimeUser ? <StreamModal resetFirstTimeUser={this.props.resetFirstTimeUser}></StreamModal> : null}
+                <ScrollUpButton color="primary"/>
             </div>
         )
         } else {
