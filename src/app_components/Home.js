@@ -12,6 +12,7 @@ import typographyStyle from "assets/jss/material-kit-react/components/typography
 import { setNonDesktop } from '../actions/isDesktop'
 import { connect } from 'react-redux'
 import { cardTitle, cardLink, cardSubtitle } from "assets/jss/material-kit-react.jsx";
+import LocalLibrary from "@material-ui/icons/LocalLibrarySharp";
 
 const style = {
   cardTitle,
@@ -49,12 +50,17 @@ class Home extends React.Component {
         <div id="home-card">
         <GridContainer justify="space-evenly">
         <GridItem xs={12} sm={8} md={4}>
+        <Card classname={classes[this.state.cardAnimaton]} >
+          <CardBody>
+          <h2 style={typography.defaultFontStyle}>News By You</h2><LocalLibrary htmlColor='#9c27b0' style={{ width: '3em', height: '3em' }}></LocalLibrary>
+          <h3 id="home-card-text">With over 50 of the top news sources to choose from, Stash App allows you to curate your own news stream and save all of your favorite articles.</h3>
+          </CardBody>
+        </Card>
+        </GridItem>
+        <GridItem xs={12} sm={8} md={4}>
             <Card className={classes[this.state.cardAnimaton]} >
             <CardBody>
-            <h2 style={typography.defaultFontStyle}>Read it. Like it. Stash it!</h2>
-            <p>
-                Sign up or log in below.
-            </p>
+            <h2 style={typography.defaultFontStyle}>Sign Up or Log In below.</h2>
             <Button default color="primary" size="lg" style={padding} href="/signup">
                         Sign Up
             </Button>

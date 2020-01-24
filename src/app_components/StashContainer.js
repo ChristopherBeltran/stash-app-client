@@ -7,6 +7,7 @@ import ArticleCard from './ArticleCard.js'
 import Loading from './Loading.js'
 import { openArticleModal, hideArticleModal } from '../actions/article.js'
 import { Link } from 'react-router-dom'
+import ScrollUpButton from "react-scroll-up-button";
 
 class StashContainer extends React.Component {
 
@@ -34,6 +35,7 @@ class StashContainer extends React.Component {
             <Grid container justify="space-evenly" spacing={4} >
             {renderCards}
             </Grid>
+            <ScrollUpButton color="primary"/>
             </div>
         )
         } else {
