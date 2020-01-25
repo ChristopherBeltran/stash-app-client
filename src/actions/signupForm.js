@@ -21,7 +21,7 @@ export const updateSignupForm = formData => {
       const userInfo = {
         user: credentials
       }
-      return fetch(" https://the-stash-app.herokuapp.com/api/v1/signup", {
+      return fetch("https://the-stash-app.herokuapp.com/api/v1/signup", {
         credentials: "include",
         method: "POST",
         headers: {

@@ -21,6 +21,8 @@ import { updateLoginForm } from "../actions/loginForm.js"
 import { login } from "../actions/loginForm.js"
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 import ErrorNotifications from "./ErrorNotifications.js"
+import { removeErrors } from "../actions/errors.js"
+
 
 //import image from "images/bg7.jpg";
 
@@ -84,6 +86,7 @@ class LoginPage extends React.Component {
     errorHandler = () => {
       if(this.props.errors !== null){
       if(this.props.errors.length >= 1){
+        setTimeout(() => { this.props.removeErrors(); }, 5000);
         return(
           <ErrorNotifications errors={this.props.errors}></ErrorNotifications>
         )
@@ -174,4 +177,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps, { updateLoginForm, login } ) (withStyles(loginPageStyle)(LoginPage))
+export default connect(mapStateToProps, { updateLoginForm, login, removeErrors } ) (withStyles(loginPageStyle)(LoginPage))

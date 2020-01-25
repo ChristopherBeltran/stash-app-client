@@ -23,6 +23,7 @@ import { connect } from 'react-redux'
 import { updateSignupForm } from "../actions/signupForm.js"
 import { signup } from "../actions/signupForm.js"
 import ErrorNotifications from "./ErrorNotifications.js"
+import { removeErrors } from "../actions/errors.js"
 
 
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
@@ -89,6 +90,8 @@ class SignupPage extends React.Component {
 
     errorHandler = () => {
       if(this.props.errors !== null && this.props.errors.length >= 1){
+        
+        setTimeout(() => { this.props.removeErrors(); }, 5000);
         return(
           <ErrorNotifications errors={this.props.errors}></ErrorNotifications>
         )
@@ -227,4 +230,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps, { updateSignupForm, signup } ) (withStyles(loginPageStyle) (SignupPage))
+export default connect(mapStateToProps, { updateSignupForm, signup, removeErrors } ) (withStyles(loginPageStyle) (SignupPage))
