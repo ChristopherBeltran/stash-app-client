@@ -38,7 +38,7 @@ class App extends React.Component {
     {this.handleNavBar()}
     <Switch>
     <Route exact path='/' render={({history})=><Home history={history}/>}/>
-    <Route exact path='/resetpassword' render={({history})=><ResetPassword history={history}/>}/>
+    <Route exact path='/resetpassword/:id' render={({history, match})=><ResetPassword history={history} match={match}/>}/>
     <Route exact path='/signup' render={({history})=><SignupPage history={history}/>}/>
     <Route exact path='/login' render={({history})=><LoginPage history={history}/>}/>
     <Route exact path='/stream/setup' render={({history})=><StreamSetup history={history}/>}/>

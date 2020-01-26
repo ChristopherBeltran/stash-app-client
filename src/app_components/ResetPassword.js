@@ -2,8 +2,13 @@ import React from "react";
 
 class ResetPassword extends React.Component {
 
-    render(){
-        <h1>Reset Password Stuff</h1>
+    render() {
+        debugger;
+        return(
+        <div>
+        Reset Password Stuff
+        </div>
+        )
     }
 }
 
