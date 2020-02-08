@@ -13,6 +13,7 @@ import isDesktop from './reducers/isDesktop'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import errors from './reducers/errors'
+import forgotPasswordForm from './reducers/forgotPasswordForm'
 
 const rootReducer = combineReducers({
   signupForm,
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
   firstTimeUser,
   articleModal,
   isDesktop,
-  errors
+  errors,
+  forgotPasswordForm
 })
 
 const persistConfig = {
