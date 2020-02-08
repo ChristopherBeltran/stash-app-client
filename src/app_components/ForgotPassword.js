@@ -19,7 +19,7 @@ import { connect } from 'react-redux'
 import { updateForgotPasswordForm, resetForgotPasswordForm } from "../actions/forgotPassword.js"
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 import ErrorNotifications from "./ErrorNotifications.js"
-import { removeErrors } from "../actions/errors.js"
+import { addErrors, removeErrors } from "../actions/errors.js"
 import { Link } from 'react-router-dom'
 
 
@@ -51,9 +51,37 @@ class ForgotPassword extends React.Component {
     this.props.updateForgotPasswordForm(updatedFormInfo)
   }
 
+  forgotPasswordReq = async () => {
+      const auth_params = {
+          email: this.props.forgotPasswordFormData.email
+      }
+      const settings = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
+        },
+        body: JSON.stringify(auth_params)
+        }
+
+        try {
+            const fetchResponse = await fetch(`http://localhost:3000/api/v1/password_resets`, settings);
+            const data = await fetchResponse.json();
+            if(data.reset){
+                this.props.addErrors(data);
+                this.forceUpdate();
+            } else {
+                console.log('success')
+            }
+        } catch(error) {
+
+        }
+
+    }
+
   handleSubmit = event => {
     event.preventDefault()
-    //TODO: Add Fetch request to forgot password endpoint with email
+    this.forgotPasswordReq();
   }
 
   buttonHandler = () => {
@@ -155,4 +183,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps, { updateForgotPasswordForm, resetForgotPasswordForm, removeErrors } ) (withStyles(loginPageStyle)(ForgotPassword))
+export default connect(mapStateToProps, { updateForgotPasswordForm, resetForgotPasswordForm, addErrors, removeErrors } ) (withStyles(loginPageStyle)(ForgotPassword))

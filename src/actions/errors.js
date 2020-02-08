@@ -6,6 +6,8 @@ export const addErrors = (errors) => {
         parsedErrors.push('Password must be at least 8 characters. Please try again.')
     } else if(errors.hasOwnProperty('password_confirmation')){
         parsedErrors.push('Passwords do not match.  Please try again.')
+    } else if(errors.hasOwnProperty('reset')){
+        parsedErrors.push('No email associated with that account.  Try another email or sign up for new account.')
     } else {
         parsedErrors.push(errors)
     }
