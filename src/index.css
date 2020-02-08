@@ -78,6 +78,7 @@ code {
 }
 
 #stream-container {
+  width: -webkit-fill-available;
   padding-top: 100px;
     display: grid;
     padding-left: 15px;
@@ -85,11 +86,23 @@ code {
 }
 
 #stash-container {
+  width: -webkit-fill-available;
   padding-top: 100px;
   display: grid;
   padding-left: 15px;
   padding-right: 15px; 
 
+}
+
+#forgot-div {
+  padding-bottom: 15px;
+}
+
+#forgot-link {
+  padding: 15px;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 

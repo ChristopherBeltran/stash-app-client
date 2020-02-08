@@ -22,6 +22,7 @@ import { login } from "../actions/loginForm.js"
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 import ErrorNotifications from "./ErrorNotifications.js"
 import { removeErrors } from "../actions/errors.js"
+import { Link } from 'react-router-dom'
 
 
 //import image from "images/bg7.jpg";
@@ -154,8 +155,11 @@ class LoginPage extends React.Component {
                       />
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      {this.buttonHandler()}
+                      {this.buttonHandler()}                      
                     </CardFooter>
+                    <div id="forgot-div">
+                    <Link to='/forgotpassword' id="forgot-link">Forgot Password?</Link>
+                    </div>
                   </form>
                 </Card>
               </GridItem>

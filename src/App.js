@@ -12,7 +12,7 @@ import StreamContainer from './app_components/StreamContainer'
 import StashContainer from './app_components/StashContainer'
 import { setNonDesktop } from './actions/isDesktop'
 import ResetPassword from './app_components/ResetPassword';
-
+import ForgotPassword from './app_components/ForgotPassword'
 class App extends React.Component {
 
   componentDidMount() {
