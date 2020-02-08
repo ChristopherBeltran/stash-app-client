@@ -5,7 +5,7 @@ export const updateForgotPasswordForm = (formData) => {
     }
   }
   
-  export const resetLoginForm = () => {
+  export const resetForgotPasswordForm = () => {
     return {
       type: "RESET_FORGOT_PASSWORD_FORM"
     }

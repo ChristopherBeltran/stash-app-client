@@ -53,6 +53,16 @@ code {
   grid-template-rows: repeat(2, 100px);  
 }
 
+#forgot-password-page {
+  padding-top: 55px;
+  width: -webkit-fill-available;   
+  display: grid;  
+  grid-gap: 5px;
+  justify-content: center;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+}
+
 #signup-container {
   width: -webkit-fill-available;
 }
