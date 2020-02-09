@@ -40,7 +40,8 @@ code {
 }
 
 #password-sent-card {
-  padding-top: 100px;  
+  padding-top: 100px;
+  width: -webkit-fill-available;     
   display: grid;  
   grid-gap: 5px;  
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -105,6 +106,11 @@ code {
 
 #reset-password-container {
   width: -webkit-fill-available;
+}
+
+#reset-success-card {
+  width: -webkit-fill-available;   
+
 }
 
 #login-page {
