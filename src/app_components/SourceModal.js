@@ -11,8 +11,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Close from "@material-ui/icons/Close";
 // core components
 import Button from "components/CustomButtons/Button.jsx";
-
+import Switch from "@material-ui/core/Switch";
 import modalStyle from "assets/jss/material-kit-react/modalStyle.jsx";
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -58,12 +59,17 @@ class SourceModal extends React.Component{
               onClick={() => this.handleClose("modal")}>
               <Close className={classes.modalClose} />
             </IconButton>
-            <h4 className={classes.modalTitle} align="center">Choose News Sources</h4>
+            <h4 className={classes.modalTitle} align="center">Create Your Stream</h4>
+
           </DialogTitle>
           <DialogContent
             id="modal-slide-description"
             className={classes.modalBody}>
-            <h5>Choose all the sources you would like to see populate your news stream, then click Create Stream</h5>
+            <p>Step 1:</p>
+            <p font-weight='bold'><Switch></Switch>CHOOSE YOUR NEWS!
+            <br></br>
+            <p>Step 2:</p>
+            <Button color="primary" size="sm" block={true}>Create Stream</Button></p>
           </DialogContent>
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
