@@ -26,7 +26,7 @@ class ArticleModal extends React.Component{
     const { articleModal, hideArticleModal } = this.props;
 
     const handleClose = () => {
-      hideArticleModal()
+      hideArticleModal();
     }
 
     const contentFormat = () => {

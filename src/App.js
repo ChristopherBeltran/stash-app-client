@@ -14,6 +14,7 @@ import { setNonDesktop } from './actions/isDesktop'
 import ResetPassword from './app_components/ResetPassword';
 import ForgotPassword from './app_components/ForgotPassword'
 import PasswordSent from './app_components/passwordSent'
+import ResetSuccess from './app_components/resetSuccess'
 
 class App extends React.Component {
 
@@ -43,6 +44,7 @@ class App extends React.Component {
     <Route exact path='/forgotpassword' render={({history})=><ForgotPassword history={history}/>}/>
     <Route exact path='/passwordsent' render={({history})=><PasswordSent history={history}/>}/>
     <Route exact path='/resetpassword/:id' render={({history, match})=><ResetPassword history={history} match={match}/>}/>
+    <Route exact path='/resetsuccess' render={({history})=><ResetSuccess history={history}/>}/>
     <Route exact path='/signup' render={({history})=><SignupPage history={history}/>}/>
     <Route exact path='/login' render={({history})=><LoginPage history={history}/>}/>
     <Route exact path='/stream/setup' render={({history})=><StreamSetup history={history}/>}/>

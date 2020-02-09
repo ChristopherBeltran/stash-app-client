@@ -8,6 +8,8 @@ export const addErrors = (errors) => {
         parsedErrors.push('Passwords do not match.  Please try again.')
     } else if(errors.hasOwnProperty('reset')){
         parsedErrors.push('No email associated with that account.  Try another email or sign up for new account.')
+    } else if(errors.hasOwnProperty('error')){
+        parsedErrors.push('Password invalid, try again.')
     } else {
         parsedErrors.push(errors)
     }
