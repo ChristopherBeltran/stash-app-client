@@ -39,6 +39,15 @@ code {
   justify-content: center;
 }
 
+#password-sent-card {
+  padding-top: 100px;  
+  display: grid;  
+  grid-gap: 5px;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+  justify-content: center;
+}
+
 #home-card-text {
   line-height: 1.7;
 }

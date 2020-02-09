@@ -71,7 +71,7 @@ class ForgotPassword extends React.Component {
                 this.props.addErrors(data);
                 this.forceUpdate();
             } else {
-                console.log('success')
+                this.props.history.push('/passwordsent')
             }
         } catch(error) {
 

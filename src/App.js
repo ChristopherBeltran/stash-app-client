@@ -13,6 +13,8 @@ import StashContainer from './app_components/StashContainer'
 import { setNonDesktop } from './actions/isDesktop'
 import ResetPassword from './app_components/ResetPassword';
 import ForgotPassword from './app_components/ForgotPassword'
+import PasswordSent from './app_components/passwordSent'
+
 class App extends React.Component {
 
   componentDidMount() {
@@ -39,6 +41,7 @@ class App extends React.Component {
     <Switch>
     <Route exact path='/' render={({history})=><Home history={history}/>}/>
     <Route exact path='/forgotpassword' render={({history})=><ForgotPassword history={history}/>}/>
+    <Route exact path='/passwordsent' render={({history})=><PasswordSent history={history}/>}/>
     <Route exact path='/resetpassword/:id' render={({history, match})=><ResetPassword history={history} match={match}/>}/>
     <Route exact path='/signup' render={({history})=><SignupPage history={history}/>}/>
     <Route exact path='/login' render={({history})=><LoginPage history={history}/>}/>
