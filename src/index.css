@@ -163,6 +163,19 @@ code {
   text-decoration: none;
 }
 
+#stream-modal-p {
+  font-weight: bold;
+}
+
+#modal-slide-description {
+  padding-top: 12px;
+}
+
+#stash-text {
+  padding-top: 0px;
+  text-align: center;
+}
+
 
 
 

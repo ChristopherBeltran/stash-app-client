@@ -61,15 +61,16 @@ class StreamModal extends React.Component{
               onClick={() => this.handleClose("modal")}>
               <Close className={classes.modalClose} />
             </IconButton>
-            <h4 className={classes.modalTitle} align="center">Welcome to your Stream!</h4>
+            <h4 className={classes.modalTitle} align="center" style={{ display: 'inline' }}>Welcome to your Stream!</h4>
           </DialogTitle>
           <DialogContent
             id="modal-slide-description"
             className={classes.modalBody}>
-            <h5 align="center">Articles from all your favorite news sources will populate right here.</h5>
-            <h5 align="center">Click on any article to read a preview.</h5>
-            <h5 align="center">We've also created a Stash for you where you can view all of your saved articles.</h5>
-            <h5 align="center">Add any article to your Stash with <BookmarkIcon htmlColor='#9c27b0'></BookmarkIcon></h5>
+            <p id="stream-modal-p"align="center" font-size="larger" style={{paddingBottom: '15px' }}>Your news, all here.</p>
+            <h5 align="center" style={{ fontSize: 'large', margin: '5px' }}>Save it for later?</h5>
+            <div id="stash-text">
+            <BookmarkIcon htmlColor='#9c27b0' style={{ top: '3px', display: 'inline-block', position: 'relative'}}></BookmarkIcon><h5 align="center" style={{ fontSize: 'x-large', display: 'inline-block', margin: '5px' }}>Stash it!</h5>
+            </div>
           </DialogContent>
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
