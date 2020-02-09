@@ -81,11 +81,29 @@ code {
   grid-template-rows: repeat(2, 100px);  
 }
 
+#reset-password-page {
+  padding-top: 55px;
+  width: -webkit-fill-available;   
+  display: grid;  
+  grid-gap: 5px;
+  justify-content: center;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+}
+
 #signup-container {
   width: -webkit-fill-available;
 }
 
 #login-container {
+  width: -webkit-fill-available;
+}
+
+#forgot-password-container {
+  width: -webkit-fill-available;
+}
+
+#reset-password-container {
   width: -webkit-fill-available;
 }
 
