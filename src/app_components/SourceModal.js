@@ -63,7 +63,7 @@ class SourceModal extends React.Component{
           <DialogContent
             id="modal-slide-description"
             className={classes.modalBody}>
-            <h5>Toggle which news sources you would like to see populate your stream.</h5>
+            <h5>Choose all the sources you would like to see populate your news stream, then click Create Stream</h5>
           </DialogContent>
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
