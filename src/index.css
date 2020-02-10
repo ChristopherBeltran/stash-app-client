@@ -176,6 +176,12 @@ code {
   text-align: center;
 }
 
+#navbar-header {
+  font-weight: bold;
+}
 
 
 
+.MuiButton-label {
+  font-weight: bold;
+}
