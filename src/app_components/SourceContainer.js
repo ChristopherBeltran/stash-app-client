@@ -42,8 +42,8 @@ class SourceContainer extends React.Component {
         return(
             <div id="source-container">
             <Grid container justify="space-evenly">
-                {mobileHandler()}
                 {sourceCards}
+                {mobileHandler()}
                 </Grid>
                 <ScrollUpButton color="primary"/>
             </div>

@@ -10,7 +10,7 @@ const NavBar = ({ loggedIn, streamUpdate, isDesktop, stream }) => {
      const linkHandler = () => {
          if(window.location.pathname === "/stream/setup" && isDesktop === true){
             return(
-                <NavSubmit stream={stream} streamUpdate={streamUpdate}></NavSubmit>
+                <NavSubmit isDesktop={isDesktop} stream={stream} streamUpdate={streamUpdate}></NavSubmit>
             )
          }
         else if(loggedIn && window.location.pathname !== "/stream/setup"){

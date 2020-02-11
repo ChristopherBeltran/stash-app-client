@@ -31,7 +31,7 @@ class StreamSetup extends React.Component {
     mobileHandler = () => {
         if(this.props.isDesktop !== true){
             return (
-                <NavSubmit stream={this.props.stream} streamUpdate={this.streamUpdate}></NavSubmit>
+                <NavSubmit isDesktop={this.props.isDesktop }stream={this.props.stream} streamUpdate={this.streamUpdate}></NavSubmit>
             )
         }
     }
