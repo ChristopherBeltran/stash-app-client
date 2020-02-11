@@ -30,6 +30,28 @@ code {
   
 }
 
+#fab {
+  margin: 0px;
+  top: auto;
+  right: 127.133px;
+  bottom: 20px;
+  position: fixed;
+  color: white;
+  background-color: #9c27b0;
+  font-weight: bold;
+};
+
+#fab-disabled {
+margin: 0px;
+top: auto;
+right: 127.133px;
+bottom: 20px;
+position: fixed;
+color: white;
+background-color: #7b808a;
+font-weight: bold;
+};
+
 #home-card {
   padding-top: 100px;  
   display: grid;  
@@ -185,27 +207,3 @@ code {
 .MuiButton-label {
   font-weight: bold;
 }
-
-#fab {
-    margin: 0px;
-    top: auto;
-    right: 127.133px;
-    bottom: 20px;
-    left: auto;
-    position: fixed;
-    color: white;
-    background-color: #9c27b0;
-    font-weight: bold;
-};
-
-#fab-disabled {
-  margin: 0px;
-  top: auto;
-  right: 127.133px;
-  bottom: 20px;
-  left: auto;
-  position: fixed;
-  color: white;
-  background-color: #7b808a;
-  font-weight: bold;
-};
