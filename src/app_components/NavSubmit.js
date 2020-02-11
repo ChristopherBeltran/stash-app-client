@@ -28,13 +28,13 @@ function NavSubmit({ ...props }) {
       if(isDesktop === true){
       submitButton = <Button color="primary" size="lg" block={true} type="submit">Create Stream</Button>
       } else {
-      submitButton = <Fab id="fab" variant="extended" type="submit">Create Stream</Fab>
+      submitButton = <Fab id="fab-button" variant="extended" type="submit">Create Stream</Fab>
       }
     } else {
       if(isDesktop === true){
       submitButton = <Button disabled={true} color="primary" size="lg" block={true} type="submit">Create Stream</Button>
       } else {
-      submitButton = <Fab id="fab-disabled" disabled={true} color="primary" variant="extended"  type="submit">Create Stream</Fab>
+      submitButton = <Fab id="fab-button-disabled" disabled={true} color="primary" variant="extended"  type="submit">Create Stream</Fab>
       }
     }
   }

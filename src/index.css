@@ -30,7 +30,7 @@ code {
   
 }
 
-#fab {
+#fab-button {
   margin: 0px;
   top: auto;
   right: 127.133px;
@@ -41,7 +41,7 @@ code {
   font-weight: bold;
 };
 
-#fab-disabled {
+#fab-button-disabled {
 margin: 0px;
 top: auto;
 right: 127.133px;

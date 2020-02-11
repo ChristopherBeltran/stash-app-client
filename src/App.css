@@ -32,3 +32,218 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#nav-list {
+  text-align: right;
+}
+
+#cards:hover {
+  cursor: pointer;
+}
+
+#navbar-header {
+  width: 100%;
+  
+}
+
+
+
+#home-card {
+  padding-top: 100px;  
+  display: grid;  
+  grid-gap: 5px;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+  justify-content: center;
+}
+
+#password-sent-card {
+  padding-top: 100px;
+  width: -webkit-fill-available;     
+  display: grid;  
+  grid-gap: 5px;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+  justify-content: center;
+}
+
+#reset-success-card {
+  padding-top: 100px;  
+  display: grid;  
+  grid-gap: 5px;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+  justify-content: center;
+}
+
+#home-card-text {
+  line-height: 1.7;
+}
+
+#signup-card {
+  padding-top: 55px;
+  width: -webkit-fill-available;   
+  display: grid;  
+  grid-gap: 5px;
+  justify-content: center;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+}
+
+#forgot-password-page {
+  padding-top: 55px;
+  width: -webkit-fill-available;   
+  display: grid;  
+  grid-gap: 5px;
+  justify-content: center;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+}
+
+#reset-password-page {
+  padding-top: 55px;
+  width: -webkit-fill-available;   
+  display: grid;  
+  grid-gap: 5px;
+  justify-content: center;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+}
+
+#signup-container {
+  width: -webkit-fill-available;
+}
+
+#login-container {
+  width: -webkit-fill-available;
+}
+
+#forgot-password-container {
+  width: -webkit-fill-available;
+}
+
+#reset-password-container {
+  width: -webkit-fill-available;
+}
+
+#reset-success-card {
+  width: -webkit-fill-available;   
+
+}
+
+#login-page {
+  padding-top: 55px; 
+  display: grid;  
+  grid-gap: 5px;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+}
+
+#source-container {
+  padding-top: 100px; 
+  display: grid;  
+  grid-gap: 5px;  
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);  
+}
+
+
+
+#stream-container {
+  width: -webkit-fill-available;
+  padding-top: 100px;
+    display: grid;
+    padding-left: 15px;
+    padding-right: 15px;  
+}
+
+#stash-container {
+  width: -webkit-fill-available;
+  padding-top: 100px;
+  display: grid;
+  padding-left: 15px;
+  padding-right: 15px; 
+
+}
+
+#forgot-div {
+  padding-bottom: 15px;
+}
+
+#forgot-link {
+  padding: 15px;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#login-link {
+  color: #9c27b0;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#stream-modal-p {
+  font-weight: bold;
+}
+
+#modal-slide-description {
+  padding-top: 12px;
+}
+
+#stash-text {
+  padding-top: 0px;
+  text-align: center;
+}
+
+#navbar-header {
+  font-weight: bold;
+}
+
+#fab-button {
+  margin: 0px;
+  top: auto;
+  right: 127.133px;
+  bottom: 20px;
+  position: fixed;
+  color: white;
+  background-color: #9c27b0;
+  font-weight: bold;
+};
+
+#fab-button-disabled {
+margin: 0px;
+top: auto;
+right: 127.133px;
+bottom: 20px;
+position: fixed;
+color: white;
+background-color: #7b808a;
+font-weight: bold;
+};
+
+
+.MuiButton-label {
+  font-weight: bold;
+}
