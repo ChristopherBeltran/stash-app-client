@@ -43,8 +43,6 @@ function NavLinks({ ...props }) {
         ><Bookmarks></Bookmarks>Stash
         </Button>
       </ListItem>
-      
-      {/* Edit Profile button (will be added in later version)
       <ListItem className={classes.listItem}>
         <Button 
           href="/profile"
@@ -52,7 +50,8 @@ function NavLinks({ ...props }) {
           className={classes.navLink}
         ><Person></Person>Profile
         </Button>
-      </ListItem> */}
+      </ListItem>
+      
       <ListItem className={classes.listItem} id="nav-list">
       <form onSubmit={(event) => {
         event.preventDefault()
