@@ -24,7 +24,7 @@ export const updateLoginForm = (formData) => {
       var auth_params = {auth:
         credentials
     }
-      return fetch("https://the-stash-app.herokuapp.com/api/v1/login", {
+      return fetch("http://localhost:3000/api/v1/login", {
         credentials: "include",
         method: "POST",
         headers: {

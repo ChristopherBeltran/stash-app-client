@@ -99,7 +99,7 @@ code {
 }
 
 
-#stream-container, #stash-container, #source-container, #user-profile-container {
+#stream-container, #stash-container, #source-container, #user-profile {
   width: -webkit-fill-available;
   padding-top: 100px;
     display: grid;

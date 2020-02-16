@@ -15,7 +15,7 @@ import ResetPassword from './app_components/ResetPassword';
 import ForgotPassword from './app_components/ForgotPassword'
 import PasswordSent from './app_components/passwordSent'
 import ResetSuccess from './app_components/resetSuccess'
-import UserProfileContainer from './app_components/UserProfileContainer'
+import UserProfile from './app_components/UserProfile'
 
 class App extends React.Component {
 
@@ -68,7 +68,7 @@ class App extends React.Component {
     <Route exact path='/stream/setup' render={({history})=><StreamSetup history={history}/>}/>
     <Route exact path='/stream' render={({history})=><StreamContainer user={this.props.user} history={history}/>}/>
     <Route exact path='/stash' render={({history})=><StashContainer user={this.props.user} history={history}/>}/>
-    <Route exact path='/profile' render={({history})=><UserProfileContainer user={this.props.user} history={history}/>}/>
+    <Route exact path='/profile' render={({history})=><UserProfile user={this.props.user} history={history}/>}/>
     </Switch>
     </div>
   );

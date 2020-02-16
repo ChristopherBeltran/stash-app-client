@@ -22,7 +22,7 @@ export const createStream = (user) => {
         }
       }
 
-      return fetch("https://the-stash-app.herokuapp.com/api/v1/streams", {
+      return fetch("http://localhost:3000/api/v1/streams", {
         credentials: "include",
         method: "POST",
         headers: {
@@ -66,7 +66,6 @@ export const updateStreamSuccess = (stream) => {
   }
 }
 
-//TO-DO: ADD USER ID TO streamToSend
 export const updateStream = (stream, history, currentUser) => {
   return dispatch => {
     const streamToSend = {
@@ -75,7 +74,7 @@ export const updateStream = (stream, history, currentUser) => {
       source_ids: stream.source_ids
       }
     }
-    return fetch(`https://the-stash-app.herokuapp.com/api/v1/streams/${stream.id}`, {
+    return fetch(`http://localhost:3000/api/v1/streams/${stream.id}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
@@ -102,7 +101,7 @@ export const updateStream = (stream, history, currentUser) => {
 
 export const getStream = (history, currentUser) => {
   return dispatch => {
-    return fetch(`https://the-stash-app.herokuapp.com/api/v1/get_stream/${currentUser.id}`, {
+    return fetch(`http://localhost:3000/api/v1/get_stream/${currentUser.id}`, {
       credentials: "include",
       method: "GET",
       headers: {
