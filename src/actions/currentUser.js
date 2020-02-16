@@ -14,7 +14,7 @@ export const setCurrentUser = user => {
   export const logout = event => {
     return dispatch => {
       dispatch(clearCurrentUser())
-      return fetch('https://the-stash-app.herokuapp.com/api/v1/logout', {
+      return fetch('http://localhost:3000/api/v1/logout', {
         credentials: "include",
         method: "DELETE"
       })
@@ -23,7 +23,7 @@ export const setCurrentUser = user => {
   
   export const getCurrentUser = () => {
     return dispatch => {
-      return fetch("https://the-stash-app.herokuapp.com/api/v1/get_current_user", {
+      return fetch("http://localhost:3000/api/v1/get_current_user", {
         credentials: "include",
         method: "GET",
         headers: {
@@ -39,5 +39,36 @@ export const setCurrentUser = user => {
           }
         })
         .catch(console.log)
+    }
+  }
+
+  export const updateUser = (user, name, email) => {
+
+    var userId = user.id;
+    var userInfo = {
+      user: {
+        name: name,
+        email: email
+      }
+    }
+
+    return dispatch => {
+      return fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+        credentials: "include",
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
+        },
+        body: JSON.stringify(userInfo)
+      })
+      .then(r => r.json())
+      .then(response => {
+        if(response.error){
+
+        } else {
+          dispatch(getCurrentUser())
+        }
+      })
     }
   }
