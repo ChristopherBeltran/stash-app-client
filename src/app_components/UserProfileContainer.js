@@ -6,10 +6,19 @@ class UserProfileContainer extends React.Component {
 
     render(){
         return(
-            <div>
+            <div id="user-profile-container">
             <UserProfile></UserProfile>    
             </div>
         )
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        sources: state.sources,
+        user: state.currentUser,
+        stream: state.stream,
+        loggedIn: !!state.currentUser,
     }
 }
 

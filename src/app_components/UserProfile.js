@@ -6,14 +6,14 @@ import Face from "@material-ui/icons/Face";
 import Chat from "@material-ui/icons/Chat";
 import Build from "@material-ui/icons/Build";
 // core components
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
+import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
 
 const styles = {
   textCenter: {
     textAlign: "center"
   }
 };
-
+ 
 const useStyles = makeStyles(styles);
 
 export default function UserProfile(){
@@ -40,7 +40,7 @@ export default function UserProfile(){
             )
           },
           {
-            tabName: "Messages",
+            tabName: "",
             tabIcon: Chat,
             tabContent: (
               <p className={classes.textCenter}>
