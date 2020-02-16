@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import SignupPage from './app_components/Signup.js'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import LoginPage from './app_components/Login.js'
 import NavBar from './app_components/Navbar.js'
 import Home from './app_components/Home.js'
@@ -35,10 +35,27 @@ class App extends React.Component {
     }
   }
 
+  loggedInRedirects = () => {
+    if(this.props.loggedIn && window.location.pathname === "/"){
+      return (
+      <Redirect to="/stream"></Redirect>
+      )
+    } else if(this.props.loggedIn && window.location.pathname === "/signup"){
+      return (
+        <Redirect to="/stream"></Redirect>
+        )
+    } else if(this.props.loggedIn && window.location.pathname === "/login"){
+      return (
+        <Redirect to="/stream"></Redirect>
+        )
+    }
+  }
+
   render(){
   return (
     <div className="App">
     {this.handleNavBar()}
+    {this.loggedInRedirects()}
     <Switch>
     <Route exact path='/' render={({history})=><Home history={history}/>}/>
     <Route exact path='/forgotpassword' render={({history})=><ForgotPassword history={history}/>}/>
