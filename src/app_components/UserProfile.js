@@ -12,7 +12,10 @@ import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Email from "@material-ui/icons/Email";
-import { updateProfileForm } from '../actions/userProfile'
+import { updateProfileForm, setProfileForm } from '../actions/userProfile'
+import Button from "components/CustomButtons/Button.jsx";
+import { updateUser } from '../actions/currentUser'
+
 
 class UserProfile extends React.Component{
 
@@ -25,16 +28,41 @@ class UserProfile extends React.Component{
         this.props.updateProfileForm(updatedFormInfo)
       }
 
+      handleSubmit = event => {
+        event.preventDefault()
+        this.props.updateUser(this.props.user, this.props.formData)
+      }
+    
+      buttonHandler = () => {
+        const values = Object.values(this.props.formData)
+        var blankFields = 2
+    
+        for(const v of values){
+          if(v !== ""){
+            blankFields --
+          }
+        }
+    
+        if(blankFields === 2){
+          return(
+            <Button default disabled={true} color="primary" size="lg" type="submit">
+            Update Info
+          </Button>
+          )
+        } else {
+          return(
+            <Button default color="primary" size="lg" type="submit">
+            Update Info
+          </Button>
+            )
+          }
+        }
+
+       
+
     render(){
-    const styles = {
-            textCenter: {
-              textAlign: "center"
-            }
-          };
-           
-    const useStyles = makeStyles(styles);
-    const classes = useStyles();
     const formData = this.props.formData;
+    const user = this.props.user;
 
   return (
     <div id="user-profile">
@@ -45,10 +73,9 @@ class UserProfile extends React.Component{
             tabName: "Profile",
             tabIcon: Person,
             tabContent: (
-                <form>
+                <form onSubmit={this.handleSubmit} >
                       <CustomInput
-                        labelText="Name"
-                        id="name"
+                        id="regular"
                         name="name"
                         value={formData.name}
                         formControlProps={{
@@ -56,28 +83,42 @@ class UserProfile extends React.Component{
                         }}
                         inputProps={{
                           type: "text",
-                          id: "name",
+                          id: "regular",
                           name: "name",
+                          placeholder: user.attributes.name,
                           value: formData.name,
                           onChange: (event) => this.handleFormChange(event),
                           endAdornment: (
                             <InputAdornment position="end">
-                              <People className={classes.inputIconsColor} />
+                              <People/>
                             </InputAdornment>
                           )
                         }}
                       />
             <br></br>
             <CustomInput
-                labelText="Email"
-                id="material"
-                formControlProps={{
-                    fullWidth: false
-                }}
-                inputProps={{
-                    endAdornment: (<InputAdornment position="end"><Email/></InputAdornment>)
-                }}
-            />
+                        id="regular"
+                        name="email"
+                        value={formData.email}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                        inputProps={{
+                          type: "text",
+                          id: "regular",
+                          name: "email",
+                          placeholder: user.attributes.email,
+                          value: formData.email,
+                          onChange: (event) => this.handleFormChange(event),
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <Email/>
+                            </InputAdornment>
+                          )
+                        }}
+                      />
+                      <br></br>
+                      {this.buttonHandler()}
             </form>
             )
           },
@@ -85,7 +126,7 @@ class UserProfile extends React.Component{
             tabName: "Settings",
             tabIcon: Build,
             tabContent: (
-              <p className={classes.textCenter}>
+              <p>
                 think that’s a responsibility that I have, to push
                 possibilities, to show people, this is the level that
                 things could be at. So when you get something that has
@@ -114,5 +155,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateProfileForm }) (UserProfile)
+export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser }) (UserProfile)
 

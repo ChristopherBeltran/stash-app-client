@@ -1,3 +1,5 @@
+import { resetProfileForm } from './userProfile.js'
+
 export const setCurrentUser = user => {
     return {
       type: "SET_CURRENT_USER",
@@ -42,15 +44,30 @@ export const setCurrentUser = user => {
     }
   }
 
-  export const updateUser = (user, name, email) => {
-
+  export const updateUser = (user, formData) => {
     var userId = user.id;
-    var userInfo = {
-      user: {
-        name: name,
-        email: email
+    var userInfo = ''
+
+    if(formData.name === "") {
+        userInfo = {
+          user: {
+            email: formData.email
+          }
+        };
+    } else if(formData.email === ""){
+        userInfo = {
+          user: {
+            name: formData.name
+          }
+        };
+      } else {
+        userInfo = {
+          user: {
+            name: formData.name,
+            email: formData.email
+          }
+        }
       }
-    }
 
     return dispatch => {
       return fetch(`http://localhost:3000/api/v1/users/${userId}`, {
@@ -67,7 +84,9 @@ export const setCurrentUser = user => {
         if(response.error){
 
         } else {
-          dispatch(getCurrentUser())
+          dispatch(getCurrentUser());
+          dispatch(resetProfileForm())
+          window.location.reload(false);
         }
       })
     }
