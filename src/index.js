@@ -8,6 +8,8 @@ import { Provider } from 'react-redux'
 import configureStore from './store.js'
 import { PersistGate } from 'redux-persist/integration/react'
 import Loading from './app_components/Loading.js'
+import ScrollToTop from './app_components/ScrollToTop'
+
 
 const { persistor, store } = configureStore()
 
@@ -16,7 +18,9 @@ ReactDOM.render(<Provider store={ store }><PersistGate
     loading={<Loading />}
     persistor={persistor}>
     <BrowserRouter>
+    <ScrollToTop>
     <App />
+    </ScrollToTop>
     </BrowserRouter>
     </PersistGate></Provider>, document.getElementById('root'));
 

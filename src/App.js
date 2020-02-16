@@ -36,10 +36,18 @@ class App extends React.Component {
   }
 
   loggedInRedirects = () => {
-    if(this.props.loggedIn && window.location.pathname === "/" || window.location.pathname === "/signup" || window.location.pathname === "/login"){
+    if(this.props.loggedIn && window.location.pathname === "/"){
       return (
       <Redirect to="/stream"></Redirect>
       )
+    } else if(this.props.loggedIn && window.location.pathname === "/signup"){
+      return (
+        <Redirect to="/stream"></Redirect>
+        )
+    } else if(this.props.loggedIn && window.location.pathname === "/login"){
+      return (
+        <Redirect to="/stream"></Redirect>
+        )
     }
   }
 
