@@ -12,8 +12,18 @@ import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Email from "@material-ui/icons/Email";
+import { updateProfileForm } from '../actions/userProfile'
 
 class UserProfile extends React.Component{
+
+    handleFormChange = event => {
+        //const { name, value } = event.target
+        const updatedFormInfo = {
+          ...this.props.formData,
+          [event.target.name]: event.target.value
+        }
+        this.props.updateProfileForm(updatedFormInfo)
+      }
 
     render(){
     const styles = {
@@ -24,6 +34,8 @@ class UserProfile extends React.Component{
            
     const useStyles = makeStyles(styles);
     const classes = useStyles();
+    const formData = this.props.formData;
+
   return (
     <div id="user-profile">
       <CustomTabs
@@ -34,16 +46,27 @@ class UserProfile extends React.Component{
             tabIcon: Person,
             tabContent: (
                 <form>
-                <CustomInput
-                labelText="Name"
-                id="material"
-                formControlProps={{
-                    fullWidth: false
-                }}
-                inputProps={{
-                    endAdornment: (<InputAdornment position="end"><People/></InputAdornment>)
-                }}
-            />
+                      <CustomInput
+                        labelText="Name"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                        inputProps={{
+                          type: "text",
+                          id: "name",
+                          name: "name",
+                          value: formData.name,
+                          onChange: (event) => this.handleFormChange(event),
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <People className={classes.inputIconsColor} />
+                            </InputAdornment>
+                          )
+                        }}
+                      />
             <br></br>
             <CustomInput
                 labelText="Email"
@@ -87,9 +110,9 @@ const mapStateToProps = (state) => {
         user: state.currentUser,
         stream: state.stream,
         loggedIn: !!state.currentUser,
-        userProfile: state.userProfile
+        formData: state.userProfile
     }
 }
 
-export default connect(mapStateToProps) (UserProfile)
+export default connect(mapStateToProps, { updateProfileForm }) (UserProfile)
 
