@@ -22,9 +22,9 @@ const ProfileSourceCard = ({ source, updateSource, deleteSource }) => {
       <Card style={{width: "auto", height: "auto"}} justify="center">
         <CardBody>
             <Typography gutterBottom variant="h4">
-                {source.name}
+                {source.attributes.name}
             </Typography>
-               <SourceSwitch id={source.id} deleteSource={deleteSource} updateSource={updateSource} >
+               <SourceSwitch id={source.id}  >
                </SourceSwitch>
         </CardBody>
       </Card>

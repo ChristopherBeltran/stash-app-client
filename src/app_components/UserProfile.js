@@ -17,6 +17,8 @@ import Button from "components/CustomButtons/Button.jsx";
 import { updateUser } from '../actions/currentUser'
 import { getStreamSources } from '../actions/stream'
 import ProfileSourceCard from './ProfileSourceCard'
+import Grid from '@material-ui/core/Grid';
+import GridItem from '../components/Grid/GridItem.jsx'
 
 
 class UserProfile extends React.Component{
@@ -70,6 +72,14 @@ class UserProfile extends React.Component{
     render(){
     const formData = this.props.formData;
     const user = this.props.user;
+
+    const sourceCards = this.props.streamSources.map((source, index) => {
+        return (
+        <GridItem key={index} xs={10} sm={4} md={4}>
+        <ProfileSourceCard key={index} source={source} user={user}></ProfileSourceCard>
+        </GridItem>
+        )
+        })
 
   return (
     <div id="user-profile">
@@ -133,16 +143,9 @@ class UserProfile extends React.Component{
             tabName: "Stream Settings",
             tabIcon: Build,
             tabContent: (
-              <p>
-                think that’s a responsibility that I have, to push
-                possibilities, to show people, this is the level that
-                things could be at. So when you get something that has
-                the name Kanye West on it, it’s supposed to be pushing
-                the furthest possibilities. I will be the leader of a
-                company that ends up being worth billions of dollars,
-                because I got the answers. I understand culture. I am
-                the nucleus.
-              </p>
+                <Grid container justify="space-evenly" spacing={4}>
+                    {sourceCards}
+                </Grid>
             )
           }
         ]}
@@ -158,7 +161,8 @@ const mapStateToProps = (state) => {
         user: state.currentUser,
         stream: state.stream,
         loggedIn: !!state.currentUser,
-        formData: state.userProfile
+        formData: state.userProfile,
+        streamSources: state.streamSources
     }
 }
 

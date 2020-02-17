@@ -26,6 +26,15 @@ class SourceSwitch extends React.Component {
     }
 
   }
+
+  labelHandler = () => {
+    if(window.location.pathname === "/profile"){
+      return "Remove Source"
+    } else {
+      return "Add Source"
+    }
+  }
+
   render(){
     const { classes } = this.props;
     return (
@@ -49,7 +58,7 @@ class SourceSwitch extends React.Component {
             classes={{
               label: classes.label
             }}
-            label="Add source"
+            label={this.labelHandler()}
           />
         </div>
       </div>
