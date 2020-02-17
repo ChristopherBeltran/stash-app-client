@@ -15,9 +15,15 @@ import Email from "@material-ui/icons/Email";
 import { updateProfileForm, setProfileForm } from '../actions/userProfile'
 import Button from "components/CustomButtons/Button.jsx";
 import { updateUser } from '../actions/currentUser'
+import { getStreamSources } from '../actions/stream'
 
 
 class UserProfile extends React.Component{
+
+    componentDidMount(){
+        let user = this.props.user
+        this.props.getStreamSources(user.relationships.stream.data.id)
+    }
 
     handleFormChange = event => {
         //const { name, value } = event.target
@@ -123,7 +129,7 @@ class UserProfile extends React.Component{
             )
           },
           {
-            tabName: "Settings",
+            tabName: "Stream Settings",
             tabIcon: Build,
             tabContent: (
               <p>
@@ -155,5 +161,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser }) (UserProfile)
+export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser, getStreamSources }) (UserProfile)
 

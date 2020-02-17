@@ -16,6 +16,7 @@ import errors from './reducers/errors'
 import forgotPasswordForm from './reducers/forgotPasswordForm'
 import resetPasswordForm from './reducers/resetPasswordForm'
 import userProfile from './reducers/userProfile'
+import streamSources from './reducers/streamSources'
 
 const rootReducer = combineReducers({
   signupForm,
@@ -30,7 +31,8 @@ const rootReducer = combineReducers({
   errors,
   forgotPasswordForm,
   resetPasswordForm,
-  userProfile
+  userProfile,
+  streamSources
 })
 
 const persistConfig = {

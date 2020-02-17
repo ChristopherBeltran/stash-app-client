@@ -122,3 +122,29 @@ export const getStream = (history, currentUser) => {
   }
 }
 
+export const setStreamSources = (stream) => {
+  return {
+    type: "SET_STREAM_SOURCES",
+    stream
+  }
+}
+
+export const getStreamSources = (streamId) => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/stream_sources/${streamId}`, {
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
+      }
+    })
+    .then(r => r.json())
+    .then(response => {
+      if (response.error){
+      } else {
+        dispatch(setStreamSources(response))
+        }
+    })
+  }
+}
