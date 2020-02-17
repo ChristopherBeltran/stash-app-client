@@ -16,6 +16,7 @@ import { updateProfileForm, setProfileForm } from '../actions/userProfile'
 import Button from "components/CustomButtons/Button.jsx";
 import { updateUser } from '../actions/currentUser'
 import { getStreamSources } from '../actions/stream'
+import ProfileSourceCard from './ProfileSourceCard'
 
 
 class UserProfile extends React.Component{
