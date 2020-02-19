@@ -15,10 +15,15 @@ import Email from "@material-ui/icons/Email";
 import { updateProfileForm, setProfileForm } from '../actions/userProfile'
 import Button from "components/CustomButtons/Button.jsx";
 import { updateUser } from '../actions/currentUser'
-import { getStreamSources } from '../actions/stream'
+import { getStreamSources, addToStreamSources, removeFromStreamSources } from '../actions/stream'
 import ProfileSourceCard from './ProfileSourceCard'
 import Grid from '@material-ui/core/Grid';
 import GridItem from '../components/Grid/GridItem.jsx'
+import Loading from './Loading.js'
+import List from '@material-ui/core/List';
+import ListSubheader from '@material-ui/core/ListSubheader';
+
+
 
 
 class UserProfile extends React.Component{
@@ -72,48 +77,57 @@ class UserProfile extends React.Component{
     render(){
     const formData = this.props.formData;
     const user = this.props.user;
+    const streamSources = this.props.streamSources
+    const addToStream = this.props.addToStreamSources
+    const removeFromStream = this.props.removeFromStreamSources
 
-    const sourceCards = this.props.streamSources.map((source, index) => {
-        return (
-        <GridItem key={index} xs={10} sm={4} md={4}>
-        <ProfileSourceCard key={index} source={source} user={user}></ProfileSourceCard>
-        </GridItem>
-        )
-        })
+    if(streamSources !== null){
 
-  return (
-    <div id="user-profile">
-      <CustomTabs
-        headerColor="primary"
-        tabs={[
-          {
-            tabName: "Profile",
-            tabIcon: Person,
-            tabContent: (
-                <form onSubmit={this.handleSubmit} >
-                      <CustomInput
-                        id="regular"
-                        name="name"
-                        value={formData.name}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                        inputProps={{
-                          type: "text",
-                          id: "regular",
-                          name: "name",
-                          placeholder: user.attributes.name,
-                          value: formData.name,
-                          onChange: (event) => this.handleFormChange(event),
-                          endAdornment: (
+      const sourceCards = streamSources.map((source, index) => {
+          return (
+          <GridItem key={index} xs={10} sm={4} md={4}>
+          <ProfileSourceCard key={index} source={source} user={user}></ProfileSourceCard>
+          </GridItem>
+          //<List subheader={<ListSubheader>Your Sources</ListSubheader>} >
+          //<ProfileSourceList key={index} source={source} user={user} added={true} addToStream={addToStream} removeFromStream={removeFromStream}></ProfileSourceList>
+          //</List>
+
+          )
+          })
+
+    return (
+      <div id="user-profile">
+        <CustomTabs
+          headerColor="primary"
+          tabs={[
+            {
+              tabName: "Profile",
+              tabIcon: Person,
+              tabContent: (
+                  <form onSubmit={this.handleSubmit} >
+                        <CustomInput
+                          id="regular"
+                          name="name"
+                          value={formData.name}
+                          formControlProps={{
+                            fullWidth: false
+                          }}
+                          inputProps={{
+                            type: "text",
+                            id: "regular",
+                            name: "name",
+                            placeholder: user.attributes.name,
+                            value: formData.name,
+                            onChange: (event) => this.handleFormChange(event),
+                            endAdornment: (
                             <InputAdornment position="end">
                               <People/>
                             </InputAdornment>
-                          )
-                        }}
-                      />
-            <br></br>
-            <CustomInput
+                            )
+                          }}
+                        />
+              <br></br>
+              <CustomInput
                         id="regular"
                         name="email"
                         value={formData.email}
@@ -136,24 +150,32 @@ class UserProfile extends React.Component{
                       />
                       <br></br>
                       {this.buttonHandler()}
-            </form>
-            )
-          },
-          {
-            tabName: "Stream Settings",
-            tabIcon: Build,
-            tabContent: (
-                <Grid container justify="space-evenly" spacing={4}>
-                    {sourceCards}
-                </Grid>
-            )
-          }
-        ]}
-      />
-    </div>
-  );
+              </form>
+              )
+            },
+            {
+              tabName: "Stream Settings",
+              tabIcon: Build,
+              tabContent: (
+                  <Grid container justify="space-evenly" spacing={4}>
+                      {sourceCards}
+                  </Grid>
+              )
+            }
+          ]}
+        />
+      </div>
+    )
+  } else {
+    return(
+      <div>
+        <Loading></Loading>
+      </div>
+    )
+  }
 }
 }
+
 
 const mapStateToProps = (state) => {
     return {
@@ -166,5 +188,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser, getStreamSources }) (UserProfile)
+export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser, getStreamSources, addToStreamSources, removeFromStreamSources }) (UserProfile)
 

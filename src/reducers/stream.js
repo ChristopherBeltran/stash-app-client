@@ -24,10 +24,6 @@ export default (state = null, action) => {
         }
         case "UPDATE_STREAM":
           return action.stream
-        case "SET_STREAM_SOURCES":
-          return action.stream
-          
-
       default:
         return state
     }

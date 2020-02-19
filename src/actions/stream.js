@@ -148,3 +148,17 @@ export const getStreamSources = (streamId) => {
     })
   }
 }
+
+export const addToStreamSources = (source_id) => {
+  return {
+    type: "ADD_TO_STREAM_SOURCES",
+    source_id
+  }
+}
+
+export const removeFromStreamSources = (source_id) => {
+  return {
+    type: "REMOVE_FROM_STREAM_SOURCES",
+    source_id
+  }
+}
