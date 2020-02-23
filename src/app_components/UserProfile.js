@@ -17,6 +17,7 @@ import Button from "components/CustomButtons/Button.jsx";
 import { updateUser } from '../actions/currentUser'
 import { getStreamSources, addToStreamSources, removeFromStreamSources } from '../actions/stream'
 import ProfileSourceCard from './ProfileSourceCard'
+import ProfileAvailSourceCard from './ProfileAvailSourceCard'
 import Grid from '@material-ui/core/Grid';
 import GridItem from '../components/Grid/GridItem.jsx'
 import Loading from './Loading.js'
@@ -157,6 +158,9 @@ class UserProfile extends React.Component{
                   <Grid container justify="space-evenly" spacing={4}>
                     <GridItem xs={10} sm={4} md={4}>
                       <ProfileSourceCard streamSources={streamSources}></ProfileSourceCard>
+                    </GridItem>
+                    <GridItem xs={10} sm={4} md={4}>
+                      <ProfileAvailSourceCard sources={this.props.sources} userSources={streamSources}></ProfileAvailSourceCard>
                     </GridItem>
                   </Grid>
               )
