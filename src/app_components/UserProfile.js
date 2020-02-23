@@ -20,9 +20,6 @@ import ProfileSourceCard from './ProfileSourceCard'
 import Grid from '@material-ui/core/Grid';
 import GridItem from '../components/Grid/GridItem.jsx'
 import Loading from './Loading.js'
-import List from '@material-ui/core/List';
-import ListSubheader from '@material-ui/core/ListSubheader';
-
 
 
 
@@ -83,17 +80,17 @@ class UserProfile extends React.Component{
 
     if(streamSources !== null){
 
-      const sourceCards = streamSources.map((source, index) => {
-          return (
-          <GridItem key={index} xs={10} sm={4} md={4}>
-          <ProfileSourceCard key={index} source={source} user={user}></ProfileSourceCard>
-          </GridItem>
+      //const sourceCards = streamSources.map((source, index) => {
+          //return (
+          //<GridItem key={index} xs={10} sm={4} md={4}>
+          //<ProfileSourceCard key={index} source={source} user={user}></ProfileSourceCard>
+          //</GridItem>
           //<List subheader={<ListSubheader>Your Sources</ListSubheader>} >
           //<ProfileSourceList key={index} source={source} user={user} added={true} addToStream={addToStream} removeFromStream={removeFromStream}></ProfileSourceList>
           //</List>
 
-          )
-          })
+          //)
+          //})
 
     return (
       <div id="user-profile">
@@ -158,7 +155,9 @@ class UserProfile extends React.Component{
               tabIcon: Build,
               tabContent: (
                   <Grid container justify="space-evenly" spacing={4}>
-                      {sourceCards}
+                    <GridItem xs={10} sm={4} md={4}>
+                      <ProfileSourceCard streamSources={streamSources}></ProfileSourceCard>
+                    </GridItem>
                   </Grid>
               )
             }

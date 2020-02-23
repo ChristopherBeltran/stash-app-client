@@ -1,34 +1,38 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import SourceSwitch from './SourceSwitch';
+import React from "react";
 // material-ui components
-import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/core/styles";
 // core components
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
-import { cardTitle } from "assets/jss/material-kit-react.jsx";
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import { cardTitle, cardLink, cardSubtitle } from "assets/jss/material-kit-react.jsx";
+import SourceSwitch from "./SourceSwitch.js"
+import Divider from '@material-ui/core/Divider'
 
+class ProfileSourceCard extends React.Component {
 
-const style = {
-  cardTitle
-};
+  render(){
 
-const ProfileSourceCard = ({ source, updateSource, deleteSource }) => {
+    let streamSources = this.props.streamSources;
 
-      return (
-      <Card style={{width: "auto", height: "auto"}} justify="center">
-        <CardBody>
-            <Typography gutterBottom variant="h4">
-                {source.attributes.name}
-            </Typography>
-               <SourceSwitch id={source.id}  >
-               </SourceSwitch>
-        </CardBody>
-      </Card>
-    );
+    const sources = streamSources.map((source, index) => {
+      return(
+      <div>
+      <h4>{source.attributes.name}</h4>
+      <SourceSwitch id={source.id}></SourceSwitch>
+      <Divider></Divider>
+      </div>
+      )
+    });
+
+  return (
+    <Card style={{width: "20rem"}}>
+    <h3>My Sources</h3>
+      <CardContent>
+      {sources}
+      </CardContent>
+    </Card>
+  );
+}
 }
 
-export default withStyles(style)(ProfileSourceCard);
+export default(ProfileSourceCard);
