@@ -16,7 +16,6 @@ class SourceSwitch extends React.Component {
   }
 
   handleChange = name => event => {
-    this.setState({ [name]: event.target.checked });
     let stream = this.props.streamId;
     let updateExistingStream = this.props.updateExistingStream;
 
@@ -33,7 +32,7 @@ class SourceSwitch extends React.Component {
         updateExistingStream(stream, profileSource, true)
       }
     } else {
-      //this.setState({ [name]: event.target.checked });
+      this.setState({ [name]: event.target.checked });
       let checked = this.state.checkedA
       if(checked === false){
         let source = this.props.id

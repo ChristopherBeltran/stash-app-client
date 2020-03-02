@@ -21,6 +21,7 @@ import ProfileAvailSourceCard from './ProfileAvailSourceCard'
 import Grid from '@material-ui/core/Grid';
 import GridItem from '../components/Grid/GridItem.jsx'
 import Loading from './Loading.js'
+import { getSources } from "../actions/sources"
 
 
 
@@ -29,6 +30,7 @@ class UserProfile extends React.Component{
     componentDidMount(){
         let user = this.props.user
         this.props.getStreamSources(user.relationships.stream.data.id)
+        this.props.getSources();
     }
 
     handleFormChange = event => {
@@ -76,8 +78,7 @@ class UserProfile extends React.Component{
     const formData = this.props.formData;
     const user = this.props.user;
     const streamSources = this.props.streamSources
-    const addToStream = this.props.addToStreamSources
-    const removeFromStream = this.props.removeFromStreamSources
+
 
     if(streamSources !== null){
 
@@ -191,5 +192,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser, getStreamSources, updateExistingStream }) (UserProfile)
+export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser, getStreamSources, updateExistingStream, getSources }) (UserProfile)
 

@@ -167,6 +167,7 @@ export const updateExistingStream = (stream_id, source_id, update) => {
       if (response.error){
       } else {
         dispatch(setStreamSources(response))
+        dispatch(getSources())
       }
     })
   }
