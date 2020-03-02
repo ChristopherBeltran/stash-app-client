@@ -10,18 +10,27 @@ class SourceSwitch extends React.Component {
     super(props);
     this.state = {
       checkedA: false,
-      checkedB: true
+      checkedB: true,
+      checkedC: false
     };
   }
 
   handleChange = name => event => {
     this.setState({ [name]: event.target.checked });
+    let stream = this.props.streamId;
+    let updateExistingStream = this.props.updateExistingStream;
 
-    if(window.location.pathname === "/profile"){
-      let profileChecked = this.state.checkedB;
-      if(profileChecked === true){
+    if(window.location.pathname === "/profile" && this.props.avail !== true){
+      let profileCheckedB = this.state.checkedB;
+      if(profileCheckedB === true){
         let profileSource = this.props.id;
-        this.props.deleteSource(profileSource)
+        updateExistingStream(stream, profileSource, false)
+      }
+    } else if(window.location.pathname === "/profile" && this.props.avail === true){
+      let profileCheckedC = this.state.checkedC;
+      if(profileCheckedC === false){
+        let profileSource = this.props.id;
+        updateExistingStream(stream, profileSource, true)
       }
     } else {
       //this.setState({ [name]: event.target.checked });
@@ -36,42 +45,8 @@ class SourceSwitch extends React.Component {
     }
   }
 
-  switchHandler = () => {
-    if(window.location.pathname === "/profile"){
-      return(
-        <Switch
-                checked={this.state.checkedB}
-                onChange={this.handleChange("checkedB")}
-                value="checkedB"
-                classes={{
-                  switchBase: classes.switchBase,
-                  checked: classes.switchChecked,
-                  thumb: classes.switchIcon,
-                  iconChecked: classes.switchIconChecked,
-                  track: classes.switchBar
-                }}
-              />
-            )
-      } else {
-        return(
-          <Switch
-          checked={this.state.checkedA}
-          onChange={this.handleChange("checkedA")}
-          value="checkedA"
-          classes={{
-            switchBase: classes.switchBase,
-            checked: classes.switchChecked,
-            thumb: classes.switchIcon,
-            iconChecked: classes.switchIconChecked,
-            track: classes.switchBar
-          }}
-        />
-        )
-      }
-  }
-
   labelHandler = () => {
-    if(window.location.pathname === "/profile"){
+    if(window.location.pathname === "/profile" && this.props.avail !== true){
       return "Remove Source"
     } else {
       return "Add Source"
@@ -80,12 +55,64 @@ class SourceSwitch extends React.Component {
 
   render(){
     const { classes } = this.props;
+
+    const switchHandler = () => {
+      if(window.location.pathname === "/profile" && this.props.avail === false){
+        return(
+          <Switch
+                  checked={this.state.checkedB}
+                  onChange={this.handleChange("checkedB")}
+                  value="checkedB"
+                  classes={{
+                    switchBase: classes.switchBase,
+                    checked: classes.switchChecked,
+                    thumb: classes.switchIcon,
+                    iconChecked: classes.switchIconChecked,
+                    track: classes.switchBar
+                  }}
+                />
+              )
+        } else if(window.location.pathname === "/profile" && this.props.avail === true){
+          return(
+            <Switch
+                    checked={this.state.checkedC}
+                    onChange={this.handleChange("checkedC")}
+                    value="checkedC"
+                    classes={{
+                      switchBase: classes.switchBase,
+                      checked: classes.switchChecked,
+                      thumb: classes.switchIcon,
+                      iconChecked: classes.switchIconChecked,
+                      track: classes.switchBar
+                    }}
+                  />
+                )
+        } 
+        
+        else {
+          return(
+            <Switch
+            checked={this.state.checkedA}
+            onChange={this.handleChange("checkedA")}
+            value="checkedA"
+            classes={{
+              switchBase: classes.switchBase,
+              checked: classes.switchChecked,
+              thumb: classes.switchIcon,
+              iconChecked: classes.switchIconChecked,
+              track: classes.switchBar
+            }}
+          />
+          )
+        }
+    }
+
     return (
       <div>
         <div>
           <FormControlLabel
             control={
-              {switchHandler()}
+              switchHandler()
             }
             classes={{
               label: classes.label

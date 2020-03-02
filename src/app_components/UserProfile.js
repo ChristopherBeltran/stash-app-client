@@ -157,10 +157,10 @@ class UserProfile extends React.Component{
               tabContent: (
                   <Grid container justify="space-evenly" spacing={4}>
                     <GridItem xs={10} sm={4} md={4}>
-                      <ProfileSourceCard streamSources={streamSources} updateExistingStream={this.props.updateExistingStream}></ProfileSourceCard>
+                      <ProfileSourceCard user={this.props.user} streamSources={streamSources} updateExistingStream={this.props.updateExistingStream}></ProfileSourceCard>
                     </GridItem>
                     <GridItem xs={10} sm={4} md={4}>
-                      <ProfileAvailSourceCard stream={this.props.stream}sources={this.props.sources} userSources={streamSources} updateExistingStream={this.props.updateExistingStream}></ProfileAvailSourceCard>
+                      <ProfileAvailSourceCard user={this.props.user} sources={this.props.sources} userSources={streamSources} updateExistingStream={this.props.updateExistingStream}></ProfileAvailSourceCard>
                     </GridItem>
                   </Grid>
               )

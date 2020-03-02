@@ -14,6 +14,8 @@ class ProfileAvailSourceCard extends React.Component {
 
     let sources = this.props.sources;
     let userSources = this.props.userSources;
+    let streamId = this.props.user.relationships.stream.data.id;
+
 
     var i;
     for (i = 0; i < sources.length; i++) {
@@ -28,7 +30,7 @@ class ProfileAvailSourceCard extends React.Component {
       return(
       <div>
       <h4>{source.name}</h4>
-      <SourceSwitch id={source.id} streamId={this.props.stream.id} updateExistingStream={this.props.updateExistingStream} avail={true}></SourceSwitch>
+      <SourceSwitch id={source.id} streamId={streamId} updateExistingStream={this.props.updateExistingStream} avail={true}></SourceSwitch>
       <Divider></Divider>
       </div>
       )

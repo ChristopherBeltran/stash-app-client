@@ -40,7 +40,7 @@ function NavSubmit({ ...props }) {
   const fabClasses = useStyles();
 
   var submitButton = ''
-  if(stream.source_ids !== null && stream.source_ids !== undefined){
+  if(stream !== null && stream.source_ids !== null && stream.source_ids !== undefined){
     if(stream.source_ids.length > 0){
       if(isDesktop === true){
       submitButton = <Button color="primary" size="lg" block={true} type="submit">Create Stream</Button>
