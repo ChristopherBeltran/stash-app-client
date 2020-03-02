@@ -15,7 +15,7 @@ import Email from "@material-ui/icons/Email";
 import { updateProfileForm, setProfileForm } from '../actions/userProfile'
 import Button from "components/CustomButtons/Button.jsx";
 import { updateUser } from '../actions/currentUser'
-import { getStreamSources, addToStreamSources, removeFromStreamSources } from '../actions/stream'
+import { getStreamSources, updateExistingStream } from '../actions/stream'
 import ProfileSourceCard from './ProfileSourceCard'
 import ProfileAvailSourceCard from './ProfileAvailSourceCard'
 import Grid from '@material-ui/core/Grid';
@@ -157,10 +157,10 @@ class UserProfile extends React.Component{
               tabContent: (
                   <Grid container justify="space-evenly" spacing={4}>
                     <GridItem xs={10} sm={4} md={4}>
-                      <ProfileSourceCard streamSources={streamSources}></ProfileSourceCard>
+                      <ProfileSourceCard streamSources={streamSources} updateExistingStream={this.props.updateExistingStream}></ProfileSourceCard>
                     </GridItem>
                     <GridItem xs={10} sm={4} md={4}>
-                      <ProfileAvailSourceCard sources={this.props.sources} userSources={streamSources}></ProfileAvailSourceCard>
+                      <ProfileAvailSourceCard stream={this.props.stream}sources={this.props.sources} userSources={streamSources} updateExistingStream={this.props.updateExistingStream}></ProfileAvailSourceCard>
                     </GridItem>
                   </Grid>
               )
@@ -191,5 +191,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser, getStreamSources, addToStreamSources, removeFromStreamSources }) (UserProfile)
+export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser, getStreamSources, updateExistingStream }) (UserProfile)
 

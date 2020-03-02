@@ -18,7 +18,7 @@ class ProfileSourceCard extends React.Component {
       return(
       <div>
       <h4>{source.attributes.name}</h4>
-      <SourceSwitch id={source.id}></SourceSwitch>
+      <SourceSwitch id={source.id} streamId={this.props.stream.id} updateExistingStream={this.props.updateExistingStream} avail={false}></SourceSwitch>
       <Divider></Divider>
       </div>
       )
