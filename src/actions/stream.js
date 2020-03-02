@@ -22,7 +22,7 @@ export const createStream = (user) => {
         }
       }
 
-      return fetch("http://localhost:3000/api/v1/streams", {
+      return fetch("https://the-stash-app.herokuapp.com/api/v1/streams", {
         credentials: "include",
         method: "POST",
         headers: {
@@ -74,7 +74,7 @@ export const updateStream = (stream, history, currentUser) => {
       source_ids: stream.source_ids
       }
     }
-    return fetch(`http://localhost:3000/api/v1/streams/${stream.id}`, {
+    return fetch(`https://the-stash-app.herokuapp.com/api/v1/streams/${stream.id}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
@@ -101,7 +101,7 @@ export const updateStream = (stream, history, currentUser) => {
 
 export const getStream = (history, currentUser) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/get_stream/${currentUser.id}`, {
+    return fetch(`https://the-stash-app.herokuapp.com/api/v1/get_stream/${currentUser.id}`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -131,7 +131,7 @@ export const setStreamSources = (stream) => {
 
 export const getStreamSources = (streamId) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/stream_sources/${streamId}`, {
+    return fetch(`https://the-stash-app.herokuapp.com/api/v1/stream_sources/${streamId}`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -154,7 +154,7 @@ export const getStreamSources = (streamId) => {
 export const updateExistingStream = (stream_id, source_id, update) => {
 
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/update_single_source/${stream_id}/${source_id}/${update}`, {
+    return fetch(`https://the-stash-app.herokuapp.com/api/v1/update_single_source/${stream_id}/${source_id}/${update}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
