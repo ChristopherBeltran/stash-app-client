@@ -15,14 +15,6 @@ class ProfileAvailSourceCard extends React.Component {
     let sources = this.props.sources;
     let userSources = this.props.userSources;
 
-    //const filteredSources = sources.filter( function(el){
-    //    for(const userSource of userSources){
-    //        if(userSource.attributes.name !== el.name){
-    //            return el
-    //        }
-    //    }
-    //})
-
     var i;
     for (i = 0; i < sources.length; i++) {
       for(const userSource of userSources){

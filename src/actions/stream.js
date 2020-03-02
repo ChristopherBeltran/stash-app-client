@@ -149,6 +149,21 @@ export const getStreamSources = (streamId) => {
   }
 }
 
+//patch "/api/v1/update_single_source/:stream_id/:source_id/:update", to: "api/v1/streams#single_source"
+
+export const updateExistingStream = (stream_id, source_id, update){
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/update_single_source/${stream_id}/${source_id}/${update}`, {
+      credentials: "include",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "https://stashapp.herokuapp.com"
+      }})
+  }
+}
+
+
 export const addToStreamSources = (source_id) => {
   return {
     type: "ADD_TO_STREAM_SOURCES",
