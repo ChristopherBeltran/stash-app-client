@@ -107,6 +107,28 @@ code {
     padding-right: 15px;  
 }
 
+#user-sources-card {
+  min-height: 200px;
+  
+  max-height: 500px;
+  
+  overflow-y: scroll;
+  
+  overflow-x: hidden;
+  
+  }
+  
+  #available-sources-card, #user-sources-card {
+  min-height: 200px;
+  
+  max-height: 500px;
+  
+  overflow-y: scroll;
+  
+  overflow-x: hidden;
+  
+  }
+
 #forgot-div {
   padding-bottom: 15px;
 }

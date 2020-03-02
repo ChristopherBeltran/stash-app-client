@@ -37,7 +37,7 @@ class ProfileAvailSourceCard extends React.Component {
     });
 
   return (
-    <Card style={{width: "20rem"}}>
+    <Card id="available-sources-card">
     <h3>Available Sources</h3>
       <CardContent>
       {sourceList}
