@@ -5,6 +5,7 @@
 
 import { getSources } from './sources.js'
 import { createStash } from './stash.js'
+import { getCurrentUser } from './currentUser.js'
 
 export const initStream = (stream_id) => {
     return {
@@ -90,6 +91,7 @@ export const updateStream = (stream, history, currentUser) => {
          } else {
            dispatch(getStream(history, currentUser))
            dispatch(createStash(currentUser))
+           dispatch(getCurrentUser())
          }
        })
        .catch(console.log)

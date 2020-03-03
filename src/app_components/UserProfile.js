@@ -22,6 +22,7 @@ import Grid from '@material-ui/core/Grid';
 import GridItem from '../components/Grid/GridItem.jsx'
 import Loading from './Loading.js'
 import { getSources } from "../actions/sources"
+import { getCurrentUser } from "../actions/currentUser"
 
 
 
@@ -80,7 +81,7 @@ class UserProfile extends React.Component{
     const streamSources = this.props.streamSources
 
 
-    if(streamSources !== null){
+    if(streamSources !== null && this.props.user !== null){
 
       //const sourceCards = streamSources.map((source, index) => {
           //return (
@@ -192,5 +193,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser, getStreamSources, updateExistingStream, getSources }) (UserProfile)
+export default connect(mapStateToProps, { updateProfileForm, setProfileForm, updateUser, getStreamSources, updateExistingStream, getSources, getCurrentUser }) (UserProfile)
 
