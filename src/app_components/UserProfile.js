@@ -29,8 +29,8 @@ import { getCurrentUser } from "../actions/currentUser"
 class UserProfile extends React.Component{
 
     componentDidMount(){
-        let user = this.props.user
-        this.props.getStreamSources(user.relationships.stream.data.id)
+        //let user = this.props.user
+        //this.props.getStreamSources(user.relationships.stream.data.id)
         this.props.getSources();
     }
 

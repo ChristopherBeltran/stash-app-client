@@ -116,7 +116,9 @@ export const getStream = (history, currentUser) => {
       if (response.error) {
         console.log(response.error)
       } else {
-        dispatch(updateStreamSuccess(response.articles))
+        let streamId = response[0];
+        dispatch(updateStreamSuccess(response[1].articles));
+        dispatch(getStreamSources(streamId));
         history.push('/stream')
       }
     })
