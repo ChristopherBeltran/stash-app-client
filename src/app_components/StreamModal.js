@@ -61,15 +61,15 @@ class StreamModal extends React.Component{
               onClick={() => this.handleClose("modal")}>
               <Close className={classes.modalClose} />
             </IconButton>
-            <h4 className={classes.modalTitle} align="center" style={{ display: 'inline' }}>Welcome to your Stream!</h4>
+            <h4 className={classes.modalTitle} align="center" >Welcome to your Stream!</h4>
           </DialogTitle>
           <DialogContent
             id="modal-slide-description"
             className={classes.modalBody}>
-            <p id="stream-modal-p"align="center" font-size="larger" style={{paddingBottom: '15px' }}>Your news, all here.</p>
-            <h5 align="center" style={{ fontSize: 'large', margin: '5px' }}>Save it for later?</h5>
+            <p id="stream-modal-p"align="center" fontSize="larger" style={{paddingBottom: '15px' }}>All your news can be found right here.</p>
+            <h5 align="center" style={{ fontSize: 'large', margin: '5px' }}>Articles can also be saved for later with the</h5>
             <div id="stash-text">
-            <BookmarkIcon htmlColor='#9c27b0' style={{ top: '3px', display: 'inline-block', position: 'relative'}}></BookmarkIcon><h5 align="center" style={{ fontSize: 'x-large', display: 'inline-block', margin: '5px' }}>Stash it!</h5>
+            <BookmarkIcon htmlColor='#9c27b0' style={{ top: '3px', display: 'inline-block', position: 'relative'}}></BookmarkIcon><h5 align="center" style={{ fontSize: 'large', display: 'inline-block', margin: '5px' }}>Stash button</h5>
             </div>
           </DialogContent>
           <DialogActions

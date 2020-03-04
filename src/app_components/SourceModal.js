@@ -65,11 +65,7 @@ class SourceModal extends React.Component{
           <DialogContent
             id="modal-slide-description"
             className={classes.modalBody}>
-            <p>Step 1:</p>
-            <p font-weight='bold'><Switch></Switch>CHOOSE YOUR NEWS!
-            <br></br>
-            <p>Step 2:</p>
-            <Button color="primary" size="sm" block={true}>Create Stream</Button></p>
+            <p>Set up your news stream here by choosing your favorite sources </p>
           </DialogContent>
           <DialogActions
             className={classes.modalFooter +" " +classes.modalFooterCenter}>
