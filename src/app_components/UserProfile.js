@@ -6,6 +6,8 @@ import { connect } from "react-redux"
 import Person from "@material-ui/icons/Person";
 import Build from "@material-ui/icons/Build";
 import People from "@material-ui/icons/People";
+import ArtTrackIcon from '@material-ui/icons/ArtTrack';
+
 
 // core components
 import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
@@ -23,6 +25,7 @@ import GridItem from '../components/Grid/GridItem.jsx'
 import Loading from './Loading.js'
 import { getSources } from "../actions/sources"
 import { getCurrentUser } from "../actions/currentUser"
+import ModeSwitch from "./modeSwitch"
 
 
 
@@ -165,6 +168,13 @@ class UserProfile extends React.Component{
                       <ProfileAvailSourceCard user={this.props.user} sources={this.props.sources} userSources={streamSources} updateExistingStream={this.props.updateExistingStream}></ProfileAvailSourceCard>
                     </GridItem>
                   </Grid>
+              )
+            },
+            {
+              tabName: "Preferences",
+              tabIcon: ArtTrackIcon,
+              tabContent: (
+                <ModeSwitch></ModeSwitch>
               )
             }
           ]}

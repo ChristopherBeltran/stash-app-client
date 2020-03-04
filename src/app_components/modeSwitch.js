@@ -7,7 +7,7 @@ import styles from "assets/jss/material-kit-react/customCheckboxRadioSwitch.jsx"
 import { changeMode } from "../actions/mode.js";
 import { connect } from "react-redux";
 
-class SourceSwitch extends React.Component {
+class ModeSwitch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,4 +56,4 @@ class SourceSwitch extends React.Component {
   }
 }
 
-export default connect(null, { changeMode }) (withStyles(styles) (SourceSwitch))
+export default connect(null, { changeMode }) (withStyles(styles) (ModeSwitch))

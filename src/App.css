@@ -25,19 +25,7 @@
   color: #61dafb;
 }
 
-.night {
-  text-align: center;
-  height: 100%;
-  width: 100%;  
-  background-color: #303133;
-  transition: background-color 0.3s, color 0.3s;
-}
 
-.night h1, .night h2, .night div, .night textarea{
-  background-color: 303133;
-  color: white;
-  transition: background-color 0.3s, color 0.3s;
-}
 
 @keyframes App-logo-spin {
   from {
@@ -67,6 +55,21 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+.night {
+  text-align: center;
+  height: 100%;
+  width: 100%;  
+  background-color: #303133;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.night h1, .night h2, .night div, .night textarea, .night #muiGrid-root{
+  background-color: 303133;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 #nav-list {
