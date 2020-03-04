@@ -54,7 +54,7 @@ class App extends React.Component {
 
   render(){
   return (
-    <div className="App">
+    <div className={!this.props.mode ? "App" : 'night'}>
     {this.handleNavBar()}
     {this.loggedInRedirects()}
     <Switch>
