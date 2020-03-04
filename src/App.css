@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   width: 100vw;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .App-logo {
@@ -22,6 +23,20 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.night {
+  text-align: center;
+  height: 100%;
+  width: 100%;  
+  background-color: #303133;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.night h1, .night h2, .night div, .night textarea{
+  background-color: 303133;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 @keyframes App-logo-spin {
