@@ -108,16 +108,17 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
   }
 
   return (
-     <Card  raised={true} id="cards" style={{width: "auto", height: "auto"}} justify="center" padding={2}>
+     <Card  raised={true} id="cards" className="cards" style={{width: "auto", height: "auto"}} justify="center" padding={2}>
      {handleModal()}
       <CardHeader
         onClick={ e => handleClick(e) }
         title={article.title}
         subheader={article.source.name}
+        id="card-header"
       />
       {imageHandler(article)}
       <CardContent onClick={ e => handleClick(e) }>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body2" color="textSecondary" component="p" id="card-content">
         {article.description}
         </Typography>
       </CardContent>
@@ -126,7 +127,7 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
         <IconButton aria-label="add to favorites">
           <StashButton article={article} />
         </IconButton>
-        <Typography variant="body2" color="textSecondary" component="p" align="right" padding="10px">
+        <Typography variant="body2" color="textSecondary" component="p" id="card-content" align="right" padding="10px">
         {dateFormatter(article)}
         </Typography>
         </CardActions> 

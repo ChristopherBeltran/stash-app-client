@@ -79,7 +79,7 @@ const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser,
     user: state.currentUser,
-    mode: state.mode.mode
+    mode: state.mode
   })
 }
 

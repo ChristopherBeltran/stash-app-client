@@ -102,6 +102,7 @@ class UserProfile extends React.Component{
       <div id="user-profile">
         <CustomTabs
           headerColor="primary"
+          id="userpro-header"
           tabs={[
             {
               tabName: "Profile",

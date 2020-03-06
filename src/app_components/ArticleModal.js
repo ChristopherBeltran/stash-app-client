@@ -26,6 +26,7 @@ class ArticleModal extends React.Component{
     const { articleModal, hideArticleModal } = this.props;
 
     const handleClose = () => {
+      debugger;
       hideArticleModal();
     }
 
@@ -36,7 +37,7 @@ class ArticleModal extends React.Component{
       }
     }
     return (
-      <div id="article-modal" name="article-modal">
+      <div id="article-modal" className="article-modal">
         <Dialog
           classes={{
             root: classes.center,
@@ -46,6 +47,7 @@ class ArticleModal extends React.Component{
           TransitionComponent={Transition}
           keepMounted
           onClose={handleClose}
+          id="article-modal"
           aria-labelledby="modal-slide-title"
           aria-describedby="modal-slide-description">
           <DialogTitle
