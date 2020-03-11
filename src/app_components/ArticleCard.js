@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal, stream, handleRemove, stash }) => {
+const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal, stream, handleRemove, stash, mode }) => {
   const classes = useStyles();
 
   const dateFormatter = (article) => {
@@ -80,7 +80,7 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
   const handleModal = () => {
     if(articleModal.display === true && articleModal.articleTitle === article.title){
       return(
-      <ArticleModal hideArticleModal={hideArticleModal} article={article} articleModal={articleModal}></ArticleModal>
+      <ArticleModal mode={mode} hideArticleModal={hideArticleModal} article={article} articleModal={articleModal}></ArticleModal>
       )
     }
   }

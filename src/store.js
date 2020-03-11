@@ -17,7 +17,7 @@ import forgotPasswordForm from './reducers/forgotPasswordForm'
 import resetPasswordForm from './reducers/resetPasswordForm'
 import userProfile from './reducers/userProfile'
 import streamSources from './reducers/streamSources'
-import mode from './reducers/mode'
+import darkMode from './reducers/darkMode'
 
 const rootReducer = combineReducers({
   signupForm,
@@ -34,7 +34,7 @@ const rootReducer = combineReducers({
   resetPasswordForm,
   userProfile,
   streamSources,
-  mode
+  darkMode
 })
 
 const persistConfig = {

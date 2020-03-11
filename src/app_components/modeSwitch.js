@@ -11,7 +11,7 @@ class ModeSwitch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkedA: false,
+      checkedA: this.props.mode,
       checkedB: true
     };
   }

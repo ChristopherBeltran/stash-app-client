@@ -83,11 +83,7 @@ code {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.night .ArticleModal-modal-388{ 
-  background-color: #303133;
-  color: white;
-  transition: background-color 0.3s, color 0.3s;
-}
+
 
 #nav-list {
   text-align: right;
@@ -125,6 +121,18 @@ code {
   .night .cards {
     color: white;
     box-shadow: 0px 2px 1px -1px rgba(255,255,255, 0.9),0px 1px 1px 0px rgba(255,255,255, 0.9),0px 1px 3px 0px rgba(255,255,255, 0.9);
+  }
+
+  .night-modal{ 
+    background-color: #303133;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+    justify-content: center !important;
+
+  }
+
+  .night .ModeSwitch-label-293, .night #source-label{
+    color:white;
   }
 
   .night .MuiDivider-root {
@@ -256,3 +264,4 @@ color: white !important;
 background-color: #7b808a !important;
 font-weight: bold !important;
 };
+
