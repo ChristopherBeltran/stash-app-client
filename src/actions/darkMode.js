@@ -5,9 +5,9 @@ export function changeMode(){
  }
 
  export function setMode(user){
-    debugger;
+    let userDarkMode = user.attributes.dark_mode
     return {
        type: "SET_MODE",
-       user
+       userDarkMode
     }
  }
