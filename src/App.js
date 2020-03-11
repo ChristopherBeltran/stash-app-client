@@ -54,7 +54,7 @@ class App extends React.Component {
 
   render(){
   return (
-    <div className={this.props.mode ? 'night' : "App"}>
+    <div className={this.props.darkMode ? 'night' : "App"}>
     {this.handleNavBar()}
     {this.loggedInRedirects()}
     <Switch>
@@ -79,7 +79,7 @@ const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser,
     user: state.currentUser,
-    mode: state.mode
+    darkMode: state.darkMode
   })
 }
 

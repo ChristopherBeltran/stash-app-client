@@ -164,7 +164,7 @@ class UserProfile extends React.Component{
               tabContent: (
                 <div>
                 <h4>Toggle Dark Mode</h4>
-                <ModeSwitch darkMode={this.props.darkMode}></ModeSwitch>
+                <ModeSwitch darkMode={this.props.darkMode} user={this.props.user}></ModeSwitch>
                 </div>
               )
             }
@@ -249,7 +249,7 @@ class UserProfile extends React.Component{
               tabContent: (
                 <div>
                 <h4>Toggle Dark Mode</h4>
-                <ModeSwitch darkMode={this.props.darkMode}></ModeSwitch>
+                <ModeSwitch darkMode={this.props.darkMode} user={this.props.user}></ModeSwitch>
                 </div>
               )
             }

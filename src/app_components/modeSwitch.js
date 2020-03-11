@@ -4,21 +4,21 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import styles from "assets/jss/material-kit-react/customCheckboxRadioSwitch.jsx";
-import { changeMode } from "../actions/darkMode.js";
+import { changeMode, updateUserDarkMode } from "../actions/darkMode.js";
 import { connect } from "react-redux";
 
 class ModeSwitch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkedA: this.props.mode,
+      checkedA: this.props.darkMode,
       checkedB: true
     };
   }
 
   handleChange = name => event => {
       this.setState({ [name]: event.target.checked });
-      this.props.changeMode();
+      this.props.updateUserDarkMode(this.props.user, event.target.checked);
 
     }
   
@@ -56,4 +56,4 @@ class ModeSwitch extends React.Component {
   }
 }
 
-export default connect(null, { changeMode }) (withStyles(styles) (ModeSwitch))
+export default connect(null, { changeMode, updateUserDarkMode }) (withStyles(styles) (ModeSwitch))
