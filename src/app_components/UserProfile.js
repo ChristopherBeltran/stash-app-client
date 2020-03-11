@@ -164,7 +164,7 @@ class UserProfile extends React.Component{
               tabContent: (
                 <div>
                 <h4>Toggle Dark Mode</h4>
-                <ModeSwitch mode={this.props.mode}></ModeSwitch>
+                <ModeSwitch darkMode={this.props.darkMode}></ModeSwitch>
                 </div>
               )
             }
@@ -249,7 +249,7 @@ class UserProfile extends React.Component{
               tabContent: (
                 <div>
                 <h4>Toggle Dark Mode</h4>
-                <ModeSwitch mode={this.props.mode}></ModeSwitch>
+                <ModeSwitch darkMode={this.props.darkMode}></ModeSwitch>
                 </div>
               )
             }
@@ -296,7 +296,7 @@ const mapStateToProps = (state) => {
         loggedIn: !!state.currentUser,
         formData: state.userProfile,
         streamSources: state.streamSources,
-        mode: state.mode,
+        darkMode: state.darkMode,
         isDesktop: state.isDesktop
     }
 }

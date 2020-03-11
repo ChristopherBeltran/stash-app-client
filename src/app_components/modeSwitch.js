@@ -4,7 +4,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import styles from "assets/jss/material-kit-react/customCheckboxRadioSwitch.jsx";
-import { changeMode } from "../actions/mode.js";
+import { changeMode } from "../actions/darkMode.js";
 import { connect } from "react-redux";
 
 class ModeSwitch extends React.Component {

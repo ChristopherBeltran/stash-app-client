@@ -1,4 +1,5 @@
 import { resetProfileForm } from './userProfile.js'
+import { setMode } from './darkMode.js'
 
 export const setCurrentUser = user => {
     return {
@@ -38,6 +39,7 @@ export const setCurrentUser = user => {
           if (response.error) {
           } else {
             dispatch(setCurrentUser(response.data))
+            dispatch(setMode(response.data))
           }
         })
         .catch(console.log)
