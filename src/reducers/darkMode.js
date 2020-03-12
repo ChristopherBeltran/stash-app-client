@@ -1,4 +1,4 @@
-export default function mode(state=false, action){
+export default function darkMode(state=false, action){
     switch(action.type){
 
       case "SET_MODE":

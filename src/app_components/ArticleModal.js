@@ -26,7 +26,6 @@ class ArticleModal extends React.Component{
     const { articleModal, hideArticleModal } = this.props;
 
     const handleClose = () => {
-      debugger;
       hideArticleModal();
     }
 
@@ -37,7 +36,7 @@ class ArticleModal extends React.Component{
       }
     }
     const handleClass = () => {
-      if(this.props.mode === true){
+      if(this.props.darkMode === true){
         return(
           "night-modal"
         )

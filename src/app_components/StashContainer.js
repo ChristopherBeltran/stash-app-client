@@ -26,7 +26,7 @@ class StashContainer extends React.Component {
         const renderCards = stashArticles.map((article, index) => {
             return(
                 <GridItem key={index} xs={10} sm={4} md={3} lg={3}>
-                    <ArticleCard key={index} article={article} handleRemove={this.handleRemove} stash={this.props.stash} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} ></ArticleCard>
+                    <ArticleCard key={index} article={article} handleRemove={this.handleRemove} stash={this.props.stash} openArticleModal={this.props.openArticleModal} articleModal={this.props.articleModal} hideArticleModal={this.props.hideArticleModal} darkMode={this.props.darkMode}></ArticleCard>
                 </GridItem>
             )
         })
@@ -55,7 +55,8 @@ const mapStateToProps = (state) => {
     return {
         stash: state.stash,
         user: state.currentUser,
-        articleModal: state.articleModal
+        articleModal: state.articleModal,
+        darkMode: state.darkMode
     }
 }
 

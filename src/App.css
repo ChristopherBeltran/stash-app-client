@@ -93,8 +93,7 @@ code {
   cursor: pointer;
 }
 
-.night #navbar-header {
-  width: 100%;
+.night #navbar-header div {
   background-color: #00acc1;
 }
 
@@ -131,7 +130,7 @@ code {
 
   }
 
-  .night .ModeSwitch-label-293, .night #source-label{
+  .night .ModeSwitch-label-293, .night #source-label, .night .MuiFormControlLabel-label {
     color:white;
   }
 
