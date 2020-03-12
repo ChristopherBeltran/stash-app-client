@@ -2,6 +2,7 @@ import { setCurrentUser } from './currentUser.js'
 import { getStash } from './stash.js'
 import { getStream } from './stream.js'
 import { addErrors, removeErrors } from './errors.js'
+import { setMode } from './darkMode.js'
 
 
 
@@ -41,6 +42,7 @@ export const updateLoginForm = (formData) => {
           } else {
             let user = response.data
             dispatch(setCurrentUser(user))
+            dispatch(setMode(user))
             dispatch(getStream(history, user))
             dispatch(getStash(user))
             dispatch(resetLoginForm())

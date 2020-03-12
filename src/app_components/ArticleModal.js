@@ -35,8 +35,16 @@ class ArticleModal extends React.Component{
       return formattedContent
       }
     }
+    const handleClass = () => {
+      if(this.props.darkMode === true){
+        return(
+          "night-modal"
+        )
+      }
+    }
+
     return (
-      <div id="article-modal" name="article-modal">
+      <div id="article-modal" className="article-modal">
         <Dialog
           classes={{
             root: classes.center,
@@ -46,12 +54,13 @@ class ArticleModal extends React.Component{
           TransitionComponent={Transition}
           keepMounted
           onClose={handleClose}
+          id="article-modal"
           aria-labelledby="modal-slide-title"
           aria-describedby="modal-slide-description">
           <DialogTitle
             id="classic-modal-slide-title"
             disableTypography
-            className={classes.modalHeader}>
+            className={classes.modalHeader, handleClass()}>
             <IconButton
               className={classes.modalCloseButton}
               id="modal-close"
@@ -65,11 +74,11 @@ class ArticleModal extends React.Component{
           </DialogTitle>
           <DialogContent
             id="modal-slide-description"
-            className={classes.modalBody}>
+            className={classes.modalBody, handleClass()}>
             <h5>{contentFormat()}</h5>
           </DialogContent>
           <DialogActions
-            className={classes.modalFooter +" " +classes.modalFooterCenter}>
+            className={ classes.modalFooter +" " +classes.modalFooterCenter, handleClass()}>
             <Button
               onClick={handleClose}
               id="modal-close">

@@ -17,6 +17,7 @@ import forgotPasswordForm from './reducers/forgotPasswordForm'
 import resetPasswordForm from './reducers/resetPasswordForm'
 import userProfile from './reducers/userProfile'
 import streamSources from './reducers/streamSources'
+import darkMode from './reducers/darkMode'
 
 const rootReducer = combineReducers({
   signupForm,
@@ -32,12 +33,13 @@ const rootReducer = combineReducers({
   forgotPasswordForm,
   resetPasswordForm,
   userProfile,
-  streamSources
+  streamSources,
+  darkMode
 })
 
 const persistConfig = {
   key: 'root',
-  storage,
+  storage
 }
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

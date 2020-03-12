@@ -6,6 +6,8 @@ import { connect } from "react-redux"
 import Person from "@material-ui/icons/Person";
 import Build from "@material-ui/icons/Build";
 import People from "@material-ui/icons/People";
+import ArtTrackIcon from '@material-ui/icons/ArtTrack';
+
 
 // core components
 import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
@@ -23,6 +25,7 @@ import GridItem from '../components/Grid/GridItem.jsx'
 import Loading from './Loading.js'
 import { getSources } from "../actions/sources"
 import { getCurrentUser } from "../actions/currentUser"
+import ModeSwitch from "./modeSwitch"
 
 
 
@@ -80,25 +83,13 @@ class UserProfile extends React.Component{
     const user = this.props.user;
     const streamSources = this.props.streamSources
 
-
-    if(streamSources !== null && this.props.user !== null){
-
-      //const sourceCards = streamSources.map((source, index) => {
-          //return (
-          //<GridItem key={index} xs={10} sm={4} md={4}>
-          //<ProfileSourceCard key={index} source={source} user={user}></ProfileSourceCard>
-          //</GridItem>
-          //<List subheader={<ListSubheader>Your Sources</ListSubheader>} >
-          //<ProfileSourceList key={index} source={source} user={user} added={true} addToStream={addToStream} removeFromStream={removeFromStream}></ProfileSourceList>
-          //</List>
-
-          //)
-          //})
-
-    return (
-      <div id="user-profile">
+    const mobileHandler = () => {
+      if(this.props.isDesktop === true){
+        return(
+          <div id="user-profile">
         <CustomTabs
           headerColor="primary"
+          id="userpro-header"
           tabs={[
             {
               tabName: "Profile",
@@ -166,10 +157,125 @@ class UserProfile extends React.Component{
                     </GridItem>
                   </Grid>
               )
+            },
+            {
+              tabName: "Preferences",
+              tabIcon: ArtTrackIcon,
+              tabContent: (
+                <div>
+                <h4>Toggle Dark Mode</h4>
+                <ModeSwitch darkMode={this.props.darkMode} user={this.props.user}></ModeSwitch>
+                </div>
+              )
             }
           ]}
         />
       </div>
+        )
+      } else {
+        return(
+          <div id="user-profile">
+        <CustomTabs
+          headerColor="primary"
+          id="userpro-header"
+          tabs={[
+            {
+              tabIcon: Person,
+              tabContent: (
+                  <form onSubmit={this.handleSubmit} >
+                        <CustomInput
+                          id="regular"
+                          name="name"
+                          value={formData.name}
+                          formControlProps={{
+                            fullWidth: false
+                          }}
+                          inputProps={{
+                            type: "text",
+                            id: "regular",
+                            name: "name",
+                            placeholder: user.attributes.name,
+                            value: formData.name,
+                            onChange: (event) => this.handleFormChange(event),
+                            endAdornment: (
+                            <InputAdornment position="end">
+                              <People/>
+                            </InputAdornment>
+                            )
+                          }}
+                        />
+              <br></br>
+              <CustomInput
+                        id="regular"
+                        name="email"
+                        value={formData.email}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                        inputProps={{
+                          type: "text",
+                          id: "regular",
+                          name: "email",
+                          placeholder: user.attributes.email,
+                          value: formData.email,
+                          onChange: (event) => this.handleFormChange(event),
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <Email/>
+                            </InputAdornment>
+                          )
+                        }}
+                      />
+                      <br></br>
+                      {this.buttonHandler()}
+              </form>
+              )
+            },
+            {
+              tabIcon: Build,
+              tabContent: (
+                  <Grid container justify="space-evenly" spacing={4}>
+                    <GridItem xs={10} sm={4} md={4}>
+                      <ProfileSourceCard user={this.props.user} streamSources={streamSources} updateExistingStream={this.props.updateExistingStream}></ProfileSourceCard>
+                    </GridItem>
+                    <GridItem xs={10} sm={4} md={4}>
+                      <ProfileAvailSourceCard user={this.props.user} sources={this.props.sources} userSources={streamSources} updateExistingStream={this.props.updateExistingStream}></ProfileAvailSourceCard>
+                    </GridItem>
+                  </Grid>
+              )
+            },
+            {
+              tabIcon: ArtTrackIcon,
+              tabContent: (
+                <div>
+                <h4>Toggle Dark Mode</h4>
+                <ModeSwitch darkMode={this.props.darkMode} user={this.props.user}></ModeSwitch>
+                </div>
+              )
+            }
+          ]}
+        />
+      </div>
+        )
+      }
+    }
+
+
+    if(streamSources !== null && this.props.user !== null){
+
+      //const sourceCards = streamSources.map((source, index) => {
+          //return (
+          //<GridItem key={index} xs={10} sm={4} md={4}>
+          //<ProfileSourceCard key={index} source={source} user={user}></ProfileSourceCard>
+          //</GridItem>
+          //<List subheader={<ListSubheader>Your Sources</ListSubheader>} >
+          //<ProfileSourceList key={index} source={source} user={user} added={true} addToStream={addToStream} removeFromStream={removeFromStream}></ProfileSourceList>
+          //</List>
+
+          //)
+          //})
+    return (
+      mobileHandler()
     )
   } else {
     return(
@@ -189,7 +295,9 @@ const mapStateToProps = (state) => {
         stream: state.stream,
         loggedIn: !!state.currentUser,
         formData: state.userProfile,
-        streamSources: state.streamSources
+        streamSources: state.streamSources,
+        darkMode: state.darkMode,
+        isDesktop: state.isDesktop
     }
 }
 

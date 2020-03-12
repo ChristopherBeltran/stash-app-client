@@ -27,7 +27,7 @@ class ProfileSourceCard extends React.Component {
     });
 
   return (
-    <Card id="user-sources-card">
+    <Card id="user-sources-card" className="cards">
     <h3>My Sources</h3>
       <CardContent>
       {sources}
