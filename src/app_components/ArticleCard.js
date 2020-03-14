@@ -55,10 +55,10 @@ const ArticleCard = ({ article, openArticleModal, hideArticleModal, articleModal
 
   const hideTimeout = () => {
     if(articleModal.display === false){
-      console.log('disabling')
+      //console.log('disabling')
       hideArticleModal()
     }
-    console.log('running')
+    //console.log('running')
   }
 
  const articleCloseTimeoutFunction = () => {

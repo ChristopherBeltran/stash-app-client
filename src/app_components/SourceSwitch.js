@@ -115,8 +115,7 @@ class SourceSwitch extends React.Component {
               switchHandler()
             }
             classes={{
-              label: classes.label,
-              sourceLabel
+              label: classes.label
               
             }}
             label={this.labelHandler()}

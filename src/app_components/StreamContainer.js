@@ -23,7 +23,7 @@ class StreamContainer extends React.Component {
 
 
     render() {
-        if(this.props.stream !== null){
+        if(this.props.stream !== null && this.props.stream !== undefined){
         const stream = this.props.stream
         const renderCards = stream.map((article, index) => {
                 return(
