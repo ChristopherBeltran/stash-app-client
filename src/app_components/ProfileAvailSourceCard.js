@@ -20,15 +20,17 @@ class ProfileAvailSourceCard extends React.Component {
     var i;
     for (i = 0; i < sources.length; i++) {
       for(const userSource of userSources){
-        if(sources[i].name === userSource.attributes.name){
-          sources.splice(i, 1);
+        if(sources[i].name !== undefined){
+          if(sources[i].name === userSource.attributes.name){
+            sources.splice(i, 1);
+          }
         }
       }
-    } 
+    }
 
     const sourceList = sources.map((source, index) => {
       return(
-      <div>
+      <div key={index}>
       <h4>{source.name}</h4>
       <SourceSwitch id={source.id} streamId={streamId} updateExistingStream={this.props.updateExistingStream} avail={true}></SourceSwitch>
       <Divider></Divider>

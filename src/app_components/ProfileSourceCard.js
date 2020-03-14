@@ -18,7 +18,7 @@ class ProfileSourceCard extends React.Component {
 
     const sources = streamSources.map((source, index) => {
       return(
-      <div>
+      <div key={index}>
       <h4>{source.attributes.name}</h4>
       <SourceSwitch id={source.id} streamId={streamId} updateExistingStream={this.props.updateExistingStream} avail={false}></SourceSwitch>
       <Divider></Divider>
