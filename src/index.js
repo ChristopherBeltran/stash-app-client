@@ -17,10 +17,8 @@ const { persistor, store } = configureStore()
 ReactDOM.render(<Provider store={ store }><PersistGate 
     loading={<Loading />}
     persistor={persistor}>
-    <BrowserRouter>
-    <ScrollToTop>
+    <BrowserRouter  onUpdate={() => window.scrollTo(0, 0)} >
     <App />
-    </ScrollToTop>
     </BrowserRouter>
     </PersistGate></Provider>, document.getElementById('root'));
 

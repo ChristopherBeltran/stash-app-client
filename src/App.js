@@ -16,6 +16,7 @@ import ForgotPassword from './app_components/ForgotPassword'
 import PasswordSent from './app_components/passwordSent'
 import ResetSuccess from './app_components/resetSuccess'
 import UserProfile from './app_components/UserProfile'
+import ScrollToTop from './app_components/ScrollToTop'
 
 class App extends React.Component {
 
@@ -29,7 +30,7 @@ class App extends React.Component {
   }
 
   handleNavBar = () => {
-    if(window.location.pathname !== "/stream/setup"){
+    if(window.location.pathname !== "/setup"){
       return(
         <NavBar loggedIn={this.props.loggedIn}></NavBar>
       )
@@ -41,7 +42,7 @@ class App extends React.Component {
       return (
       <Redirect to="/stream"></Redirect>
       )
-    } else if(this.props.loggedIn && window.location.pathname === "/signup"){
+    } else if(this.props.loggedIn && (window.location.pathname === "/signup" && document.referrer !== "http://localhost:3001/")){
       return (
         <Redirect to="/stream"></Redirect>
         )
@@ -65,7 +66,7 @@ class App extends React.Component {
     <Route exact path='/resetsuccess' render={({history})=><ResetSuccess history={history}/>}/>
     <Route exact path='/signup' render={({history})=><SignupPage history={history}/>}/>
     <Route exact path='/login' render={({history})=><LoginPage history={history}/>}/>
-    <Route exact path='/stream/setup' render={({history})=><StreamSetup history={history}/>}/>
+    <Route exact path='/setup' render={({history})=><StreamSetup history={history}/>}/>
     <Route exact path='/stream' render={({history})=><StreamContainer user={this.props.user} history={history}/>}/>
     <Route exact path='/stash' render={({history})=><StashContainer user={this.props.user} history={history}/>}/>
     <Route exact path='/profile' render={({history})=><UserProfile user={this.props.user} history={history}/>}/>

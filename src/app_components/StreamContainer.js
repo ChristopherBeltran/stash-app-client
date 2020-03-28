@@ -12,6 +12,7 @@ import { getStash } from '../actions/stash.js'
 import ArticleModal from './ArticleModal'
 import { openArticleModal, hideArticleModal } from '../actions/article.js'
 import ScrollUpButton from "react-scroll-up-button";
+import ScrollToTop from './ScrollToTop'
 
 
 class StreamContainer extends React.Component {
@@ -19,6 +20,7 @@ class StreamContainer extends React.Component {
     componentDidMount() {
         this.props.getStream(this.props.history,this.props.user)
         this.props.getStash(this.props.user)
+
     }
 
 
