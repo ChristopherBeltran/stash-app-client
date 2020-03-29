@@ -18,6 +18,7 @@ class ProfileAvailSourceCard extends React.Component {
 
 
     var i;
+    if(sources !== undefined){
     for (i = 0; i < sources.length; i++) {
       for(const userSource of userSources){
         if(sources[i].name !== undefined){
@@ -27,6 +28,7 @@ class ProfileAvailSourceCard extends React.Component {
         }
       }
     }
+  }
 
     const sourceList = sources.map((source, index) => {
       return(

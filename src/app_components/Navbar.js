@@ -8,12 +8,12 @@ import { connect } from 'react-redux'
 
 const NavBar = ({ loggedIn, streamUpdate, isDesktop, stream }) => {
      const linkHandler = () => {
-         if(window.location.pathname === "/stream/setup" && isDesktop === true){
+         if(window.location.pathname === "/setup" && isDesktop === true){
             return(
                 <NavSubmit isDesktop={isDesktop} stream={stream} streamUpdate={streamUpdate}></NavSubmit>
             )
          }
-        else if(loggedIn && window.location.pathname !== "/stream/setup"){
+        else if(loggedIn && window.location.pathname !== "/setup"){
             return(
                 <NavLinks></NavLinks>
             )

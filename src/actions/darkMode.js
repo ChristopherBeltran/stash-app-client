@@ -20,7 +20,7 @@ export function updateUserDarkMode(user, dmBoolean) {
       }
    }
    return dispatch => {
-      return fetch(`https://the-stash-app.herokuapp.com/api/v1/users/${userId}`, {
+      return fetch(`https://the-stash-app.herokuapp.com//api/v1/users/${userId}`, {
         credentials: "include",
         method: "PATCH",
         headers: {

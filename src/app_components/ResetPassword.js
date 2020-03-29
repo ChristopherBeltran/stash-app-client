@@ -69,7 +69,7 @@ class ResetPassword extends React.Component {
         const hashId = this.props.match.params.id
 
         try {
-            const fetchResponse = await fetch(`https://the-stash-app.herokuapp.com/api/v1/password_resets/${hashId}`, settings);
+            const fetchResponse = await fetch(`https://the-stash-app.herokuapp.com//api/v1/password_resets/${hashId}`, settings);
             const data = await fetchResponse.json();
             if(data.expired || data.error){
                 debugger;
