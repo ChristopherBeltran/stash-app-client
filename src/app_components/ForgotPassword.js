@@ -65,7 +65,7 @@ class ForgotPassword extends React.Component {
         }
 
         try {
-            const fetchResponse = await fetch(`http://localhost:3000/api/v1/password_resets`, settings);
+            const fetchResponse = await fetch(`https://the-stash-app.herokuapp.com//api/v1/password_resets`, settings);
             const data = await fetchResponse.json();
             if(data.reset){
                 this.props.addErrors(data);
